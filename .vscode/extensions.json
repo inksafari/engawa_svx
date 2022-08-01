@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "dprint.dprint",
+    "foxundermoon.shell-format",
+    "svelte.svelte-vscode"
+  ]
+}

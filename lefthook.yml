@@ -1,0 +1,12 @@
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+pre-commit:
+  parallel: true
+  commands:
+    lint-keys:
+      files: git diff --name-only --staged
+      glob: '*'
+      run: npx secretlint -- {files}
+    #lint-js:
+    #  files: git diff --name-only --staged
+    #  glob: '*.{ts,js,svelte,svx,md}'
+    #  run: npm run lint:js -- {files}

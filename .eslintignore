@@ -1,0 +1,20 @@
+/build
+/static
+/.svelte-kit
+/node_modules
+/functions
+/workers-site
+.*cache
+
+/.github
+/.vscode
+
+# Storybook files #
+###################
+storybook-static
+storybook-static/*
+
+# Jest files #
+#############################
+coverage
+coverage/*

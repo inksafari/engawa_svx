@@ -1,0 +1,65 @@
+{
+  "files.associations": {
+    "*.svx": "markdown"
+  },
+  "files.exclude": {
+    "**/*.txt": true
+  },
+  "search.exclude": {
+    "*/build/**": true,
+    "*/.cache": true,
+    ".github": true,
+    "**/node_modules": true,
+    "package-lock.json": true,
+    "pnpm-lock.yaml": true,
+    "**/*.snap": true,
+    "**/__snapshots__": true,
+    ".svelte-kit": true,
+    "**/*.svg": true,
+    ".vscode": true,
+    "**/.yarn": true,
+    "**/.pnp.*": true,
+    "yarn.lock": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "addMissingImports": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "svelte"
+  ],
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "postcss",
+    "scss",
+    "svelte"
+  ],
+  "editor.defaultFormatter": "dprint.dprint",
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[json][jsonc]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  }
+}

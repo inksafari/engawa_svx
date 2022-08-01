@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    //"extends": "@tsconfig/svelte/tsconfig.json",
+    "baseUrl": "..",
+    "types": ["@sveltejs/kit", "svelte", "node"],
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "preserveValueImports": true,
+    "useDefineForClassFields": true,
+    /**
+      To have warnings/errors of the Svelte compiler at the correct position,
+      enable source maps by default.
+      */
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "checkJs": true,
+    "paths": {
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"],
+      "$app/*": [".svelte-kit/runtime/app/*"]
+    },
+    "typeRoots": [
+      "../src/app.d.ts"
+    ]
+  },
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "include": ["../src/**/*.d.ts", "../src/**/*.ts?(x)", "../src/**/*.js", "../src/**/*.svelte"],
+  "exclude": ["../node_modules", "../build", "../scripts/*", "../**/__tests__/*"]
+}

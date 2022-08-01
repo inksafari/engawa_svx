@@ -1,0 +1,10 @@
+allow:
+  - simple
+  - special
+  - invalid
+  - he-she
+  - her-him
+  - herself-himself
+  - obvious
+# TODO: vale
+# https://bhupesh.me/writing-like-a-pro-with-vale-and-neovim/
