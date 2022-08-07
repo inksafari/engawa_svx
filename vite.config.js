@@ -1,5 +1,5 @@
 import fs from 'fs'
-import * as path from 'path'
+import path from 'node:path'
 import { fileURLToPath } from 'url'
 // -- vite --
 import { defineConfig } from 'vite'
@@ -63,7 +63,8 @@ const config = defineConfig({
 		//watch: false,
 		//deps: {
 			// inline: ['outdent', 'clsx']
-		//}
+		//},
+		//includeSource: ['src/**/*.{js,ts}'],
 	//},
 	optimizeDeps: {
 		include: [

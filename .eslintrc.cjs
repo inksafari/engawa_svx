@@ -50,14 +50,14 @@ const config = {
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		sourceType: 'module',
-		//ecmaVersion: 13,
+		ecmaVersion: 2022,
 		extraFileExtensions: [ '.svelte' ],
 		project: [ './config/tsconfig.dev.json' ]
 	},
 	env: {
 		browser: true,
 		node: true,
-		es2021: true
+		es2022: true
 	},
 	extends: [
 		// https://github.com/standard/eslint-config-standard

@@ -34,6 +34,7 @@ node_modules
 .svelte-kit/
 build/
 *.pem
+static/fonts
 
 # deployment
 .firebase

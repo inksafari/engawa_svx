@@ -14,7 +14,7 @@ export async function GET() {
 		}
 	} catch (error) {
 		return {
-			status: 500,
+			status: 404,
 			body: {
 				error: 'Could not fetch posts. ' + error
 			}

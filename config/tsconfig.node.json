@@ -4,6 +4,5 @@
     "module": "es2020",
     "target": "es2020",
     "lib": ["DOM", "DOM.Iterable", "es2020", "webworker"],
-  },
-  "include": ["../playwright.config.ts"],
+  }
 }

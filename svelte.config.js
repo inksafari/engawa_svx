@@ -7,10 +7,10 @@ import staticAdapter from '@sveltejs/adapter-static'
 // -- Configuration --
 import mdsvexConfig from './config/mdsvex.config.js'
 
-// const prependScssFiles = [
-//	'@use "src/styles/func.scss" as *;',
-//	'@use "src/styles/vars.scss" as *;'
-//].join(' ')
+const prependScssFiles = [
+	'@use "src/styles/func.scss" as *;',
+	'@use "src/styles/vars.scss" as *;'
+].join(' ')
 
 // options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
 const preprocessSVX = [
@@ -18,7 +18,7 @@ const preprocessSVX = [
 	sveltePreprocess({
 		typescript: true,
 		scss: {
-			// prependData: prependScssFiles,
+			prependData: prependScssFiles,
 			renderSync: true,
 			outputStyle: 'compressed'
 		},
@@ -35,14 +35,15 @@ const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 	preprocess: preprocessSVX, // sequential(preprocessSVX),
 	compilerOptions: {
-		immutable: true,
+		//immutable: true,
 	},
 	kit: {
 		adapter: staticAdapter({
-			fallback: null,
+			pages: 'build',
+			fallback: 'index.html',
 			precompress: true
 		}),
-		prerender: { default: true },
+		prerender: { entries: ['*', '/rss.xml'] },
 		inlineStyleThreshold: 1024 * 1024,
 		csp: {
 			mode: 'auto',

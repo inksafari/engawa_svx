@@ -6,9 +6,7 @@
 [![framework][framework-badge]][svelte-url]
 [![GitHub top language][lang-badge]][repo-url]
 [![GitHub commit activity][activity-badge]][activity]
-[![GitHub last commit][last-commit-badge]][activity]
 [![GitHub repository size][size-badge]][repo-url]
-[![TLOC][tloc-badge]][repo-url]
 [![Static website hosting][hosting-badge]][hosting-url]
 
 ## Disclaimer
@@ -16,7 +14,7 @@
 > Not working at the moment.
 
 ## Prerequisites
-- [Node.js](https://nodejs.org)
+- [Node.js](https://nodejs.org) >=16.9 or later
 - [pnpm](https://pnpm.io/)(optional, although strongly recommended)
 
 ## Installation
@@ -37,6 +35,12 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm dev`      | Starts local dev server at `localhost:3000`  |
 | `pnpm build`    | Build your production site to `./build/`     |
 | `pnpm serve`    | Preview your build locally, before deploying |
+
+## Customize
+- [app.html](https://github.com/inksafari/engawa/blob/main/src/app.html)
+- [site.js](https://github.com/inksafari/engawa/blob/main/src/site.js)
+- [rss.xml.js](https://github.com/inksafari/engawa/blob/main/src/routes/rss.xml.js)( language & description )
+- [slug.svelte](https://github.com/inksafari/engawa/blob/main/src/routes/%5Bslug%5D.svelte)( year )
 
 ## Attributions
 Built with:
@@ -73,17 +77,22 @@ sudo kill -9 <pid>
 Props to [mvasigh/sveltekit-mdsvex-blog](https://github.com/mvasigh/sveltekit-mdsvex-blog), which this repo was originally based on.
 
 ## License
-This project is licensed under the Beerware License, but all content copyright (articles, images, videos and visual design) remains with the author.
+This project is licensed under the Beerware License, but all contents copyright (articles, images, videos and visual design) belong to their respective owners or authors.
 
 <!-- TODO: FOSSA -->
-[framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=flat-square&logo=svelte&logoColor=white
+[framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&logoColor=white&labelColor=111b27
 [svelte-url]: https://kit.svelte.dev
-[activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=flat-square&color=%2300a8ff
+[activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=for-the-badge&logo=github&color=%2300a8ff&labelColor=111b27
 [activity]: https://github.com/inksafari/engawa/graphs/commit-activity
-[last-commit-badge]: https://img.shields.io/github/last-commit/inksafari/engawa/main.svg?style=flat-square
-[size-badge]: https://img.shields.io/github/repo-size/inksafari/engawa.svg?style=flat-square&color=ff69b4
+[last-commit-badge]: https://img.shields.io/github/last-commit/inksafari/engawa/main.svg?style=for-the-badge&logo=github&labelColor=111b27
+[size-badge]: https://img.shields.io/github/repo-size/inksafari/engawa.svg?style=for-the-badge&logo=files&logoColor=FF859D&color=ff69b4&labelColor=111b27
 [repo-url]: https://github.com/inksafari/engawa
-[lang-badge]: https://img.shields.io/github/languages/top/inksafari/engawa.svg?style=flat-square&logoColor=white&color=654FF0
+[lang-badge]: https://img.shields.io/github/languages/top/inksafari/engawa.svg?style=for-the-badge&logo=javascript&color=8372f3&labelColor=111b27
 [tloc-badge]: https://tokei.rs/b1/github/inksafari/engawa
-[hosting-badge]: https://img.shields.io/badge/Cloud-Google_Firebase-informational?style=flat-square&logo=firebase&logoColor=white&color=FFCB2B
+[hosting-badge]: https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=FFCB2B&color=d0dae7&labelColor=111b27
 [hosting-url]: https://firebase.google.com/
+
+<!--
+&logoColor=ff3860
+https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=white&color=FFCB2B&labelColor=111b27
+ -->
