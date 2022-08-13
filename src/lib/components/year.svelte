@@ -1,7 +1,6 @@
-<script lang="ts">
+<script context="module">
 	import { onMount } from 'svelte'
-
-	export let from: number | undefined
+	export let from //: number | undefined
 	// if javascript is enabled, use a dynamic solution
 	let to = 2022
 	onMount(() => {

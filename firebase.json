@@ -1,9 +1,15 @@
 {
   "emulators": {
+    "functions": {
+      "port": 5001
+    },
     "hosting": {
       "public": "build",
       "port": 9000,
       "host": "0.0.0.0"
+    },
+    "ui": {
+      "enabled": true
     }
   },
   "hosting": {
@@ -33,6 +39,17 @@
         ]
       }
     ],
+    "predeploy": [],
+    "rewrites": [ {
+      "source": "**",
+      "function": "ssrServer",
+      "region": "asia-east1"
+    } ],
+    "functions": {
+      "source": "functions",
+      "runtime": "nodejs16",
+      "predeploy": []
+    },
     "cleanUrls": true,
     "trailingSlash": true
   }

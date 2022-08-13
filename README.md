@@ -36,11 +36,26 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm build`    | Build your production site to `./build/`     |
 | `pnpm serve`    | Preview your build locally, before deploying |
 
-## Customize
+## Customization
 - [app.html](https://github.com/inksafari/engawa/blob/main/src/app.html)
 - [site.js](https://github.com/inksafari/engawa/blob/main/src/site.js)
 - [rss.xml.js](https://github.com/inksafari/engawa/blob/main/src/routes/rss.xml.js)( language & description )
 - [slug.svelte](https://github.com/inksafari/engawa/blob/main/src/routes/%5Bslug%5D.svelte)( year )
+
+### Front matter
+In `content/slug.md`
+
+```md
+---
+title: Title of the Post
+date: 2021-09-07
+updatedOn: 2022-07-04
+isPrivate: true
+prev: foo
+next: bar
+---
+```
+`title` and `date` are required for all posts.
 
 ## Attributions
 Built with:

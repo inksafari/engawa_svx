@@ -9,7 +9,7 @@ declare module '*.md' {
 	export default content
 }
 
-declare module '*.svx' {
-	export { SvelteComponentDev as default } from 'svelte/internal'
-	export { metadata }
-}
+//declare module '*.svx' {
+//	export { SvelteComponentDev as default } from 'svelte/internal'
+//	export { metadata }
+//}

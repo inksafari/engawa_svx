@@ -1,7 +1,7 @@
 // -- svelte preprocesses/adapters --
 //import sequential from 'svelte-sequential-preprocessor'
 //import { typescript } from 'svelte-preprocess-esbuild'
-import sveltePreprocess from 'svelte-preprocess'
+import { sveltePreprocess } from 'svelte-preprocess/dist/autoProcess.js'
 import { mdsvex } from 'mdsvex'
 import staticAdapter from '@sveltejs/adapter-static'
 // -- Configuration --
@@ -35,15 +35,17 @@ const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 	preprocess: preprocessSVX, // sequential(preprocessSVX),
 	compilerOptions: {
-		//immutable: true,
+		immutable: true,
 	},
 	kit: {
+		methodOverride: {
+			allowed: ['POST', 'PUT', 'DELETE']
+		},
 		adapter: staticAdapter({
-			pages: 'build',
-			fallback: 'index.html',
+			fallback: null, // 'index.html',
 			precompress: true
 		}),
-		prerender: { entries: ['*', '/rss.xml'] },
+		prerender: { default: true },
 		inlineStyleThreshold: 1024 * 1024,
 		csp: {
 			mode: 'auto',

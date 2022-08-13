@@ -33,18 +33,6 @@ const rulesFromESLint = {
 	'func-names': ['error', 'as-needed']
 }
 
-const rulesFromPlugins = {
-	// Let eslint-import-plugin deal with resolving modules
-	'node/no-missing-import': 'off',
-	'node/no-missing-require': 'off',
-	'node/no-unsupported-features/es-syntax': [
-		'error',
-		{ ignores: ['modules', 'dynamicImport'] }
-	],
-	'node/no-unpublished-require': 'off',
-	'node/no-unpublished-import': 'off'
-}
-
 /** @type { import('eslint').Linter.Config } */
 const config = {
 	parser: '@typescript-eslint/parser',
@@ -56,16 +44,15 @@ const config = {
 	},
 	env: {
 		browser: true,
-		node: true,
 		es2022: true
 	},
 	extends: [
 		// https://github.com/standard/eslint-config-standard
-		'standard',
+		//'standard',
 		// https://github.com/eslint/eslint/blob/master/conf/eslint-recommended.js
 		'eslint:recommended',
 		// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
-		'plugin:@typescript-eslint/recommended',
+		//'plugin:@typescript-eslint/recommended',
 		// https://github.com/ota-meshi/eslint-plugin-svelte
 		'plugin:svelte/recommended',
 		// https://github.com/nodesecurity/eslint-plugin-security
@@ -81,7 +68,7 @@ const config = {
 		// https://github.com/typescript-eslint
 		'@typescript-eslint',
 		// https://github.com/bkucera/eslint-plugin-json-format
-		'json-format',
+		// 'json-format',
 		// https://github.com/nodesecurity/eslint-plugin-security
 		'security',
 		// https://github.com/eslint/eslint-plugin-markdown
@@ -89,14 +76,15 @@ const config = {
 		// https://github.com/jonaskello/eslint-plugin-functional
 		// 'functional',
 	],
-	ignorePatterns: ['node_modules', '*.cjs'],
+	ignorePatterns: ['node_modules', 'service-worker.ts', 'service-worker.js'],
 	overrides: [
+		{ files: ['*.cjs'], env: { node: true } },
 		{
-			files: ['./src/**/*.svelte'],
-			parser: 'svelte-eslint-parser',
+			files: ['*.svelte'],
+			parser: 'svelte-eslint-parser', // processor: 'svelte3/svelte3',
 		},
 		{
-			files: ['*/src/**/*.js'],
+			files: ['*.js'],
 			parser: '@babel/eslint-parser',
 			parserOptions: {
 				requireConfigFile: false,
@@ -151,16 +139,6 @@ const config = {
 		//'svelte3/ignore-styles': (attr) => !!attr.lang,
 		//'svelte3/named-blocks': false,
 		//'svelte3/typescript': require('typescript'),
-		'import/extensions': [
-			'error',
-			'always',
-			{
-				js: 'never',
-				ts: 'never',
-				worker: 'never',
-				svelte: 'always'
-			}
-		]
 	},
 	rules: {
 		'no-tabs': 'off',
@@ -169,7 +147,7 @@ const config = {
 		// eslint-disable-next-line node/no-unsupported-features/es-syntax
 		...rulesFromESLint,
 		// eslint-disable-next-line node/no-unsupported-features/es-syntax
-		...rulesFromPlugins
+		//...rulesFromPlugins
 	}
 }
 module.exports = config

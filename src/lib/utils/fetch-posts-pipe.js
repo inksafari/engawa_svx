@@ -28,13 +28,13 @@ const fetchPosts = () =>
 		toArray,
 	);
 
-	const fetchPost = async (slug) =>
+const fetchPost = async (slug) =>
 	pipe(
 		fetchPosts(),
 		find((post) => slug === post.slug),
 	);
 
-	const getLatestUpdate = () =>
+const getLatestUpdate = () =>
 	pipe(
 		fetchPosts(),
 		sortBy((post) => post.updatedOn ?? post.date),

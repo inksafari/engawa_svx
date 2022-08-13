@@ -79,7 +79,7 @@ const config = defineConfig({
 	plugins: [
 		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
 		dev && genImageSizePlugin,
-		sveltekit(),
+		sveltekit()
 	]
 })
 

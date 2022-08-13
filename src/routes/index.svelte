@@ -39,11 +39,11 @@
 					<span class='screen-reader-text'>Published on </span>
 					<time datetime='{date}'>
 						{differenceInDays(new Date(), new Date(date)) > 179
-						? `${formatDistance(new Date(date), new Date(), {
+							? `${formatDistance(new Date(date), new Date(), {
 								addSuffix: true
-									// locale: zhTW
-						})}`
-						: format(new Date(date), 'MMM dd, yyyy')
+								// locale: zhTW
+							})}`
+							: format(new Date(date), 'MMM dd, yyyy')
 						}
 					</time>
 				</div>

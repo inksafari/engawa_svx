@@ -10,8 +10,7 @@
 		} catch (err) { console.log(err) }
 	}
 </script>
-
-<script lang="ts">
+<script>
 	import { onMount, setContext } from 'svelte'
 	import { prefetchRoutes, afterNavigate } from '$app/navigation'
 	import { currentPage } from '../store'
@@ -19,13 +18,10 @@
 	import site from '../site.js'
 	export let path
 	let hueDegree = 0
-	let el = null
+	let el
 	afterNavigate(() => (hueDegree = Math.random() * 360))
 	$: currentPage.set(path)
-	$: if (el) {
-		const html = el.ownerDocument!.firstElementChild
-		html.style.setProperty('--c-primary-hue', `${hueDegree | 0}`)
-	}
+	$: el && el.style.setProperty('--c-primary-hue', `${hueDegree | 0}`)
 	onMount(async () => {
 		prefetchRoutes()
 	})

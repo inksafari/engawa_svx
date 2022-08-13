@@ -1,3 +1,3 @@
-import { genImageSizePlugin } from './../svelte.config.js'
+import { genImageSizePlugin } from './../vite.config.js'
 
 genImageSizePlugin.buildStart()
