@@ -1,22 +1,23 @@
 // -- svelte preprocesses/adapters --
 //import sequential from 'svelte-sequential-preprocessor'
-//import { typescript } from 'svelte-preprocess-esbuild'
+import { typescript } from 'svelte-preprocess-esbuild'
 import { sveltePreprocess } from 'svelte-preprocess/dist/autoProcess.js'
 import { mdsvex } from 'mdsvex'
 import staticAdapter from '@sveltejs/adapter-static'
 // -- Configuration --
+// import tsConfigFile from './config/tsconfig.dev.json'
 import mdsvexConfig from './config/mdsvex.config.js'
 
 const prependScssFiles = [
 	'@use "src/styles/func.scss" as *;',
-	'@use "src/styles/vars.scss" as *;'
+	'@use "src/styles/tokens.scss" as *;'
 ].join(' ')
 
 // options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
 const preprocessSVX = [
-	//typescript(),
+	typescript(), //typescript({ tsconfig: tsConfigFile }),
 	sveltePreprocess({
-		typescript: true,
+		typescript: false,
 		scss: {
 			prependData: prependScssFiles,
 			renderSync: true,
@@ -43,8 +44,12 @@ const config = {
 		},
 		adapter: staticAdapter({
 			fallback: null, // 'index.html',
-			precompress: true
+			precompress: false
 		}),
+		browser: {
+			router: true,
+			hydrate: true
+		},
 		prerender: { default: true },
 		inlineStyleThreshold: 1024 * 1024,
 		csp: {
@@ -55,16 +60,6 @@ const config = {
 		},
 		serviceWorker: {
 			register: false,
-		},
-		// https://stackoverflow.com/a/69457826
-		routes: filepath => {
-			return ![
-				// exclude *test.js files
-				/\.test\.js$/,
-
-				// original default config
-				/(?:(?:^_|\/_)|(?:^\.|\/\.)(?!well-known))/,
-			].some(regex => regex.test(filepath))
 		}
 	}
 }

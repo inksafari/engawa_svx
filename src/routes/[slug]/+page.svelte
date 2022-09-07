@@ -1,46 +1,23 @@
 <!--
 	Renders the post at domain.tld/[slug]
 -->
-<script context="module">
-	/**
-	* @type {import('@sveltejs/kit').Load}
-	*/
-	export async function load ({ params }) {
-		try {
-			const slug = params.slug
-			const res = await import(`../../content/${slug}.md`)
-			return {
-				props: {
-					metadata: res.metadata,
-					content: res.default
-				}
-			}
-		} catch (error) {
-			return {
-				status: 404,
-				error: new Error('Could not load page')
-			}
-		}
-	}
-</script>
 <script>
 	import { FormattedDate, Year } from '$lib/components'
-	import { appendScriptToHead } from '$lib/utils/append-script-to-head.js'
 	import { onMount, getContext } from 'svelte'
 	import { Moon, Hemisphere } from 'lunarphase-js'
+	import mediumZoom from 'medium-zoom'
+	import IntersectionObserver from 'svelte-intersection-observer'
 
 	const site = getContext('site')
-	const loadEmbeddedTweets = () => {
-		const allTweets = document.getElementsByClassName('twitter-tweet')
-		if (allTweets.length) {
-			appendScriptToHead('https://platform.twitter.com/widgets.js')
-		}
-	}
-	onMount(() => {
-		loadEmbeddedTweets()
+	onMount(async () => {
+		mediumZoom('[data-zoomable]', {
+			scrollOffset: 0,
+			background: 'rgba(25, 18, 25, .9)',
+		});
 	})
-	export let metadata, content
-	$: ({ title, date, updatedOn, prev, next } = metadata)
+	export let data, element, intersecting
+	const { title, date, updatedOn, prev, next } = data.metadata
+	const content = data.content
 	const dateObj = new Date(date)
 	const moonEmoji = Moon.lunarPhaseEmoji(dateObj, Hemisphere.NORTHERN)
 </script>
@@ -56,7 +33,9 @@
 	<div id="entry">
 		<!-- TITLE -->
 		<div class="entry-header is-huge">
-			<h1 class="headline">{title}</h1>
+			<IntersectionObserver {element} bind:intersecting>
+				<h1 class="headline" bind:this={element}>{title}</h1>
+			</IntersectionObserver>
 		</div>
 		<!-- META -->
 		<dl class="entry-details">
@@ -84,7 +63,7 @@
 		</dl>
 		<!-- Content -->
 		<div class="prose generated-content" aria-label="Content">
-			<svelte:component this={content} />
+			<svelte:component this={content} /> <!-- {@html content} -->
 		</div>
 		<!-- Pager -->
 		{#if prev || next}
@@ -93,12 +72,12 @@
 				<span class="screen-reader-text">This post is part of a series.</span>
 				{#if prev}
 				<span class="prev stack">
-					<a rel="prev" href=https://{site.baseUrl}/{prev}>&laquo; PREVIOUS ARTICLE</a>
+					<a rel="prev" sveltekit:reload href=https://{site.baseUrl}/{prev}>&laquo; PREVIOUS ARTICLE</a>
 				</span>
 				{/if}
 				{#if next}
 				<span class="next stack">
-					<a rel="next" href=https://{site.baseUrl}/{next}>NEXT ARTICLE &raquo;</a>
+					<a rel="next" sveltekit:reload href=https://{site.baseUrl}/{next}>NEXT ARTICLE &raquo;</a>
 				</span>
 				{/if}
 			</nav>

@@ -9,6 +9,7 @@
 		<meta name="twitter:dnt" content="on" />
 		<meta name="twitter:widgets:theme" content="light" />
 		<meta name="theme-color" content="#C2E6E9" /><!-- #9ea5e2 or #D3EFF3 -->
+		<meta name="msapplication-TileColor" content="#C2E6E9">
 		<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
 		<meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
 		<link
@@ -37,6 +38,7 @@
 			importance="high"
 			fetchpiority="high"
 		/>
+		<link rel="stylesheet" href="%sveltekit.assets%/print.css" media="print" onload="this.media='all'" />
 		<link
 			rel="icon"
 			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌵</text></svg>"
@@ -45,9 +47,12 @@
 		<link rel="me" href="https://github.com/inksafari" />
 		<!--
 		TODO: OPENSEARCH
+		https://webmonetization.org/
 		<link rel="search" type="application/opensearchdescription+xml"
 					href="/opensearch.xml" title="Search" />
+		<link href="%sveltekit.assets%/app.css" media="(prefers-color-scheme: light)" rel=stylesheet>
 		<link rel="manifest" href="%sveltekit.assets%/site.manifest" crossorigin="use-credentials" importance="low" />
+		<meta name="msapplication-config" content="/browserconfig.xml">
 		<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="%sveltekit.assets%/favicon-16x16.png" />
@@ -62,7 +67,6 @@
 	</head>
 	<body>
 		%sveltekit.body%
-		<script disable-devtool-auto src='https://fastly.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
 	</body>
 	<noscript key="noscript" id="app-noscript">
 		This app works best with JavaScript enabled.

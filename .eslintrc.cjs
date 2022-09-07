@@ -1,3 +1,4 @@
+// https://eslint.org/blog/2022/08/new-config-system-part-2/
 // usage: npx eslint "src/**/*.{js,ts,svelte}"
 
 /** @type { import('eslint/rules').ESLintRules } */

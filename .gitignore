@@ -45,3 +45,8 @@ ui-debug.log*
 content/
 src/assets
 src/styles
+
+# temp
+.github/styles/*
+!.github/styles/Vocab/Base
+src/routes/rss.xml/rss.xsl

@@ -1,22 +1,22 @@
 import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
-import site from '../site.js'
+import site from '../../site.js'
 import { fetchPosts } from '$lib/utils/fetch-posts'
 
+// TODO: rss.xsl
+// <?xml-stylesheet href="/rss.xsl" type="text/xsl" media="screen" ?>
+// TODO: json feed
+// https://github.com/importantimport/urara/blob/main/src/routes/feed.json/%2Bserver.ts
 export async function GET() {
 	const allPosts = await fetchPosts()
-	const allPublishedPosts = allPosts.filter(post => !post.isPrivate)
-	const data = feedRender(allPublishedPosts)
+	const data = feedRender(allPosts)
 	const parser = new DOMParser()
 	const xml = parser.parseFromString(data, 'application/xml')
 	const body = new XMLSerializer().serializeToString(xml)
 	const headers = {
-		'Cache-Control': 'max-age=0, s-maxage=3600',
-		'Content-Type': 'application/xml'
+		'Cache-Control': 'max-age=0, s-maxage=3600', // 1 hr
+		'Content-Type': 'application/xml',
 	}
-	return {
-		headers,
-		body
-	}
+	return new Response(body, { headers: headers })
 }
 const rawStrings = String.raw
 const feedRender = items => rawStrings`<?xml version="1.0" encoding="UTF-8" ?>

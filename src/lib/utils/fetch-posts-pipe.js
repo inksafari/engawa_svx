@@ -12,18 +12,20 @@ import {
 	toArray,
 	toAsync,
 } from '@fxts/core'
+import MDSVEX_CONFIG from '../../../config/mdsvex.config'
 
 const fetchPosts = () =>
 	pipe(
-		import.meta.globEager('/content/*.md'),
+		import.meta.glob('/content/*.md', { eager: true }),
 		entries,
 		sortBy(([, post]) => post.metadata.date),
 		reverse,
 		toAsync,
 		map(async ([path, post]) => ({
 			...post.metadata,
-			body: (await compile(post.default.render().html)).code,
-			slug: pipe(path, split('/'), reverse, take(2), last),
+			body: (await compile(post.default.render().html), MDSVEX_CONFIG).code,
+			// TODO: slug待修
+			slug: pipe(path, split('/'), reverse, take(1), last),
 		})),
 		toArray,
 	);

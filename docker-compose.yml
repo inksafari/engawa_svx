@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: pnpm run dev --host --port 3000
+    command: pnpm run dev
     environment:
       - TZ=Asia/Taipei
     working_dir: /app

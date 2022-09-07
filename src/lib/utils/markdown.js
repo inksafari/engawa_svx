@@ -5,9 +5,6 @@ import gfm from 'remark-gfm'
 import remark2rehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import frontmatter from 'remark-frontmatter'
-// eslint-disable-next-line no-unused-vars
-import yaml from 'js-yaml'
-// import type { Compatible } from 'to-vfile/lib'
 
 let parser = unified()
 	.use(parse)

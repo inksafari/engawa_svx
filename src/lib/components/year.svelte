@@ -1,4 +1,4 @@
-<script context="module">
+<script>
 	import { onMount } from 'svelte'
 	export let from //: number | undefined
 	// if javascript is enabled, use a dynamic solution

@@ -67,3 +67,4 @@ echo "Done!"
 # https://github.com/michaelrommel/blog/blob/main/scripts/subset_fonts.sh
 # https://github.com/ruuda/blog/tree/master/fonts
 # https://web.dev/fast/#optimize-webfonts
+# https://github.com/black7375/font-range

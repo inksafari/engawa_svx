@@ -21,7 +21,6 @@
     "paths": {
       "$lib": ["src/lib"],
       "$lib/*": ["src/lib/*"],
-      "$app/*": [".svelte-kit/runtime/app/*"]
     },
     "typeRoots": [
       "../src/app.d.ts"

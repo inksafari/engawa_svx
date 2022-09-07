@@ -22,10 +22,10 @@ export const genImageSizePlugin = generateImageSizes({
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 
-//const prependScssFiles = [
-//	'@use "src/styles/func.scss" as *;',
-//	'@use "src/styles/vars.scss" as *;'
-//].join(' ')
+const prependScssFiles = [
+	'@use "src/styles/func.scss" as *;',
+	'@use "src/styles/tokens.scss" as *;'
+].join(' ')
 
 const aliasList = [
 	{ name: '#components', path: './src/lib/components' },
@@ -100,3 +100,4 @@ export default config;
 // @links
 // https://github.com/dkaoster/www.diplateevo.com/blob/main/svelte.config.js
 // https://ics.media/entry/220204/
+// https://github.com/tidaltheory/tidaltheory-www/blob/main/lens.config.mjs

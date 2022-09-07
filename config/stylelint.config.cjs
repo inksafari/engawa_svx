@@ -5,6 +5,7 @@ module.exports = {
 		'stylelint-config-html/svelte'
 	],
 	plugins: [
+		'stylelint-csstree-validator',
 		'stylelint-high-performance-animation',
 		'stylelint-order'
 	],
@@ -41,6 +42,7 @@ module.exports = {
 		'font-weight-notation': 'named-where-possible',
 		'function-url-no-scheme-relative': true,
 		'function-url-quotes': 'always',
+		'indentation': 2,
 		'keyframes-name-pattern': null,
 		'length-zero-no-unit': null,
 		'max-empty-lines': null,
@@ -51,7 +53,7 @@ module.exports = {
 				ignorePattern: '/https?://[0-9,a-z]*.*/'
 			}
 		],
-		'max-nesting-depth': 5,
+		'max-nesting-depth': 3,
 		'no-descending-specificity': true,
 		'no-duplicate-selectors': true,
 		'selector-class-pattern': null,
@@ -112,8 +114,9 @@ module.exports = {
 		],
 		'plugin/no-low-performance-animation-properties': [true, { ignore: 'paint-properties' }],
 	},
+	"csstree/validator": true,
 	ignoreFiles: [
-		'/node_modules/',
+		'**/node_modules/**',
 		'/build/',
 		'/.svelte-kit/',
 		'/.vscode/',
@@ -122,7 +125,8 @@ module.exports = {
 		'/scripts/',
 		'/static/',
 		'/src/assets/',
-		'/src/app.html'
+		'/src/app.html',
+		'**/reset*.css'
 	]
 }
-// https://github.com/TracerBuilt/tracerbuilt/blob/main/stylelint.config.cjs
+// https://github.com/TracerBuilt/tracerbuilt/blob/main/.stylelintrc

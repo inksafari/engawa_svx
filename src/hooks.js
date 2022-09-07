@@ -26,7 +26,7 @@ const minifyHTML = async ({ event, resolve }) => {
 			keep_html_and_head_opening_tags: true,
 			keep_spaces_between_attributes: true,
 			minify_js: false,
-			minify_css: true,
+			minify_css: false,
 			remove_bangs: false,
 		}
 		let body = await response.text()
@@ -54,3 +54,4 @@ export const handle = sequence(
 // https://github.com/pzuraq/pzuraq.com/blob/main/src/hooks.ts
 // https://github.com/rodneylab/sveltekit-blog-mdx/blob/main/src/hooks.js
 // https://github.com/itssumitrai/online-dress-store/blob/main/src/hooks.js
+// https://github.com/juzerzarif/juzerzarif.com/tree/main/src/hooks

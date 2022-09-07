@@ -1,7 +1,20 @@
-<h1 align="center">
-  @inksafari/engawa
-</h1>
-<!-- Live at example.com -->
+<div align="center">
+  <h1 align="center">
+    &#60;@inksafari/engawa  &#47;&#62;
+  </h1>
+  <p align="center">
+    The codebase of a personal blog developed using SvelteKit, SCSS and hosted freely using Firebase Hosting.
+    <!--
+    Available rendered at https://example.com.
+    <br />
+    <br />
+    <a href="https://example.com">View Demo</a>
+    ·
+    <a href="https://github.com/inksafari/engawa/issues">Report Bug</a>
+    ·
+    -->
+  </p>
+</div>
 
 [![framework][framework-badge]][svelte-url]
 [![GitHub top language][lang-badge]][repo-url]
@@ -17,6 +30,8 @@
 - [Node.js](https://nodejs.org) >=16.9 or later
 - [pnpm](https://pnpm.io/)(optional, although strongly recommended)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Installation
 - [ripgrep](https://github.com/BurntSushi/ripgrep) (Rust) & [fonttools](https://github.com/fonttools/fonttools) (Python)
 
@@ -25,6 +40,8 @@
 brew install ripgrep
 pip3 install fonttools brotli zopfli unicodedata2
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Available Scripts
 All commands are run from the root of the project, from a terminal:
@@ -35,6 +52,8 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm dev`      | Starts local dev server at `localhost:3000`  |
 | `pnpm build`    | Build your production site to `./build/`     |
 | `pnpm serve`    | Preview your build locally, before deploying |
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Customization
 - [app.html](https://github.com/inksafari/engawa/blob/main/src/app.html)
@@ -57,22 +76,26 @@ next: bar
 ```
 `title` and `date` are required for all posts.
 
-## Attributions
-Built with:
-- [SvelteKit](https://kit.svelte.dev/)
-- [Dart Sass](https://sass-lang.com/) & [Open Props](https://open-props.style/)
-- [MDsveX](https://mdsvex.pngwn.io/docs)( Markdown preprocessor )
-- [Shiki](https://shikijs.github.io/twoslash/)( code highlighting )
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Typefaces
-- [Gowun Batang(고운바탕)](https://github.com/yangheeryu/Gowun-Batang) by Yanghee Ryu
-- [Iansui](https://github.com/ButTaiwan/iansui)
-- [Lotion](https://font.nina.coffee/) by nina belikova
+## Tech stack
+- **Framework**: [SvelteKit][svelte-url]
+- **Styling**: [Dart Sass](https://sass-lang.com/), [Open Props](https://open-props.style/) and [PostCSS](https://postcss.org/)
+- **Content**: [MDsveX](https://mdsvex.pngwn.io/docs)
+- **Code syntax highlighter**: [Shiki](https://shikijs.github.io/twoslash/)
+- **Deployment**: [Firebase Hosting][hosting-url]
+- **Typefaces**:
+  - [Gowun Batang(고운바탕)](https://github.com/yangheeryu/Gowun-Batang) by Yanghee Ryu
+  - [Iansui](https://github.com/ButTaiwan/iansui)
+  - [Lotion](https://font.nina.coffee/) by nina belikova
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## TODOs
 - prev/next page
 - privacy page
 - tab or space
+- testing
 
 ### not in 📝
 - Dark mode
@@ -80,7 +103,9 @@ Built with:
 - SEO
 - PWA + Service Worker + Offline
 
-## Issues
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Known Issues
 > Port 9000 is already in use
 
 ```
@@ -88,13 +113,23 @@ sudo lsof -i:9000
 sudo kill -9 <pid>
 ```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Inspiration & Thanks
 Props to [mvasigh/sveltekit-mdsvex-blog](https://github.com/mvasigh/sveltekit-mdsvex-blog), which this repo was originally based on.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
 This project is licensed under the Beerware License, but all contents copyright (articles, images, videos and visual design) belong to their respective owners or authors.
 
-<!-- TODO: FOSSA -->
+<!--
+> **Warning**
+> 網站樣式從各處抄抄縫補，我不知道為什麼可以動，哪裡有問題也看不出來，更不知道要怎麼修。
+> 請不要直接複製，斟酌參考，謝謝。
+-->
+
+<!-- MARKDOWN LINKS & IMAGES -->
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&logoColor=white&labelColor=111b27
 [svelte-url]: https://kit.svelte.dev
 [activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=for-the-badge&logo=github&color=%2300a8ff&labelColor=111b27
@@ -104,10 +139,11 @@ This project is licensed under the Beerware License, but all contents copyright 
 [repo-url]: https://github.com/inksafari/engawa
 [lang-badge]: https://img.shields.io/github/languages/top/inksafari/engawa.svg?style=for-the-badge&logo=javascript&color=8372f3&labelColor=111b27
 [tloc-badge]: https://tokei.rs/b1/github/inksafari/engawa
-[hosting-badge]: https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=FFCB2B&color=d0dae7&labelColor=111b27
+[hosting-badge]: https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=white&color=FFCB2B&labelColor=111b27
 [hosting-url]: https://firebase.google.com/
 
 <!--
 &logoColor=ff3860
-https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=white&color=FFCB2B&labelColor=111b27
+
+https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=FFCB2B&color=d0dae7&labelColor=111b27
  -->

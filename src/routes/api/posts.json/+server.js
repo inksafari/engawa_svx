@@ -1,4 +1,5 @@
 import { fetchPosts } from '$lib/utils/fetch-posts'
+import { error } from '@sveltejs/kit'
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET() {
@@ -8,16 +9,8 @@ export async function GET() {
 			'Cache-Control': `max-age=0, s-max-age=${600}`,
 			'Content-Type': 'application/json'
 		}
-		return {
-			headers,
-			body: JSON.stringify(posts)
-		}
-	} catch (error) {
-		return {
-			status: 404,
-			body: {
-				error: 'Could not fetch posts. ' + error
-			}
-		}
+		return new Response(JSON.stringify(posts), { headers: headers })
+	} catch (err) {
+		throw error(500, `Could not fetch posts. ${err}`)
 	}
 }
