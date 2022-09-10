@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'node:path'
 import { fileURLToPath } from 'url'
 // -- vite --
-import { defineConfig } from 'vite'
+import { splitVendorChunkPlugin, defineConfig } from 'vite'
 // -- vite plugins --
 import { sveltekit } from '@sveltejs/kit/vite'
 import { generateImageSizes } from 'rollup-plugin-generate-image-sizes'
@@ -79,7 +79,8 @@ const config = defineConfig({
 	plugins: [
 		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
 		dev && genImageSizePlugin,
-		sveltekit()
+		sveltekit(),
+		splitVendorChunkPlugin
 	]
 })
 

@@ -1,9 +1,8 @@
 //import { stat } from 'fs/promises';
 import { parse } from 'path'
-import { compile } from 'mdsvex'
 
 export async function fetchPosts () {
-	const svxPosts = import.meta.glob('/content/*.md', { import: 'metadata', eager: true })
+	const svxPosts = import.meta.glob('/content/*.md') // '', { import: 'metadata', eager: true }
 	const iterableFiles = Object.entries(svxPosts)
 	const allPosts = await Promise.all(
 		iterableFiles.map(async ([filePath, page]) => {
@@ -30,3 +29,4 @@ export async function fetchPosts () {
 // https://github.com/josh-collinsworth/joco-sveltekit/blob/main/src/lib/assets/js/utils/fetchPosts.ts
 // https://github.com/mattjennings/sveltekit-blog-template/blob/main/src/lib/get-posts.js
 // https://github.com/importantimport/urara/blob/main/src/lib/utils/posts.ts
+// https://github.com/maiertech/maier.tech/blob/main/src/lib/utils/posts.ts

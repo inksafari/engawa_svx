@@ -61,7 +61,7 @@ All commands are run from the root of the project, from a terminal:
 - [rss.xml.js](https://github.com/inksafari/engawa/blob/main/src/routes/rss.xml.js)( language & description )
 - [slug.svelte](https://github.com/inksafari/engawa/blob/main/src/routes/%5Bslug%5D.svelte)( year )
 
-### Front matter
+### Frontmatter
 In `content/slug.md`
 
 ```md
@@ -91,11 +91,13 @@ next: bar
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## TODOs
+## 📌 TODOs
 - prev/next page
 - privacy page
 - tab or space
 - testing
+- rss style
+- shelf
 
 ### not in 📝
 - Dark mode

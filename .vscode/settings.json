@@ -64,6 +64,12 @@
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	//* CSS Var Complete
+	"cssvar.extensions": ["scss", "css", "js", "svelte", "ts"],
+	"cssvar.files": ["./node_modules/open-props/open-props.min.css", "./src/app.scss"],
+	"cssvar.ignore": [],
 	//* File nesting
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
@@ -151,4 +157,12 @@
 			"italic": false
 		}
 	],
+	//* Grammarly.
+	"grammarly.files.include": ["**/README.md", "**/*.md", "**/*.svx"],
+	"grammarly.config.documentDialect": "american",
+	"grammarly.config.suggestions.ConjunctionAtStartOfSentence": true,
+	"grammarly.config.suggestions.PassiveVoice": true,
+	"grammarly.config.suggestions.UnnecessaryEllipses": true,
+	"grammarly.config.suggestions.PrepositionAtTheEndOfSentence": true,
+	"grammarly.config.suggestions.StylisticFragments": true,
 }
