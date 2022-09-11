@@ -1,11 +1,22 @@
-import { process } from '$lib/utils/markdown'
 import { error } from '@sveltejs/kit'
+//import { fetchPost } from '$lib/utils/fetch-posts'
+import { process } from '$lib/utils/fetch-content'
 
+export const prerender = true
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET ({ params }) {
 	try {
 		const slug = params.slug
-		const post = process(`content/${slug}.md`)
+		// wo/ content
+		//const post = await fetchPost(slug)
+		const { metadata, file } = await process(`content/${slug}.md`)
+		const post = {
+			title: metadata.title,
+			date: metadata.date,
+			updatedOn: metadata.updatedOn,
+			slug: file.slug,
+			content: file.parsedHTML
+		}
 		const headers = {
 			'Cache-Control': `max-age=0, s-max-age=${600}`,
 			'Content-Type': 'application/json'

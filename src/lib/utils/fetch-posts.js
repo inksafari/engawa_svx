@@ -1,7 +1,11 @@
-//import { stat } from 'fs/promises';
 import { parse } from 'path'
+//import { stat } from 'fs/promises'
+//import {
+//	find,
+//	pipe,
+//} from '@fxts/core'
 
-export async function fetchPosts () {
+const fetchPosts = async () => {
 	const svxPosts = import.meta.glob('/content/*.md') // '', { import: 'metadata', eager: true }
 	const iterableFiles = Object.entries(svxPosts)
 	const allPosts = await Promise.all(
@@ -24,9 +28,18 @@ export async function fetchPosts () {
 
 	return sortedPosts
 }
+
+//const fetchPost = async (slug) =>
+//	pipe(
+//		fetchPosts(),
+//		find((post) => slug === post.slug),
+//	)
+
+//export { fetchPosts, fetchPost }
+export { fetchPosts }
+
 // Adapted from
-// https://github.com/EstebanBorai/estebanborai.com/blob/main/src/routes/api/notes/index.json.ts
-// https://github.com/josh-collinsworth/joco-sveltekit/blob/main/src/lib/assets/js/utils/fetchPosts.ts
-// https://github.com/mattjennings/sveltekit-blog-template/blob/main/src/lib/get-posts.js
-// https://github.com/importantimport/urara/blob/main/src/lib/utils/posts.ts
+// https://github.com/croccifixio/blog/blob/main/src/lib/utils/blog.js
 // https://github.com/maiertech/maier.tech/blob/main/src/lib/utils/posts.ts
+// https://github.com/mattjennings/sveltekit-blog-template/blob/main/src/lib/get-posts.js
+// https://github.com/josh-collinsworth/joco-sveltekit/blob/main/src/lib/assets/js/utils/fetchPosts.ts

@@ -39,18 +39,10 @@ const config = {
 		immutable: true,
 	},
 	kit: {
-		methodOverride: {
-			allowed: ['POST', 'PUT', 'DELETE']
-		},
 		adapter: staticAdapter({
 			fallback: null, // 'index.html',
 			precompress: false
 		}),
-		browser: {
-			router: true,
-			hydrate: true
-		},
-		prerender: { default: true },
 		inlineStyleThreshold: 1024 * 1024,
 		csp: {
 			mode: 'auto',
