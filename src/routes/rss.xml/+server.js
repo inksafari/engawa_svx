@@ -1,3 +1,4 @@
+export const prerender = true
 import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
 import site from '../../site.js'
 import { fetchPosts } from '$lib/utils/fetch-posts'
@@ -6,7 +7,6 @@ import { fetchPosts } from '$lib/utils/fetch-posts'
 // <?xml-stylesheet href="/rss.xsl" type="text/xsl" media="screen" ?>
 // TODO: json feed
 // https://github.com/importantimport/urara/blob/main/src/routes/feed.json/%2Bserver.ts
-export const prerender = true
 export async function GET() {
 	const allPosts = await fetchPosts()
 	const data = feedRender(allPosts)

@@ -16,16 +16,23 @@ const dev = mode === 'development'
 
 const config = {
 	syntax: 'postcss-scss',
-	parser: 'postcss-scss',
+	//parser: 'postcss-scss',
 	plugins: [
-		jitProps(openProps),
-		// https://preset-env.cssdb.org/features/
+		/* https://preset-env.cssdb.org/features */
 		presetEnv({
 			stage: 0,
-			//features: {
-			//	'media-query-ranges': true
-			//}
+			features: {
+				'color-function': false,
+				'color-functional-notation': false,
+				'gap-properties': false,
+				'hexadecimal-alpha-notation': false,
+				'ic-unit': true,
+				'logical-properties-and-values': false,
+				'media-query-ranges': true,
+				'nesting-rules': false
+			}
 		}),
+		jitProps(openProps),
 		autoprefixer({
 			cascade: false,
 			grid: false
@@ -35,8 +42,13 @@ const config = {
 		cssnano({
 			autoprefixer: false,
 			preset: [
-				'advanced',
-				{ discardComments: { removeAll: true } }
+				/* https://cssnano.co/docs/what-are-optimisations */
+				'advanced', {
+					discardComments: { removeAll: true },
+					normalizeUnicode: false,
+					svgo: false,
+					zindex: false,
+				}
 			]
 		}),
 		!dev &&
@@ -48,7 +60,7 @@ const config = {
 			],
 			defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
 			safelist: {
-				// https://github.com/juzerzarif/juzerzarif.com/blob/main/postcss.config.cjs
+				/* https://github.com/juzerzarif/juzerzarif.com/blob/main/postcss.config.cjs */
 				standard: [/^(?!.*animate__[a-zA-Z]+).*/],
 				greedy: [/:lang$/]
 			},

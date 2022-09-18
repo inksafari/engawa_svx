@@ -54,11 +54,11 @@ yarn.lock -diff
 *.svg     text
 
 # Fonts
-*.ttf   binary
-*.eot   binary
-*.otf   binary
-*.woff  binary
-*.woff2 binary
+*.ttf     filter=lfs diff=lfs merge=lfs -text
+*.eot     filter=lfs diff=lfs merge=lfs -text
+*.otf     filter=lfs diff=lfs merge=lfs -text
+*.woff    filter=lfs diff=lfs merge=lfs -text
+*.woff2   filter=lfs diff=lfs merge=lfs -text
 
 # Archives
 *.gz      binary

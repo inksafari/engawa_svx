@@ -3,22 +3,13 @@
 /// <reference types="mdsvex/globals" />
 /// <reference types="vitest" />
 
-declare module '*.md' {
-	import { SvelteComponent } from 'svelte'
-	const content = SvelteComponent
-	export default content
-}
+//declare module '*.md' {
+//	import { SvelteComponent } from 'svelte'
+//	const content = SvelteComponent
+//	export default content
+//}
 
 //declare module '*.svx' {
 //	export { SvelteComponentDev as default } from 'svelte/internal'
 //	export { metadata }
 //}
-
-type Post = {
-	title: string
-	date: Date
-	updatedOn?: Date
-	isPrivate?: boolean
-	prev?: string
-	next?: string
-}

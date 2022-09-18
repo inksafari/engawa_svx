@@ -1,17 +1,36 @@
+import { defineConfig } from 'vitest/config'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
-import { defineConfig } from 'vite'
 
-export default defineConfig({
+/** @type {import('vitest').UserConfig} */
+const config = defineConfig({
 	plugins: [
 		svelte({ hot: !process.env.VITEST })
 	],
 	test: {
-		global: true,
-		environment: 'jsdom'
+		globals: true,
+		environment: 'jsdom', // happy-dom
+		coverage: {
+			provider: 'c8',
+			statements: 90,
+			branches: 90,
+			functions: 90,
+			lines: 90,
+		},
+		deps: {
+			inline: [/outdent/]
+		},
+		includeSource: [
+			'**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+			'**/{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+		],
 	}
 })
+
+export default config
 // TODO: codecept.js??
-// @links:
-// https://github.com/antfu/vitesse/tree/main/test
-// https://github.com/elianiva/elianiva.my.id/blob/4208a0ba4f7e81f004b82d334a12f3e4d9fde77f/vitest.config.js
-// https://gbg.pages.dev/posts/mdsvex-unit-testing
+/* @links:
+ * https://gbg.pages.dev/posts/mdsvex-unit-testing
+ * https://github.com/davipon/svelte-component-test-recipes/blob/main/vite.config.ts
+ * https://github.com/frontendista/frontendista.cz/blob/main/apps/frontend-astro/vitest.config.ts
+ * https://github.com/yuukoyoung/yuuko-design/tree/main/packages/utils
+ */

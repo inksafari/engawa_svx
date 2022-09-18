@@ -1,9 +1,7 @@
 <h1>Privacy Policy</h1>
 Last Updated: September 1, 2022
 
-<h2>TL;DR:</h2>
-- We will not sell your data to anyone.
-- We use a 3rd party provider, Firebase, to process and store our data.
+This site and its owner do NOT store your personal information in any way. However, the site does use certain externally hosted services, each of which has its own privacy policies and methods of complying with applicable privacy regulations.
 
 <h2>Accountability</h2>
 @inksafari

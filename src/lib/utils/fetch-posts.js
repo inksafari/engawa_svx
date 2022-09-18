@@ -15,7 +15,7 @@ const fetchPosts = async () => {
 				metadata
 			} = await page()
 			//const content = render().html
-			//const { mtime } = await stat(filePath)
+			//const mtime = (await stat(filePath)).mtime
 			const slug = `${parse(filePath).name}` // or filePath.split('/').pop().slice(0, -3) or filePath.split('/').pop().split('.').shift()
 			// eslint-disable-next-line
 			return { ...metadata, slug }
@@ -35,7 +35,6 @@ const fetchPosts = async () => {
 //		find((post) => slug === post.slug),
 //	)
 
-//export { fetchPosts, fetchPost }
 export { fetchPosts }
 
 // Adapted from

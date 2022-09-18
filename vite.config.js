@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'node:path'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 // -- vite --
 import { splitVendorChunkPlugin, defineConfig } from 'vite'
 // -- vite plugins --
@@ -41,6 +41,7 @@ const config = defineConfig({
 		__PROJECT_ROOT__: JSON.stringify(path.dirname(fileURLToPath(import.meta.url)))
 	},
 	resolve: {
+		// alias: { '#': fileURLToPath(new URL('./src', import.meta.url)) }
 		alias: Object.fromEntries(aliasList.map(alias => [alias.name, path.resolve(alias.path)]))
 	},
 	// css: { preprocessorOptions: { scss: { additionalData: prependScssFiles } } },
@@ -55,17 +56,6 @@ const config = defineConfig({
 	preview: {
 		port: 9000
 	},
-	// https://github.com/sveltejs/kit/issues/5389
-	// https://github.com/frontendista/frontendista.cz/tree/main/apps/frontend
-	//test: {
-		//environment: 'happy-dom',
-		//setupFiles: './tests/setup.ts',
-		//watch: false,
-		//deps: {
-			// inline: ['outdent', 'clsx']
-		//},
-		//includeSource: ['src/**/*.{js,ts}'],
-	//},
 	optimizeDeps: {
 		include: [
 			'@akebifiky/remark-simple-plantuml',
@@ -96,7 +86,7 @@ if (fs.existsSync('localhost-key.pem') && fs.existsSync('localhost.pem')) {
 	}
 }
 
-export default config;
+export default config
 
 // @links
 // https://github.com/dkaoster/www.diplateevo.com/blob/main/svelte.config.js

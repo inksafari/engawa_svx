@@ -1,6 +1,6 @@
+export const prerender = true
 import { error } from '@sveltejs/kit'
 
-export const prerender = true
 export async function load ({ url }) {
 	try {
 		// const domain = url.hostname

@@ -2,24 +2,26 @@
 	Renders the post at domain.tld/[slug]
 -->
 <script>
+	import { getContext } from 'svelte'
+	import { afterNavigate } from '$app/navigation'
 	import { FormattedDate, Year } from '$lib/components'
-	import { onMount, getContext } from 'svelte'
 	import { Moon, Hemisphere } from 'lunarphase-js'
-	import mediumZoom from 'medium-zoom'
 	import IntersectionObserver from 'svelte-intersection-observer'
+	import './../../styles/app_layout.scss'
 
 	const site = getContext('site')
-	onMount(async () => {
-		mediumZoom('[data-zoomable]', {
-			scrollOffset: 0,
-			background: 'rgba(25, 18, 25, .9)',
-		});
-	})
 	export let data, element, intersecting
 	const { title, date, updatedOn, prev, next } = data.metadata
 	const content = data.content
 	const dateObj = new Date(date)
 	const moonEmoji = Moon.lunarPhaseEmoji(dateObj, Hemisphere.NORTHERN)
+
+	let hueDegree = 0
+	let el
+	afterNavigate(() => (hueDegree = Math.random() * 360))
+	$: el && el.style.setProperty('--c-primary-hue', `${hueDegree | 0}`)
+	//$: isFirstPage = prev !== null
+	// {#if !isFirstPage}{else}{/if}
 </script>
 <svelte:head>
 	<title>{title} | {site.title}</title>
@@ -29,7 +31,7 @@
 		<link rel="dns-prefetch" href="https://res.cloudinary.com">
 	-->
 </svelte:head>
-<div class="container">
+<div class="container" bind:this={el}>
 	<div id="entry">
 		<!-- TITLE -->
 		<div class="entry-header is-huge">
@@ -65,7 +67,7 @@
 		<div class="prose generated-content" aria-label="Content">
 			<svelte:component this={content} /> <!-- {@html content} -->
 		</div>
-		<!-- Pager -->
+		<!-- Pagination -->
 		{#if prev || next}
 		<div class="post-footer">
 			<nav class="page-pagination" aria-labelledby="page-pagination">

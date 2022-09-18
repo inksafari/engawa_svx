@@ -50,3 +50,4 @@ src/styles
 .github/styles/*
 !.github/styles/Vocab/Base
 src/routes/rss.xml/rss.xsl
+stylelintReport.txt

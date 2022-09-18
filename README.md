@@ -55,7 +55,7 @@ All commands are run from the root of the project, from a terminal:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Customization
+## Customize configuration
 - [app.html](https://github.com/inksafari/engawa/blob/main/src/app.html)
 - [site.js](https://github.com/inksafari/engawa/blob/main/src/site.js)
 - [rss.xml.js](https://github.com/inksafari/engawa/blob/main/src/routes/rss.xml.js)( language & description )
@@ -107,16 +107,6 @@ next: bar
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Known Issues
-> Port 9000 is already in use
-
-```
-sudo lsof -i:9000
-sudo kill -9 <pid>
-```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Inspiration & Thanks
 Props to [mvasigh/sveltekit-mdsvex-blog](https://github.com/mvasigh/sveltekit-mdsvex-blog), which this repo was originally based on.
 
@@ -134,18 +124,28 @@ This project is licensed under the Beerware License, but all contents copyright 
 <!-- MARKDOWN LINKS & IMAGES -->
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&logoColor=white&labelColor=111b27
 [svelte-url]: https://kit.svelte.dev
-[activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=for-the-badge&logo=github&color=%2300a8ff&labelColor=111b27
+[activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=for-the-badge&logo=github&color=69ffb4&labelColor=111b27
 [activity]: https://github.com/inksafari/engawa/graphs/commit-activity
 [last-commit-badge]: https://img.shields.io/github/last-commit/inksafari/engawa/main.svg?style=for-the-badge&logo=github&labelColor=111b27
-[size-badge]: https://img.shields.io/github/repo-size/inksafari/engawa.svg?style=for-the-badge&logo=files&logoColor=FF859D&color=ff69b4&labelColor=111b27
+[size-badge]: https://img.shields.io/github/repo-size/inksafari/engawa.svg?style=for-the-badge&logo=files&logoColor=fff&color=ff69b4&labelColor=111b27
 [repo-url]: https://github.com/inksafari/engawa
+[repo-issues]: https://github.com/inksafari/engawa/issues
+[repo-owner]: https://twitter.com/inksafari
 [lang-badge]: https://img.shields.io/github/languages/top/inksafari/engawa.svg?style=for-the-badge&logo=javascript&color=8372f3&labelColor=111b27
 [tloc-badge]: https://tokei.rs/b1/github/inksafari/engawa
 [hosting-badge]: https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=white&color=FFCB2B&labelColor=111b27
 [hosting-url]: https://firebase.google.com/
 
 <!--
-&logoColor=ff3860
+&logoColor=ff3860 FF859D
 
-https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&logoColor=FFCB2B&color=d0dae7&labelColor=111b27
- -->
+Unit Testing with [Vitest], E2E Testing with [Playwright] on GitHub Actions
+
+[Vitest]: https://vitest.dev/
+[Playwright]: https://playwright.dev/
+
+https://img.shields.io/badge/DEMO-example.com-informational?style=for-the-badge&logo=firebase&logoColor=FFCB2B&color=d0dae7&labelColor=111b27
+
+## Have an idea? Notice a bug?
+We'd love to hear your feedback! Feel free to log an issue on our [GitHub issues page][repo-issues]. If your question is more personal, [our Twitter DMs][repo-owner] are always open as well.
+-->
