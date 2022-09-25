@@ -40,16 +40,19 @@ const config = {
 	},
 	kit: {
 		adapter: staticAdapter({
-			fallback: null, // 'index.html',
+			fallback: 'index.html', // null,
 			precompress: false
 		}),
+		//prerender: { entries: [] },
+		trailingSlash: 'never',
 		inlineStyleThreshold: 1024 * 1024,
-		csp: {
-			mode: 'auto',
-			directives: {
-				'script-src': ['self']
-			}
-		},
+		// TODO: canvas
+		//csp: {
+		//	mode: 'auto',
+		//	directives: {
+		//		'script-src': ['self']
+		//	}
+		//},
 		serviceWorker: {
 			register: false,
 		}

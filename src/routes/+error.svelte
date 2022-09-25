@@ -1,14 +1,17 @@
 <script>
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
+	import { RiveCanvas } from '$lib/components';
 	$: ({error, status} = $page)
 </script>
 <svelte:head>
 	<title>{status}</title>
 </svelte:head>
-<div class="page-content" aria-label="Content">
+<div class='page-content' aria-label='Content'>
 	<section>
 		<h1>Error: {status}</h1>
+		<!-- https://rive.app/community/2336-4633-icecream-cat/ -->
+		<RiveCanvas source='rive/icecream-cat.riv'></RiveCanvas>
 		<p>{error.message}</p>
 
 		{#if dev && error.stack}

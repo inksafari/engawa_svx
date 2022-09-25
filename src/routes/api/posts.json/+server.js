@@ -1,7 +1,7 @@
+export const prerender = 'auto'
 import { fetchPosts } from '$lib/utils/fetch-posts'
 import { error } from '@sveltejs/kit'
 
-export const prerender = true
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET() {
 	try {

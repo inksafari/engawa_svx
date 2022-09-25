@@ -1,6 +1,6 @@
+export const prerender = 'auto'
 import { error } from '@sveltejs/kit'
 
-export const prerender = true
 export async function load ({ params }) {
 	try {
 		const slug = params.slug

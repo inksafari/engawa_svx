@@ -1,8 +1,9 @@
+export const prerender = 'auto'
+export const ssr = false
 import { error } from '@sveltejs/kit'
 //import { fetchPost } from '$lib/utils/fetch-posts'
 import { process } from '$lib/utils/fetch-content'
 
-export const prerender = true
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET ({ params }) {
 	try {

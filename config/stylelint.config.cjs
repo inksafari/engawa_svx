@@ -165,6 +165,7 @@ module.exports = {
 			// ],
 		// },
 	],
+	defaultSeverity: 'error',
 	ignoreFiles: [
 		'**/node_modules/**',
 		'build/**',

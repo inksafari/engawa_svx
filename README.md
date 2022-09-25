@@ -23,7 +23,7 @@
 [![Static website hosting][hosting-badge]][hosting-url]
 
 ## Disclaimer
-> **Note**
+> **Warning**
 > Not working at the moment.
 
 ## Prerequisites
@@ -115,6 +115,9 @@ Props to [mvasigh/sveltekit-mdsvex-blog](https://github.com/mvasigh/sveltekit-md
 ## License
 This project is licensed under the Beerware License, but all contents copyright (articles, images, videos and visual design) belong to their respective owners or authors.
 
+- error page:
+	- img/canvas: [icecream-cat](https://rive.app/community/2336-4633-icecream-cat/) by [@chococat](https://rive.app/chococat/)
+
 <!--
 > **Warning**
 > 網站樣式從各處抄抄縫補，我不知道為什麼可以動，哪裡有問題也看不出來，更不知道要怎麼修。
@@ -124,7 +127,7 @@ This project is licensed under the Beerware License, but all contents copyright 
 <!-- MARKDOWN LINKS & IMAGES -->
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&logoColor=white&labelColor=111b27
 [svelte-url]: https://kit.svelte.dev
-[activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=for-the-badge&logo=github&color=69ffb4&labelColor=111b27
+[activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=for-the-badge&logo=github&color=%2300a8ff&labelColor=111b27
 [activity]: https://github.com/inksafari/engawa/graphs/commit-activity
 [last-commit-badge]: https://img.shields.io/github/last-commit/inksafari/engawa/main.svg?style=for-the-badge&logo=github&labelColor=111b27
 [size-badge]: https://img.shields.io/github/repo-size/inksafari/engawa.svg?style=for-the-badge&logo=files&logoColor=fff&color=ff69b4&labelColor=111b27

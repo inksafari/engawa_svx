@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 // -- vite --
-import { splitVendorChunkPlugin, defineConfig } from 'vite'
+import { defineConfig } from 'vite'
 // -- vite plugins --
 import { sveltekit } from '@sveltejs/kit/vite'
 import { generateImageSizes } from 'rollup-plugin-generate-image-sizes'
@@ -66,11 +66,13 @@ const config = defineConfig({
 			'shiki-twoslash'
 		]
 	},
+	ssr: {
+		noExternal: ['three']
+	},
 	plugins: [
 		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
 		dev && genImageSizePlugin,
 		sveltekit(),
-		splitVendorChunkPlugin
 	]
 })
 

@@ -13,6 +13,15 @@ const trigger = require('postcss-fail-on-warn')
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
+const cssSafelist = {
+	/* https://github.com/juzerzarif/juzerzarif.com/blob/main/postcss.config.cjs */
+	standard: [
+		/^(?!.*animate__[a-zA-Z]+).*/
+	],
+	greedy: [
+		/:lang$/
+	]
+}
 
 const config = {
 	syntax: 'postcss-scss',
@@ -59,11 +68,7 @@ const config = {
 				'**/*.svg',
 			],
 			defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-			safelist: {
-				/* https://github.com/juzerzarif/juzerzarif.com/blob/main/postcss.config.cjs */
-				standard: [/^(?!.*animate__[a-zA-Z]+).*/],
-				greedy: [/:lang$/]
-			},
+			safelist: cssSafelist,
 			keyframes: true
 		})
 	]

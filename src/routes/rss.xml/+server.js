@@ -1,4 +1,4 @@
-export const prerender = true
+export const prerender = 'auto'
 import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
 import site from '../../site.js'
 import { fetchPosts } from '$lib/utils/fetch-posts'

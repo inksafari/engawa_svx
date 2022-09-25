@@ -1,4 +1,4 @@
-export const prerender = true
+export const prerender = 'auto'
 import { error } from '@sveltejs/kit'
 
 export async function load ({ url }) {
