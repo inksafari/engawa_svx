@@ -1,4 +1,4 @@
-export const prerender = 'auto'
+export const prerender = true
 import { fetchPosts } from '$lib/utils/fetch-posts'
 import { error } from '@sveltejs/kit'
 
@@ -8,7 +8,7 @@ export async function GET() {
 		const posts = await fetchPosts()
 		const headers = {
 			'Cache-Control': `max-age=0, s-max-age=${600}`,
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
 		}
 		return new Response(JSON.stringify(posts), { headers: headers })
 	} catch (err) {

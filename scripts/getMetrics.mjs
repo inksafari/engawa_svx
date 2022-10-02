@@ -1,15 +1,14 @@
 // copyied from https://github.com/magicunico/next-blog
 import Assert from 'assert'
 import fs from 'fs'
-import { createBrowser, createReportWithBrowser } from './lighthouse.mjs';
-
-(async () => {
+import { createBrowser, createReportWithBrowser } from './lighthouse.mjs'
+;(async () => {
 	const browser = await createBrowser()
 	const result = await createReportWithBrowser(
 		browser,
 		'http://localhost:8080',
 		{
-			output: 'html'
+			output: 'html',
 		}
 	)
 

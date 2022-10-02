@@ -1,7 +1,7 @@
-export const prerender = 'auto'
+export const prerender = true
+import { fetchPosts } from '$lib/utils/fetch-posts'
 import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
 import site from '../../site.js'
-import { fetchPosts } from '$lib/utils/fetch-posts'
 
 // TODO: rss.xsl
 // <?xml-stylesheet href="/rss.xsl" type="text/xsl" media="screen" ?>
@@ -20,7 +20,8 @@ export async function GET() {
 	return new Response(body, { headers: headers })
 }
 const rawStrings = String.raw
-const feedRender = items => rawStrings`<?xml version="1.0" encoding="UTF-8" ?>
+const feedRender = items =>
+	rawStrings`<?xml version="1.0" encoding="UTF-8" ?>
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
@@ -35,7 +36,8 @@ const feedRender = items => rawStrings`<?xml version="1.0" encoding="UTF-8" ?>
 	</channel>
 </rss>`
 
-const feedItem = item => rawStrings`<item>
+const feedItem = item =>
+	rawStrings`<item>
 		<title>${item.title}</title>
 		<description>ramblings</description>
 		<link>https://${site.baseUrl}/${item.slug}</link>

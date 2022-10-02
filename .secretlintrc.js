@@ -5,6 +5,6 @@ const config = {
 			id: '@secretlint/secretlint-rule-preset-recommend',
 		},
 	],
-};
+}
 
-module.exports = config;
+module.exports = config

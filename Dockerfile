@@ -6,27 +6,27 @@ WORKDIR /app
 RUN corepack enable
 
 COPY .npmrc pnpm-lock.yaml ./
-#RUN \
-#  --mount=type=cache,id=pnpm,target=/node_modules/.pnpm-store/v3 \
-#  pnpm install --frozen-lockfile --ignore-scripts
+# RUN \
+# --mount=type=cache,id=pnpm,target=/node_modules/.pnpm-store/v3 \
+# pnpm install --frozen-lockfile --ignore-scripts
 RUN pnpm fetch --dev
 ADD . ./
 RUN pnpm install -r --offline --ignore-scripts --dev
 
 COPY . .
 RUN pnpm build
-#RUN pnpm prune --production
+# RUN pnpm prune --production
 
 # ----------------------------------------------------> The runner stage
-#FROM --platform=linux/amd64 node:${NODE_VERSION}-alpine AS runner
-#WORKDIR /app
-#COPY --from=builder /app/build ./build
-#COPY --from=builder /app/.svelte-kit ./.svelte-kit
-#COPY --from=builder /app/node_modules ./node_modules
-#RUN apk add dumb-init
+# FROM --platform=linux/amd64 node:${NODE_VERSION}-alpine AS runner
+# WORKDIR /app
+# COPY --from=builder /app/build ./build
+# COPY --from=builder /app/.svelte-kit ./.svelte-kit
+# COPY --from=builder /app/node_modules ./node_modules
+# RUN apk add dumb-init
 
-#EXPOSE 9000
-#CMD ["dumb-init", "pnpm", "build:preview"]
+# EXPOSE 9000
+# CMD ["dumb-init", "pnpm", "build:preview"]
 
 # ----------------------------------------------------> The runner stage
 FROM gcr.io/distroless/static:nonroot

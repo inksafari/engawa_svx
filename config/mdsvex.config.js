@@ -1,7 +1,7 @@
 import { defineMDSveXConfig as defineConfig } from 'mdsvex'
 import containers from 'remark-containers'
-import shikiHighlighter from './../plugins/shikiHighlighter.js'
 import description from './../plugins/remark-description.js'
+import shikiHighlighter from './../plugins/shikiHighlighter.js'
 // import remarkEmbedder from '@remark-embedder/core'
 // import oembedTransformer from '@remark-embedder/transformer-oembed'
 import plantuml from '@akebifiky/remark-simple-plantuml'
@@ -25,7 +25,7 @@ const config = defineConfig({
 	extensions: ['.svx', '.md'],
 	highlight: { highlighter: shikiHighlighter },
 	smartypants: {
-		dashes: 'oldschool'
+		dashes: 'oldschool',
 	},
 	remarkPlugins: [
 		[
@@ -39,52 +39,52 @@ const config = defineConfig({
 					{
 						type: 'warning',
 						element: 'div',
-						transform: function (node, config, tokenize) {
+						transform: function(node, config, tokenize) {
 							console.log({ config })
 							node.data.hProperties = {
-								className: `remark-container warning ${config}`
+								className: `remark-container warning ${config}`,
 							}
 							node.children.unshift({
 								type: 'p',
 								data: {
 									hName: 'p',
 									hProperties: {
-										className: 'title'
-									}
+										className: 'title',
+									},
 								},
-								children: tokenize('WARNING')
+								children: tokenize('WARNING'),
 							})
-						}
+						},
 					},
 					{
 						type: 'tip',
 						element: 'div',
-						transform: function (node, config, tokenize) {
+						transform: function(node, config, tokenize) {
 							node.data.hProperties = {
-								className: `remark-container tip ${config}`
+								className: `remark-container tip ${config}`,
 							}
 							node.children.unshift({
 								type: 'p',
 								data: {
 									hName: 'p',
 									hProperties: {
-										className: 'title'
-									}
+										className: 'title',
+									},
 								},
-								children: tokenize('TIP')
+								children: tokenize('TIP'),
 							})
-						}
-					}
-				]
-			}
+						},
+					},
+				],
+			},
 		],
 		// [ Jargon, { jargon: jargonfile}],
 		// [remarkEmbedder.default, {transformers: [oembedTransformer.default]}],
 		[
 			plantuml,
-			{ baseUrl: 'https://www.plantuml.com/plantuml/svg' }
+			{ baseUrl: 'https://www.plantuml.com/plantuml/svg' },
 		],
-		relativeImages
+		relativeImages,
 	],
 	rehypePlugins: [
 		a11yEmoji,
@@ -92,26 +92,26 @@ const config = defineConfig({
 		[
 			addClasses,
 			{
-				'ul,ol': 'list'
-			}
+				'ul,ol': 'list',
+			},
 		],
 		[
 			externalLinks,
 			{
 				rel: ['nofollow', 'noopener', 'noreferrer', 'external'],
-				target: '_blank'
-			}
+				target: '_blank',
+			},
 		],
 		slug,
 		[
 			autoLinkHeadings,
 			{
-				behavior: 'wrap'
+				behavior: 'wrap',
 				// behavior: 'prepend',
 				// content: () => anchorLinkSvg
-			}
-		]
-	]
+			},
+		],
+	],
 })
 
 export default config

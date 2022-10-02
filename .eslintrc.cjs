@@ -9,8 +9,8 @@ const rulesFromESLint = {
 		'warn',
 		'tab',
 		{
-			SwitchCase: 1
-		}
+			SwitchCase: 1,
+		},
 	],
 	'max-len': [
 		'error',
@@ -19,19 +19,19 @@ const rulesFromESLint = {
 			tabWidth: 2,
 			ignoreStrings: true,
 			ignoreTemplateLiterals: true,
-			ignoreUrls: true
-		}
+			ignoreUrls: true,
+		},
 	],
 	quotes: [
 		'warn',
 		'single',
-		{ avoidEscape: true }
+		{ avoidEscape: true },
 	],
 	'no-console': ['warn'],
 	'no-alert': ['error'],
 	'no-debugger': ['error'],
 	'prefer-named-capture-group': ['error'],
-	'func-names': ['error', 'as-needed']
+	'func-names': ['error', 'as-needed'],
 }
 
 /** @type { import('eslint').Linter.Config } */
@@ -40,24 +40,24 @@ const config = {
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 2022,
-		extraFileExtensions: [ '.svelte' ],
-		project: [ './config/tsconfig.dev.json' ]
+		extraFileExtensions: ['.svelte'],
+		project: ['./config/tsconfig.dev.json'],
 	},
 	env: {
 		browser: true,
-		es2022: true
+		es2022: true,
 	},
 	extends: [
 		// https://github.com/standard/eslint-config-standard
-		//'standard',
+		// 'standard',
 		// https://github.com/eslint/eslint/blob/master/conf/eslint-recommended.js
 		'eslint:recommended',
 		// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
-		//'plugin:@typescript-eslint/recommended',
+		// 'plugin:@typescript-eslint/recommended',
 		// https://github.com/ota-meshi/eslint-plugin-svelte
 		'plugin:svelte/recommended',
 		// https://github.com/nodesecurity/eslint-plugin-security
-		'plugin:security/recommended'
+		'plugin:security/recommended',
 		// https://github.com/jonaskello/eslint-plugin-functional
 		// 'plugin:functional/external-recommended',
 		// 'plugin:functional/recommended',
@@ -65,7 +65,7 @@ const config = {
 	],
 	plugins: [
 		// https://github.com/sveltejs/eslint-plugin-svelte3
-		//'svelte3',
+		// 'svelte3',
 		// https://github.com/typescript-eslint
 		'@typescript-eslint',
 		// https://github.com/bkucera/eslint-plugin-json-format
@@ -73,7 +73,7 @@ const config = {
 		// https://github.com/nodesecurity/eslint-plugin-security
 		'security',
 		// https://github.com/eslint/eslint-plugin-markdown
-		'markdown'
+		'markdown',
 		// https://github.com/jonaskello/eslint-plugin-functional
 		// 'functional',
 	],
@@ -95,19 +95,19 @@ const config = {
 							'@babel/preset-env',
 							{
 								targets: {
-									node: 'current'
-								}
-							}
-						]
-					]
-				}
-			}
+									node: 'current',
+								},
+							},
+						],
+					],
+				},
+			},
 		},
 		{
 			files: ['test/**/*.js', 'test/**/*.ts', '**/*.test.js', '**/*.test.ts'],
 			extends: ['plugin:jest/recommended'],
 			env: {
-				jest: true
+				jest: true,
 			},
 			rules: {
 				'jest/expect-expect': 'off',
@@ -119,13 +119,13 @@ const config = {
 				'@typescript-eslint/no-unsafe-member-access': 'off',
 				'@typescript-eslint/no-use-before-define': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off'
-			}
+				'@typescript-eslint/no-unsafe-call': 'off',
+			},
 		},
 		{
 			files: ['content/**/*.md', 'content/**/*.svx'],
-			processor: 'markdown/markdown'
-		}
+			processor: 'markdown/markdown',
+		},
 		// {
 		// 	extends: ['plugin:cypress/recommended'],
 		// 	files: ['cypress/**/*'],
@@ -137,9 +137,9 @@ const config = {
 	],
 	settings: {
 		// https://github.com/sveltejs/eslint-plugin-svelte3#configuration
-		//'svelte3/ignore-styles': (attr) => !!attr.lang,
-		//'svelte3/named-blocks': false,
-		//'svelte3/typescript': require('typescript'),
+		// 'svelte3/ignore-styles': (attr) => !!attr.lang,
+		// 'svelte3/named-blocks': false,
+		// 'svelte3/typescript': require('typescript'),
 	},
 	rules: {
 		'no-tabs': 'off',
@@ -148,7 +148,7 @@ const config = {
 		// eslint-disable-next-line node/no-unsupported-features/es-syntax
 		...rulesFromESLint,
 		// eslint-disable-next-line node/no-unsupported-features/es-syntax
-		//...rulesFromPlugins
-	}
+		// ...rulesFromPlugins
+	},
 }
 module.exports = config

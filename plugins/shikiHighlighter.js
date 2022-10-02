@@ -1,11 +1,13 @@
 // syntax highlighting
 // https://github.com/shikijs/shiki
-import { escapeSvelte } from 'mdsvex'
 import { lex, parse as parseFence } from 'fenceparser'
-import { renderCodeToHTML, runTwoSlash, createShikiHighlighter } from 'shiki-twoslash'
-import { createRequire } from 'module'
-const require = createRequire(import.meta.url)
-const shikiTheme = require('./ayu-light.json')
+import { escapeSvelte } from 'mdsvex'
+//import { createRequire } from 'module'
+import { createShikiHighlighter, renderCodeToHTML, runTwoSlash } from 'shiki-twoslash'
+//const require = createRequire(import.meta.url)
+//const shikiTheme = require('./ayu-light.json')
+// https://github.com/shikijs/shiki/blob/main/docs/themes.md
+const shikiTheme = 'github-light'
 
 const shikiHighlighter = async (code, lang, meta) => {
 	let fence, twoslash
@@ -14,7 +16,9 @@ const shikiHighlighter = async (code, lang, meta) => {
 	} catch (error) {
 		throw new Error(`Could not parse the codefence for this code sample \n${code}`)
 	}
-	if (fence?.twoslash === true) twoslash = runTwoSlash(code, lang)
+	if (fence?.twoslash === true) {
+		twoslash = runTwoSlash(code, lang)
+	}
 	const highlighter = await createShikiHighlighter({ theme: shikiTheme })
 	const html = renderCodeToHTML(code, lang, fence ?? {}, {}, highlighter, twoslash)
 	return `{@html \`${escapeSvelte(html)}\` }`

@@ -16,7 +16,7 @@
  * })
  * </script>
 */
-export function appendScriptToHead (src, async = true) {
+export function appendScriptToHead(src, async = true) {
 	const head = document.getElementsByTagName('head')[0]
 	const script = document.createElement('script')
 	script.src = src

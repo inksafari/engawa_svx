@@ -16,16 +16,16 @@ const dev = mode === 'development'
 const cssSafelist = {
 	/* https://github.com/juzerzarif/juzerzarif.com/blob/main/postcss.config.cjs */
 	standard: [
-		/^(?!.*animate__[a-zA-Z]+).*/
+		/^(?!.*animate__[a-zA-Z]+).*/,
 	],
 	greedy: [
-		/:lang$/
-	]
+		/:lang$/,
+	],
 }
 
 const config = {
 	syntax: 'postcss-scss',
-	//parser: 'postcss-scss',
+	// parser: 'postcss-scss',
 	plugins: [
 		/* https://preset-env.cssdb.org/features */
 		presetEnv({
@@ -38,30 +38,31 @@ const config = {
 				'ic-unit': true,
 				'logical-properties-and-values': false,
 				'media-query-ranges': true,
-				'nesting-rules': false
-			}
+				'nesting-rules': false,
+			},
 		}),
 		jitProps(openProps),
 		autoprefixer({
 			cascade: false,
-			grid: false
+			grid: false,
 		}),
 		trigger(),
-		!dev &&
-		cssnano({
+		!dev
+		&& cssnano({
 			autoprefixer: false,
 			preset: [
 				/* https://cssnano.co/docs/what-are-optimisations */
-				'advanced', {
+				'advanced',
+				{
 					discardComments: { removeAll: true },
 					normalizeUnicode: false,
 					svgo: false,
 					zindex: false,
-				}
-			]
+				},
+			],
 		}),
-		!dev &&
-		purgecss({
+		!dev
+		&& purgecss({
 			content: [
 				'./src/**/*.{html,js,ts,svelte}',
 				'./src/styles/**/*.{css,scss,pcss}',
@@ -69,9 +70,9 @@ const config = {
 			],
 			defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
 			safelist: cssSafelist,
-			keyframes: true
-		})
-	]
+			keyframes: true,
+		}),
+	],
 }
 
 module.exports = config

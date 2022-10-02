@@ -30,12 +30,12 @@ const config = {
 	],
 	webServer: {
 		command: 'pnpm serve',
-		port: 9000
+		port: 9000,
 	},
-	testMatch: '**/.*(test|spec)\.(js|ts|mjs)'
-};
+	testMatch: '**/.*(test|spec)\.(js|ts|mjs)',
+}
 
-export default config;
+export default config
 // https://github.com/bmcilw1/technicallyemployed/blob/master/playwright.config.ts
 // https://github.com/frontendista/frontendista.cz/blob/main/apps/frontend-astro/playwright.config.ts
 // https://github.com/calcom/cal.com/blob/main/playwright.config.ts

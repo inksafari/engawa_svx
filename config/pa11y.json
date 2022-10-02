@@ -1,16 +1,14 @@
 {
-	"defaults": {
-		"standard": "WCAG2AAA",
-		"runners": ["axe"],
-		"concurrency": 2,
-		"timeout": 5000
-	},
-	"ignore": [
-	],
-	"urls": [
-		{
-			"url": "",
-			"standard": "WCAG2A"
-		}
-	]
+  "defaults": {
+    "standard": "WCAG2AAA",
+    "runners": ["axe"],
+    "concurrency": 2
+  },
+  "ignore": [],
+  "urls": [
+    {
+      "url": "https://example.com",
+      "standard": "WCAG2A"
+    }
+  ]
 }

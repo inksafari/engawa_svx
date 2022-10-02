@@ -1,6 +1,6 @@
-import { Buffer } from 'node:buffer'
 import { sequence } from '@sveltejs/kit/hooks'
-//import * as htmlMinify from '@minify-html/node'
+import { Buffer } from 'node:buffer'
+// import * as htmlMinify from '@minify-html/node'
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const htmlMinify = require('@minify-html/node')
@@ -32,11 +32,11 @@ const minifyHTML = async ({ event, resolve }) => {
 		let body = await response.text()
 		body = htmlMinify
 			.minify(Buffer.from(body, 'utf8'), minification_options)
-			.toString('utf-8');
+			.toString('utf-8')
 		console.log(`mininfying prerendered request at ${event.url.pathname}...`)
 		return new Response(body, {
 			status: response.status,
-			headers: response.headers
+			headers: response.headers,
 		})
 	}
 	return response

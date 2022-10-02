@@ -1,2 +1,2 @@
 // https://kit.svelte.dev/docs/page-options
-export const prerender = 'auto'
+export const prerender = true

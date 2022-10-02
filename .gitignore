@@ -40,14 +40,16 @@ static/fonts
 .firebase
 firebase-debug.log*
 ui-debug.log*
+.vercel
 
 .firebaserc
 content/
 src/assets
-src/styles
 
-# temp
 .github/styles/*
 !.github/styles/Vocab/Base
+
+# temp
+src/styles
 src/routes/rss.xml/rss.xsl
 stylelintReport.txt

@@ -1,7 +1,7 @@
 // pnpm lint:css > stylelintReport.txt
 
 // lowercase-single-dashed-names-only-0
-const namingPattern = /^-?[a-z0-9]+(-[a-z0-9]+)*$/;
+const namingPattern = /^-?[a-z0-9]+(-[a-z0-9]+)*$/
 // ^[a-z]+([a-z0-9-]+[a-z0-9]+)?$
 // ^[_]?[a-z]+([a-z0-9-]+[a-z0-9]+)?$
 
@@ -17,7 +17,7 @@ module.exports = {
 		'stylelint-csstree-validator',
 		'stylelint-declaration-block-no-ignored-properties',
 		'stylelint-high-performance-animation',
-		'stylelint-no-unsupported-browser-features'
+		'stylelint-no-unsupported-browser-features',
 	],
 	rules: {
 		// general
@@ -26,15 +26,15 @@ module.exports = {
 		'max-empty-lines': [
 			1,
 			{
-				ignore: ['comments']
-			}
+				ignore: ['comments'],
+			},
 		],
 		'max-line-length': [
 			120,
 			{
 				ignore: 'non-comments',
-				ignorePattern: ['/https?://[0-9,a-z]*.*/']
-			}
+				ignorePattern: ['/https?://[0-9,a-z]*.*/'],
+			},
 		],
 		'at-rule-empty-line-before': [
 			'always',
@@ -43,33 +43,33 @@ module.exports = {
 					'blockless-after-same-name-blockless',
 				],
 				ignore: ['first-nested'],
-				ignoreAtRules: ['else', '@use']
-			}
+				ignoreAtRules: ['else', '@use'],
+			},
 		],
 		'rule-empty-line-before': [
 			'always-multi-line',
 			{
 				except: ['first-nested'],
-				ignore: ['after-comment']
-			}
+				ignore: ['after-comment'],
+			},
 		],
 		'comment-empty-line-before': [
 			'always',
 			{
-				except: ['first-nested']
-			}
+				except: ['first-nested'],
+			},
 		],
 		//
 		'at-rule-disallowed-list': [
 			['extend', 'import'],
 			{
 				severity: 'error',
-				message: 'Prefer @use and @forward rather than @import.'
-			}
+				message: 'Prefer @use and @forward rather than @import.',
+			},
 		],
 		'declaration-property-value-disallowed-list': {
 			'/^animation/': ['ease'],
-			cursor: ['hand']
+			cursor: ['hand'],
 		},
 		'function-url-scheme-disallowed-list': ['/^\\./', '/^\\.\\.\\/\\.\\./', 'ftp'],
 		'unit-no-unknown': null,
@@ -77,14 +77,15 @@ module.exports = {
 			'lower',
 			{
 				ignoreFunctions: ['optimizeLegibility'],
-				camelCaseSvgKeywords: true
-			}
+				camelCaseSvgKeywords: true,
+			},
 		],
 		// selector specificity and nesting
 		'selector-max-specificity': '0,4,1', /* id,class,type */
 		'selector-max-compound-selectors': 4,
 		'max-nesting-depth': [
-			3, {
+			3,
+			{
 				ignore: ['blockless-at-rules', 'pseudo-classes'],
 				ignoreAtRules: [
 					'each',
@@ -92,23 +93,23 @@ module.exports = {
 					'if',
 					'include',
 					'media',
-					'supports'
-				]
-			}
+					'supports',
+				],
+			},
 		],
 		'no-descending-specificity': true,
 		'selector-class-pattern': null,
 		'selector-id-pattern': namingPattern,
 		'selector-max-id': null,
 		'selector-no-qualifying-type': null,
-		'selector-no-vendor-prefix': [ true, {
-			ignoreSelectors: ['::-webkit-input-placeholder']
+		'selector-no-vendor-prefix': [true, {
+			ignoreSelectors: ['::-webkit-input-placeholder'],
 		}],
-		'selector-pseudo-class-no-unknown': [ true, {
-			ignorePseudoClasses: ['global']
+		'selector-pseudo-class-no-unknown': [true, {
+			ignorePseudoClasses: ['global'],
 		}],
-		'selector-type-no-unknown': [ true, {
-			ignore: ['custom-elements', 'default-namespace']
+		'selector-type-no-unknown': [true, {
+			ignore: ['custom-elements', 'default-namespace'],
 		}],
 		// colors
 		'alpha-value-notation': null,
@@ -118,13 +119,13 @@ module.exports = {
 		// rules from plugins
 		'csstree/validator': {
 			syntaxExtensions: ['sass'],
-			ignoreProperties: ['backface-visibility', 'margin', 'orphans', 'widows']
+			ignoreProperties: ['backface-visibility', 'margin', 'orphans', 'widows'],
 		},
 		'plugin/declaration-block-no-ignored-properties': true,
-		'plugin/no-low-performance-animation-properties': [ true, {
-			ignore: 'paint-properties'
+		'plugin/no-low-performance-animation-properties': [true, {
+			ignore: 'paint-properties',
 		}],
-		'plugin/no-unsupported-browser-features': [ true, {
+		'plugin/no-unsupported-browser-features': [true, {
 			severity: 'warning',
 			ignore: [
 				'rem',
@@ -157,12 +158,12 @@ module.exports = {
 	},
 	overrides: [
 		// {
-			// files: ['**/*.svelte'],
-			// customSyntax: 'postcss-html',
-			// extends: [
-				// https://github.com/stylelint/stylelint/issues/5685
-				// 'stylelint-config-html/svelte'
-			// ],
+		// files: ['**/*.svelte'],
+		// customSyntax: 'postcss-html',
+		// extends: [
+		// https://github.com/stylelint/stylelint/issues/5685
+		// 'stylelint-config-html/svelte'
+		// ],
 		// },
 	],
 	defaultSeverity: 'error',
@@ -170,8 +171,8 @@ module.exports = {
 		'**/node_modules/**',
 		'build/**',
 		'src/assets/**',
-		'**/reset*.css'
-	]
+		'**/reset*.css',
+	],
 }
 // @links
 // https://github.com/anolilab/javascript-style-guide/tree/main/packages/stylelint-config

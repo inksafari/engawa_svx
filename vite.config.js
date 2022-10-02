@@ -24,13 +24,13 @@ const dev = mode === 'development'
 
 const prependScssFiles = [
 	'@use "src/styles/func.scss" as *;',
-	'@use "src/styles/tokens.scss" as *;'
+	'@use "src/styles/tokens.scss" as *;',
 ].join(' ')
 
 const aliasList = [
 	{ name: '#components', path: './src/lib/components' },
 	{ name: '#styles', path: './src/styles' },
-	{ name: '#utils', path: './src/lib/utils' }
+	{ name: '#utils', path: './src/lib/utils' },
 ]
 
 /** @type {import('vite').UserConfig} */
@@ -38,11 +38,18 @@ const config = defineConfig({
 	mode: process.env.mode || 'production',
 	define: {
 		'process.env.VITE_BUILD_TIME': JSON.stringify(new Date().toISOString()),
-		__PROJECT_ROOT__: JSON.stringify(path.dirname(fileURLToPath(import.meta.url)))
+		__PROJECT_ROOT__: JSON.stringify(path.dirname(fileURLToPath(import.meta.url))),
 	},
 	resolve: {
 		// alias: { '#': fileURLToPath(new URL('./src', import.meta.url)) }
-		alias: Object.fromEntries(aliasList.map(alias => [alias.name, path.resolve(alias.path)]))
+		alias: Object.fromEntries(aliasList.map(alias => [alias.name, path.resolve(alias.path)])),
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: undefined,
+			},
+		},
 	},
 	// css: { preprocessorOptions: { scss: { additionalData: prependScssFiles } } },
 	server: {
@@ -52,28 +59,33 @@ const config = defineConfig({
 			// Allow serving files from one level up to the project root
 			allow: ['..'],
 		},
+		hmr: {
+			overlay: false,
+		},
 	},
 	preview: {
-		port: 9000
+		port: 9000,
 	},
 	optimizeDeps: {
 		include: [
 			'@akebifiky/remark-simple-plantuml',
+			'@rive-app/canvas',
 			'date-fns',
 			'hastscript',
+			'lunarphase-js',
 			'rehype-add-classes',
 			'rehype-slug',
-			'shiki-twoslash'
-		]
+			'shiki-twoslash',
+		],
 	},
 	ssr: {
-		noExternal: ['three']
+		noExternal: ['three'],
 	},
 	plugins: [
 		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
 		dev && genImageSizePlugin,
 		sveltekit(),
-	]
+	],
 })
 
 // Add certificate if it's generated
@@ -83,8 +95,8 @@ if (fs.existsSync('localhost-key.pem') && fs.existsSync('localhost.pem')) {
 	config.server = {
 		https: {
 			key: fs.readFileSync('localhost-key.pem'),
-			cert: fs.readFileSync('localhost.pem')
-		}
+			cert: fs.readFileSync('localhost.pem'),
+		},
 	}
 }
 

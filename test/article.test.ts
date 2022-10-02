@@ -1,7 +1,7 @@
 import outdent from 'outdent'
 import { describe, expect, test } from 'vitest'
-import { extractMeta } from './../src/lib/utils/test-utils'
 import { type ArticleMeta } from './../src/lib/model/post'
+import { extractMeta } from './../src/lib/utils/test-utils'
 
 describe('extractMeta()', () => {
 	test('Basic', () => {

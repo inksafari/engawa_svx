@@ -1,10 +1,10 @@
-import { defineConfig } from 'vitest/config'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from 'vitest/config'
 
 /** @type {import('vitest').UserConfig} */
 const config = defineConfig({
 	plugins: [
-		svelte({ hot: !process.env.VITEST })
+		svelte({ hot: !process.env.VITEST }),
 	],
 	test: {
 		globals: true,
@@ -17,13 +17,13 @@ const config = defineConfig({
 			lines: 90,
 		},
 		deps: {
-			inline: [/outdent/]
+			inline: [/outdent/],
 		},
 		includeSource: [
 			'**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
 			'**/{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
 		],
-	}
+	},
 })
 
 export default config

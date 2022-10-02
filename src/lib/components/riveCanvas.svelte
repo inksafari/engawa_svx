@@ -6,8 +6,8 @@
 	import { onMount } from 'svelte';
 	import { Rive } from '@rive-app/canvas';
 	export let source;
-	export let canvasWidth = 320;
-	export let canvasHeight = 320;
+	export let canvasWidth = 150;
+	export let canvasHeight = 150;
 	let rive, canvas;
 
 	onMount(async () => {

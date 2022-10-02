@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    //"extends": "@tsconfig/svelte/tsconfig.json",
+    // "extends": "@tsconfig/svelte/tsconfig.json",
     "baseUrl": "..",
     "types": ["@sveltejs/kit", "svelte", "node"],
     "importsNotUsedAsValues": "error",
@@ -20,7 +20,7 @@
     "checkJs": true,
     "paths": {
       "$lib": ["src/lib"],
-      "$lib/*": ["src/lib/*"],
+      "$lib/*": ["src/lib/*"]
     },
     "typeRoots": [
       "../src/app.d.ts"

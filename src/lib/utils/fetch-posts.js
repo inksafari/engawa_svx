@@ -1,9 +1,9 @@
 import { parse } from 'path'
-//import { stat } from 'fs/promises'
-//import {
-//	find,
-//	pipe,
-//} from '@fxts/core'
+// import { stat } from 'fs/promises'
+import {
+	find,
+	pipe,
+} from '@fxts/core'
 
 const fetchPosts = async () => {
 	const svxPosts = import.meta.glob('/content/*.md') // '', { import: 'metadata', eager: true }
@@ -12,10 +12,10 @@ const fetchPosts = async () => {
 		iterableFiles.map(async ([filePath, page]) => {
 			const {
 				// default: { render },
-				metadata
+				metadata,
 			} = await page()
-			//const content = render().html
-			//const mtime = (await stat(filePath)).mtime
+			// const content = render().html
+			// const mtime = (await stat(filePath)).mtime
 			const slug = `${parse(filePath).name}` // or filePath.split('/').pop().slice(0, -3) or filePath.split('/').pop().split('.').shift()
 			// eslint-disable-next-line
 			return { ...metadata, slug }
@@ -29,13 +29,13 @@ const fetchPosts = async () => {
 	return sortedPosts
 }
 
-//const fetchPost = async (slug) =>
-//	pipe(
-//		fetchPosts(),
-//		find((post) => slug === post.slug),
-//	)
+const fetchPost = async (slug) =>
+	pipe(
+		fetchPosts(),
+		find((post) => slug === post.slug),
+	)
 
-export { fetchPosts }
+export { fetchPosts, fetchPost }
 
 // Adapted from
 // https://github.com/croccifixio/blog/blob/main/src/lib/utils/blog.js

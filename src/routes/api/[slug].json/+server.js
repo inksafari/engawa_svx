@@ -1,26 +1,26 @@
 export const prerender = 'auto'
-export const ssr = false
+
 import { error } from '@sveltejs/kit'
-//import { fetchPost } from '$lib/utils/fetch-posts'
+// import { fetchPost } from '$lib/utils/fetch-posts'
 import { process } from '$lib/utils/fetch-content'
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function GET ({ params }) {
+export async function GET({ params }) {
 	try {
 		const slug = params.slug
 		// wo/ content
-		//const post = await fetchPost(slug)
+		// const post = await fetchPost(slug)
 		const { metadata, file } = await process(`content/${slug}.md`)
 		const post = {
 			title: metadata.title,
 			date: metadata.date,
 			updatedOn: metadata.updatedOn,
 			slug: file.slug,
-			content: file.parsedHTML
+			content: file.parsedHTML,
 		}
 		const headers = {
 			'Cache-Control': `max-age=0, s-max-age=${600}`,
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
 		}
 		return new Response(JSON.stringify(post), { headers: headers })
 	} catch (err) {

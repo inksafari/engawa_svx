@@ -1,3 +1,4 @@
+# https://github.com/get-alex/alex
 allow:
   - simple
   - special
@@ -6,5 +7,3 @@ allow:
   - her-him
   - herself-himself
   - obvious
-# TODO: vale
-# https://bhupesh.me/writing-like-a-pro-with-vale-and-neovim/

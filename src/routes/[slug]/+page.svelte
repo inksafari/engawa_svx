@@ -2,13 +2,18 @@
 	Renders the post at domain.tld/[slug]
 -->
 <script>
+	import { browser } from '$app/environment'
 	import { getContext } from 'svelte'
 	import { afterNavigate } from '$app/navigation'
 	import { FormattedDate, Year } from '$lib/components'
 	import { Moon, Hemisphere } from 'lunarphase-js'
 	import IntersectionObserver from 'svelte-intersection-observer'
+	import lazyload from 'vanilla-lazyload'
 	import './../../styles/app_layout.scss'
 
+	if (browser && !document.lazyloadInstance) {
+		document.lazyloadInstance = new lazyload()
+	}
 	const site = getContext('site')
 	export let data, element, intersecting
 	const { title, date, updatedOn, prev, next } = data.metadata

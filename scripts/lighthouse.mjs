@@ -9,15 +9,15 @@ const options = {
 		'--show-paint-rects',
 		'--no-sandbox',
 		'--disable-setuid-sandbox',
-		'--ignore-certificate-errors'
-	]
+		'--ignore-certificate-errors',
+	],
 }
 
-export function createBrowser () {
+export function createBrowser() {
 	return puppeteer.launch(options)
 }
 
-export function createReportWithBrowser (browser, url, options = { output: 'html' }) {
+export function createReportWithBrowser(browser, url, options = { output: 'html' }) {
 	const endpoint = browser.wsEndpoint()
 	const endpointUrl = new URL(endpoint)
 

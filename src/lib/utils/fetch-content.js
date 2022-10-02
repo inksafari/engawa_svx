@@ -1,18 +1,13 @@
 import { readFileSync } from 'fs'
-import { basename, extname } from 'path'
 import { compile } from 'mdsvex'
+import { basename, extname } from 'path'
 // https://mdsvex.pngwn.io/docs#options
-//import options from '../../../config/mdsvex.config'
-// or
-//const options = {
-//	remarkPlugins: [remarkBreaks]
-//}
+import options from '../../../config/mdsvex.config'
 
-export async function process (filePath) {
+export async function process(filePath) {
 	const content = readFileSync(filePath, { encoding: 'utf-8' })
 
-	//const { code, data } = await compile(content, options)
-	const { code, data } = await compile(content)
+	const { code, data } = await compile(content, options)
 	const filename = basename(filePath, extname(filePath))
 	const parsedHTML = code
 		.replace(/<script.*>.*<\/script>/ims, '') // remove the tag script
@@ -22,8 +17,8 @@ export async function process (filePath) {
 		metadata: data.fm,
 		file: {
 			slug: filename,
-			parsedHTML
-		}
+			parsedHTML,
+		},
 	}
 }
 // @credit
