@@ -1,5 +1,4 @@
 /// <reference types="@sveltejs/kit" />
-/// <reference types="vite/client" />
 /// <reference types="mdsvex/globals" />
 /// <reference types="vitest" />
 

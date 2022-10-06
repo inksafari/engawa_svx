@@ -6,6 +6,7 @@ import { defineConfig } from 'vite'
 // -- vite plugins --
 import { sveltekit } from '@sveltejs/kit/vite'
 import { generateImageSizes } from 'rollup-plugin-generate-image-sizes'
+
 export const genImageSizePlugin = generateImageSizes({
 	hook: 'buildStart',
 	dir: './static/images',
@@ -19,8 +20,8 @@ export const genImageSizePlugin = generateImageSizes({
 })
 
 // env
-const mode = process.env.NODE_ENV
-const dev = mode === 'development'
+const isDev = process.env.NODE_ENV !== 'production'
+const isProd = process.env.NODE_ENV === 'production'
 
 const prependScssFiles = [
 	'@use "src/styles/func.scss" as *;',
@@ -55,6 +56,7 @@ const config = defineConfig({
 	server: {
 		port: 3000,
 		open: true,
+		strictPort: false,
 		fs: {
 			// Allow serving files from one level up to the project root
 			allow: ['..'],
@@ -65,6 +67,7 @@ const config = defineConfig({
 	},
 	preview: {
 		port: 9000,
+		strictPort: false,
 	},
 	optimizeDeps: {
 		include: [
@@ -83,7 +86,7 @@ const config = defineConfig({
 	},
 	plugins: [
 		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
-		dev && genImageSizePlugin,
+		isDev && genImageSizePlugin,
 		sveltekit(),
 	],
 })

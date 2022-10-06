@@ -1,7 +1,7 @@
 export const prerender = true
+import site from '$lib/site.js'
 import { fetchPosts } from '$lib/utils/fetch-posts'
 import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
-import site from '../../site.js'
 
 // TODO: rss.xsl
 // <?xml-stylesheet href="/rss.xsl" type="text/xsl" media="screen" ?>

@@ -44,3 +44,4 @@ CMD ["pnpm", "build:preview"]
 # https://github.com/janoamaral/personal-blog-v2/blob/master/Dockerfile
 # https://qiita.com/mojatter/items/d431e933d7c34ba76872
 # https://github.com/SouthwestKoala/southwestkoala.co.uk/blob/main/apps/web/Dockerfile
+# https://github.com/pnpm/pnpm/issues/4378#issuecomment-1211225991

@@ -61,10 +61,12 @@ All commands are run from the root of the project, from a terminal:
 
 ## Customize configuration
 
-- [app.html](https://github.com/inksafari/engawa/blob/main/src/app.html)
-- [site.js](https://github.com/inksafari/engawa/blob/main/src/site.js)
-- [rss.xml.js](https://github.com/inksafari/engawa/blob/main/src/routes/rss.xml.js)( language & description )
-- [slug.svelte](https://github.com/inksafari/engawa/blob/main/src/routes/%5Bslug%5D.svelte)( year )
+- [.env](sample.env)
+- [app.html](src/app.html)
+- [site.js](src/lib/site.js)
+- [rss.xml.js](src/routes/rss.xml/%2Bserver.js)( language & description )
+- [slug.svelte](src/routes/%5Bslug%5D/%2Bpage.svelte)( year )
+  - [year.svelte](src/lib/components/year.svelte)
 
 ### Frontmatter
 
@@ -85,9 +87,25 @@ next: bar
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+### Environment variables
+
+In `.env`
+
+```ini
+PUBLIC_DOMAIN="example.com"
+PUBLIC_SITE_URL="https://example.com"
+
+# Sentry
+PUBLIC_SENTRY_KEY="123456"
+PUBLIC_SENTRY_ORG_ID="9876543"
+PUBLIC_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Tech stack
 
-- **Framework**: [SvelteKit][svelte-url]
+- **Framework**: [SvelteKit][svelte-url] ( [Changelog][SvelteKit-Changelog-url] )
 - **Styling**: [Dart Sass](https://sass-lang.com/), [Open Props](https://open-props.style/) and [PostCSS](https://postcss.org/)
 - **Content**: Plain text files w/ [MDsveX](https://mdsvex.pngwn.io/docs)(markdown preprocessor)
 - **Code syntax highlighter**: [Shiki](https://shikijs.github.io/twoslash/)
@@ -97,16 +115,16 @@ next: bar
   - [Iansui](https://github.com/ButTaiwan/iansui)
   - [Lotion](https://font.nina.coffee/) by nina belikova
 - **Linting & Formatting**:
-  - accessibility: [Pa11y CI](https://github.com/pa11y/pa11y-ci)( [configuration](config/pa11y.json) )
-  - credentials: [Secretlint](https://github.com/secretlint/secretlint)( [configuration](.secretlintrc.js) )
+  - accessibility: [Pa11y CI](https://github.com/pa11y/pa11y-ci) ( [configuration](config/pa11y.json) )
+  - credentials: [Secretlint](https://github.com/secretlint/secretlint) ( [configuration](.secretlintrc.js) )
   - plain text files:
-    - [Vale](https://vale.sh/)( [configuration](.vale.ini) )
-      - [Alex](https://github.com/get-alex/alex)( [configuration](.alexrc.yml) )
+    - [Vale](https://vale.sh/) ( [configuration](.vale.ini) )
+      - [Alex](https://github.com/get-alex/alex) ( [configuration](.alexrc.yml) )
   - programming languages:
-    - [CSpell](https://cspell.org/)( [configuration](cspell.json) )
-    - [dprint](https://dprint.dev/)( [configuration](config/dprint.json) )
-    - CSS / SCSS: [Stylelint](https://stylelint.io/)( [configuration](config/stylelint.config.cjs) )
-    - JavaScript / TypeScript: [ESLint](https://eslint.org/)( [configuration](.eslintrc.cjs) )
+    - [CSpell](https://cspell.org/) ( [configuration](cspell.json) )
+    - [dprint](https://dprint.dev/) ( [configuration](config/dprint.json) )
+    - CSS / SCSS: [Stylelint](https://stylelint.io/) ( [configuration](config/stylelint.config.cjs) )
+    - JavaScript / TypeScript: [ESLint](https://eslint.org/) ( [configuration](.eslintrc.cjs) )
     - Svelte: [svelte-check](https://www.npmjs.com/package/svelte-check)
 
 <!-- codespell -->
@@ -155,6 +173,7 @@ This project is licensed under the Beerware License, but all contents copyright 
 
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev
+[SvelteKit-Changelog-url]: https://github.com/sveltejs/kit#packages
 [activity-badge]: https://img.shields.io/github/commit-activity/m/inksafari/engawa.svg?style=for-the-badge&logo=github&labelColor=111b27&color=%2300a8ff
 [activity]: https://github.com/inksafari/engawa/graphs/commit-activity
 [last-commit-badge]: https://img.shields.io/github/last-commit/inksafari/engawa/main.svg?style=for-the-badge&logo=github&labelColor=111b27
@@ -166,7 +185,6 @@ This project is licensed under the Beerware License, but all contents copyright 
 [tloc-badge]: https://tokei.rs/b1/github/inksafari/engawa
 [hosting-badge]: https://img.shields.io/badge/Cloud-Firebase_Hosting-informational?style=for-the-badge&logo=firebase&labelColor=111b27&logoColor=white&color=ffcb2b
 [hosting-url]: https://firebase.google.com/
-
 
 <!--
 &logoColor=ff3860 ff859d

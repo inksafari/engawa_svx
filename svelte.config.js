@@ -6,6 +6,7 @@ import { typescript } from 'svelte-preprocess-esbuild'
 import { sveltePreprocess } from 'svelte-preprocess/dist/autoProcess.js'
 // -- Configuration --
 // import tsConfigFile from './config/tsconfig.dev.json'
+// import cspDirectives from './config/_csp-policy.js'
 import mdsvexConfig from './config/mdsvex.config.js'
 
 const prependScssFiles = [
@@ -31,6 +32,7 @@ const preprocessSVX = [
 	mdsvex(mdsvexConfig),
 ]
 
+/* https://kit.svelte.dev/docs/configuration */
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
@@ -45,15 +47,14 @@ const config = {
 			fallback: 'api/[slug].json',
 			precompress: false,
 		}),
-		trailingSlash: 'never',
 		inlineStyleThreshold: 1024 * 1024,
-		// TODO: canvas
 		// csp: {
-		// 	mode: 'auto',
-		// 	directives: {
-		// 		'script-src': ['self']
-		// 	}
+		// 	mode: 'hash',
+		// 	directives: cspDirectives,
 		// },
+		csrf: {
+			checkOrigin: true,
+		},
 		serviceWorker: {
 			register: false,
 		},

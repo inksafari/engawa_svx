@@ -1,6 +1,10 @@
+import * as dotenv from 'dotenv'
+dotenv.config()
+
 const site = {
 	title: 'Afterglow',
-	baseUrl: 'example.net',
+	siteUrl: process.env.PUBLIC_SITE_URL,
+	baseUrl: process.env.PUBLIC_DOMAIN,
 	blogPath: '',
 	description: 'The personal blog of @inksafari.',
 	keywords: ['personal', 'blog'].join(',').toLowerCase(),

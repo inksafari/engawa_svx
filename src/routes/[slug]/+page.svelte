@@ -9,7 +9,6 @@
 	import { Moon, Hemisphere } from 'lunarphase-js'
 	import IntersectionObserver from 'svelte-intersection-observer'
 	import lazyload from 'vanilla-lazyload'
-	import './../../styles/app_layout.scss'
 
 	if (browser && !document.lazyloadInstance) {
 		document.lazyloadInstance = new lazyload()

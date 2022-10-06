@@ -9,5 +9,7 @@
 		document.lazyloadInstance = new lazyload()
 	}
 </script>
-
 <slot />
+<style lang="scss" global>
+	@import "../../styles/app_layout.scss"
+</style>

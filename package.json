@@ -22,7 +22,6 @@
     "clear": "rm -rf .svelte-kit build cdk.out && rm -f content/images-manifest.json",
     "cjk": "sh ./fontSubset.sh",
     "dev": "run-s clear postinstall dev:site",
-    "dev:debug": "node --inspect node_modules/.bin/vite dev",
     "dev:site": "vite dev --host",
     "===== linting & formatting =====": "",
     "count": "find content/ | grep '[.]md' | xargs wc -w",
@@ -52,20 +51,20 @@
     "build:lens": "lens add --store content/imagemeta.json",
     "build:styles:print": "sass src/styles/print.scss static/print.css --no-source-map --style=compressed",
     "build": "run-s clear postinstall build:site",
-    "build:site": "cross-env NODE_ENV=production vite build",
-    "build:debug": "node --inspect node_modules/.bin/vite build",
+    "build:site": "vite build",
     "build:preview": "vite preview --host",
     "serve": "run-s clear postinstall build:site build:preview",
     "===== deployment =====": "",
     "package": "svelte-kit package",
-    "deploy": "run-s cjk build deploy:firebase",
+    "notify:sitemap": "curl http://www.google.com/ping?sitemap=https://example.com/sitemap.xml",
+    "df": "run-s build deploy:firebase",
     "deploy:firebase": "firebase deploy --only hosting",
     "deploy:local": "firebase emulators:start",
     "deploy:stage": "firebase hosting:channel:deploy tel --expires 1h"
   },
   "dependencies": {
     "@rive-app/canvas": "^1.0.86",
-    "@sveltejs/kit": "1.0.0-next.507",
+    "@sveltejs/kit": "1.0.0-next.510",
     "date-fns": "^2.29.3"
   },
   "devDependencies": {
@@ -96,10 +95,9 @@
     "@vitest/ui": "^0.2.8",
     "@xmldom/xmldom": "^0.8.2",
     "autoprefixer": "^10.4.12",
-    "cross-env": "^7.0.3",
     "cssnano": "^5.1.13",
     "cssnano-preset-advanced": "^5.3.8",
-    "dotenv": "^14.3.2",
+    "dotenv": "^16.0.3",
     "esbuild": "^0.14.54",
     "eslint": "^8.24.0",
     "eslint-plugin-import": "^2.26.0",
@@ -122,7 +120,6 @@
     "mdsvex": "^0.10.6",
     "mdsvex-relative-images": "^1.0.2",
     "medium-zoom": "^1.0.6",
-    "memoizee": "^0.4.15",
     "npm-run-all": "^4.1.5",
     "open-props": "^1.4.16",
     "outdent": "^0.8.0",
@@ -173,9 +170,9 @@
     "node": ">=16.14"
   },
   "volta": {
-    "node": "18.9.0"
+    "node": "18.10.0"
   },
-  "packageManager": "pnpm@7.9.5",
+  "packageManager": "pnpm@7.12.2",
   "browserslist": [
     "> 5% in alt-AS",
     "last 2 major versions and supports es6-module",

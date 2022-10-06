@@ -2,10 +2,10 @@
 // https://github.com/shikijs/shiki
 import { lex, parse as parseFence } from 'fenceparser'
 import { escapeSvelte } from 'mdsvex'
-//import { createRequire } from 'module'
+// import { createRequire } from 'module'
 import { createShikiHighlighter, renderCodeToHTML, runTwoSlash } from 'shiki-twoslash'
-//const require = createRequire(import.meta.url)
-//const shikiTheme = require('./ayu-light.json')
+// const require = createRequire(import.meta.url)
+// const shikiTheme = require('./ayu-light.json')
 // https://github.com/shikijs/shiki/blob/main/docs/themes.md
 const shikiTheme = 'github-light'
 

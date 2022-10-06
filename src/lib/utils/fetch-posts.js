@@ -1,9 +1,6 @@
 import { parse } from 'path'
 // import { stat } from 'fs/promises'
-import {
-	find,
-	pipe,
-} from '@fxts/core'
+import { find, pipe } from '@fxts/core'
 
 const fetchPosts = async () => {
 	const svxPosts = import.meta.glob('/content/*.md') // '', { import: 'metadata', eager: true }
@@ -29,13 +26,13 @@ const fetchPosts = async () => {
 	return sortedPosts
 }
 
-const fetchPost = async (slug) =>
+const fetchPost = async slug =>
 	pipe(
 		fetchPosts(),
-		find((post) => slug === post.slug),
+		find(post => slug === post.slug)
 	)
 
-export { fetchPosts, fetchPost }
+export { fetchPost, fetchPosts }
 
 // Adapted from
 // https://github.com/croccifixio/blog/blob/main/src/lib/utils/blog.js
