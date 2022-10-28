@@ -23,10 +23,19 @@
       "$lib/*": ["src/lib/*"]
     },
     "typeRoots": [
-      "../src/app.d.ts"
+      "../src/app.d.ts",
+      "../src/env.d.ts",
+      "../src/lib/model/post.ts"
     ]
   },
   "references": [{ "path": "./tsconfig.node.json" }],
-  "include": ["../src/**/*.d.ts", "../src/**/*.ts?(x)", "../src/**/*.js", "../src/**/*.svelte"],
+  "include": [
+    "../**/*.js",
+    "../**/*.ts",
+    "../src/**/*.d.ts",
+    "../src/**/*.ts?(x)",
+    "../src/**/*.js",
+    "../src/**/*.svelte"
+  ],
   "exclude": ["../node_modules", "../build", "../scripts/*", "../**/__tests__/*"]
 }

@@ -9,11 +9,10 @@ const autoprefixer = require('autoprefixer')
 const presetEnv = require('postcss-preset-env')
 const cssnano = require('cssnano')
 const purgecss = require('@fullhuman/postcss-purgecss')
-const trigger = require('postcss-fail-on-warn')
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
-const cssSafelist = {
+const purgeSafelist = {
 	/* https://github.com/juzerzarif/juzerzarif.com/blob/main/postcss.config.cjs */
 	standard: [
 		/^(?!.*animate__[a-zA-Z]+).*/,
@@ -46,7 +45,6 @@ const config = {
 			cascade: false,
 			grid: false,
 		}),
-		trigger(),
 		!dev
 		&& cssnano({
 			autoprefixer: false,
@@ -69,7 +67,7 @@ const config = {
 				'**/*.svg',
 			],
 			defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-			safelist: cssSafelist,
+			safelist: purgeSafelist,
 			keyframes: true,
 		}),
 	],

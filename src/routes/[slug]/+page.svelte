@@ -35,63 +35,70 @@
 		<link rel="dns-prefetch" href="https://res.cloudinary.com">
 	-->
 </svelte:head>
-<div class="container" bind:this={el}>
-	<div id="entry">
-		<!-- TITLE -->
-		<div class="entry-header is-huge">
-			<IntersectionObserver {element} bind:intersecting>
-				<h1 class="headline" bind:this={element}>{title}</h1>
-			</IntersectionObserver>
-		</div>
+<main id="main">
+	<article id="entry">
+		<header class="mdx-header">
+			<div class="mdx-page-container entry-header is-huge">
+				<!-- TITLE -->
+				<IntersectionObserver {element} bind:intersecting>
+					<h1 class="title headline" bind:this={element}>{title}</h1>
+				</IntersectionObserver>
+			</div>
+		</header>
 		<!-- META -->
-		<dl class="entry-details">
-			<div>
-				<dt>Published at</dt>
-				<dd>
-					<FormattedDate dateAttr="datePublished" dateString={date} />
-				</dd>
-			</div>
-			{#if updatedOn}
-			<div>
-				<dt>Updated at</dt>
-				<dd>
-					<FormattedDate dateAttr="dateUpdated" dateString={updatedOn} />
-				</dd>
-			</div>
-			{/if}
-			<!-- TODO: 縮減間隔 -->
-			<div>
-				<dt>Moon</dt>
-				<dd>
-					{moonEmoji}
-				</dd>
-			</div>
-		</dl>
+		<div class="prose generated-content mdx-wrapper mdx">
+			<dl class="entry-details">
+				<div>
+					<dt>Published at</dt>
+					<dd>
+						<FormattedDate dateAttr="datePublished" dateString={date} />
+					</dd>
+				</div>
+				{#if updatedOn}
+				<div>
+					<dt>Updated at</dt>
+					<dd>
+						<FormattedDate dateAttr="dateUpdated" dateString={updatedOn} />
+					</dd>
+				</div>
+				{/if}
+				<div>
+					<dt>Moon</dt>
+					<dd>
+						{moonEmoji}
+					</dd>
+				</div>
+			</dl>
+		</div>
 		<!-- Content -->
-		<div class="prose generated-content" aria-label="Content">
+		<div class="prose generated-content mdx-wrapper mdx" aria-label="Content" bind:this={el}>
 			<svelte:component this={content} /> <!-- {@html content} -->
 		</div>
 		<!-- Pagination -->
-		{#if prev || next}
-		<div class="post-footer">
-			<nav class="page-pagination" aria-labelledby="page-pagination">
-				<span class="screen-reader-text">This post is part of a series.</span>
-				{#if prev}
-				<span class="prev stack">
-					<a rel="prev" sveltekit:reload href=https://{site.baseUrl}/{prev}>&laquo; PREVIOUS ARTICLE</a>
-				</span>
-				{/if}
-				{#if next}
-				<span class="next stack">
-					<a rel="next" sveltekit:reload href=https://{site.baseUrl}/{next}>NEXT ARTICLE &raquo;</a>
-				</span>
-				{/if}
-			</nav>
+		<div class="prose generated-content mdx-wrapper mdx">
+			{#if prev || next}
+			<div class="post-footer">
+				<nav class="page-pagination" aria-labelledby="page-pagination">
+					<span class="screen-reader-text">This post is part of a series.</span>
+					{#if prev}
+					<span class="prev stack">
+						<a rel="prev" data-sveltekit-reload href=https://{site.baseUrl}/{prev}>&laquo; PREV</a>
+					</span>
+					{/if}
+					{#if next}
+					<span class="next stack">
+						<a rel="next" data-sveltekit-reload href=https://{site.baseUrl}/{next}>NEXT &raquo;</a>
+					</span>
+					{/if}
+				</nav>
+			</div>
+			{/if}
 		</div>
-		{/if}
-	</div>
-	<!-- footer -->
-	<footer id="colophon" class="site-footer">
+	</article>
+</main>
+<!-- footer -->
+<footer id="colophon" class="site-footer">
+	<div class="container">
 		<p>&#169; <Year from={2022} /> <a href='/'>{site.baseUrl}</a>.</p>
-	</footer>
-</div>
+	</div>
+</footer>

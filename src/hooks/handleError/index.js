@@ -6,6 +6,6 @@ export const handleError = async ({ event, error }) => {
 
 	// method 2 ( for Cloudflare Workers):
 	// https://github.com/pzuraq/pzuraq.com/blob/main/src/hooks.ts
-	console.log('ERROR')
+	console.error('ERROR')
 	event.locals.sentry?.captureException(error)
 }

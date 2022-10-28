@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "src/routes"
+		},
+		{
+			"path": "src/styles"
+		},
+		{
+			"path": "src/lib/components"
+		},
+		{
+			"path": "src/lib/utils"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"titleBar.activeForeground": "#FF8A4F",
+			"statusBar.background": "#243B4A",
+			"statusBar.foreground": "#82F9A1",
+			"activityBar.foreground": "#E6A5C4"
+		},
+		"editor.tabCompletion": "on",
+		"eslint.workingDirectories": [
+				"src", "plugins"
+		],
+		"js/ts.implicitProjectConfig.strictFunctionTypes": false,
+		"js/ts.implicitProjectConfig.strictNullChecks": false,
+		"js/ts.implicitProjectConfig.checkJs": false
+	}
+}

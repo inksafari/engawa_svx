@@ -29,16 +29,17 @@
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org) >=16.9 or later
-- [pnpm](https://pnpm.io/)(optional, although strongly recommended)
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org) >=16.14 or later
+- [pnpm](https://pnpm.io/) (optional, although strongly recommended)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Installation
+### for fontSubset.sh
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep) (Rust) & [fonttools](https://github.com/fonttools/fonttools) (Python)
 
-```
+```sh
 # for CJK users (macOS/Homebrew)
 brew install ripgrep
 pip3 install fonttools brotli zopfli unicodedata2
@@ -46,16 +47,33 @@ pip3 install fonttools brotli zopfli unicodedata2
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Installation
+
+To clone it and get started:
+
+```sh
+git clone --depth=1 git@github.com:inksafari/engawa.git
+cd engawa
+npm install
+npm run dev
+```
+
+Open up [localhost:3000](http://localhost:3000) and start clicking around.
+
+Consult [kit.svelte.dev][svelte-url] for help getting started.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Available Scripts
 
 All commands are run from the root of the project, from a terminal:
 
-| Command        | Action                                       |
-| :------------- | :------------------------------------------- |
-| `pnpm install` | Installs dependencies                        |
-| `pnpm dev`     | Starts local dev server at `localhost:3000`  |
-| `pnpm build`   | Build your production site to `./build/`     |
-| `pnpm serve`   | Preview your build locally, before deploying |
+| Command         | Action                                       |
+| :-------------- | :------------------------------------------- |
+| `npm install`   | Installs dependencies                        |
+| `npm run dev`   | Starts local dev server at `localhost:3000`  |
+| `npm run build` | Build your production site to `./build/`     |
+| `npm run serve` | Preview your build locally, before deploying |
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -64,15 +82,15 @@ All commands are run from the root of the project, from a terminal:
 - [.env](sample.env)
 - [app.html](src/app.html)
 - [site.js](src/lib/site.js)
-- [rss.xml.js](src/routes/rss.xml/%2Bserver.js)( language & description )
-- [slug.svelte](src/routes/%5Bslug%5D/%2Bpage.svelte)( year )
+- [rss.xml.js](src/routes/rss.xml/%2Bserver.js) ( language & description )
+- [slug.svelte](src/routes/%5Bslug%5D/%2Bpage.svelte) ( year )
   - [year.svelte](src/lib/components/year.svelte)
 
 ### Frontmatter
 
 In `content/slug.md`
 
-```md
+```yaml
 ---
 title: Title of the Post
 date: 2021-09-07
@@ -103,16 +121,16 @@ PUBLIC_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Tech stack
+## Tech Stack
 
 - **Framework**: [SvelteKit][svelte-url] ( [Changelog][SvelteKit-Changelog-url] )
 - **Styling**: [Dart Sass](https://sass-lang.com/), [Open Props](https://open-props.style/) and [PostCSS](https://postcss.org/)
-- **Content**: Plain text files w/ [MDsveX](https://mdsvex.pngwn.io/docs)(markdown preprocessor)
+- **Content**: Plain text files w/ [MDsveX](https://mdsvex.pngwn.io/docs) (markdown preprocessor)
 - **Code syntax highlighter**: [Shiki](https://shikijs.github.io/twoslash/)
 - **Deployment**: [Firebase Hosting][hosting-url]
 - **Typefaces**:
   - [Gowun Batang(고운바탕)](https://github.com/yangheeryu/Gowun-Batang) by Yanghee Ryu
-  - [Iansui](https://github.com/ButTaiwan/iansui)
+  - [Iansui](https://github.com/ButTaiwan/iansui) by [Fontworks](https://github.com/fontworks-fonts/Klee) and But Ko
   - [Lotion](https://font.nina.coffee/) by nina belikova
 - **Linting & Formatting**:
   - accessibility: [Pa11y CI](https://github.com/pa11y/pa11y-ci) ( [configuration](config/pa11y.json) )
@@ -139,7 +157,7 @@ PUBLIC_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
 - testing
 - rss style
 - shelf
-- hydration
+- partial hydration
 
 ### not in 📝
 

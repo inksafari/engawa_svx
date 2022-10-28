@@ -46,6 +46,7 @@ const config = defineConfig({
 		alias: Object.fromEntries(aliasList.map(alias => [alias.name, path.resolve(alias.path)])),
 	},
 	build: {
+		reportCompressedSize: false,
 		rollupOptions: {
 			output: {
 				manualChunks: undefined,
@@ -76,7 +77,6 @@ const config = defineConfig({
 			'date-fns',
 			'hastscript',
 			'lunarphase-js',
-			'rehype-add-classes',
 			'rehype-slug',
 			'shiki-twoslash',
 		],

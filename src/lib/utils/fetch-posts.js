@@ -20,7 +20,7 @@ const fetchPosts = async () => {
 	)
 	const allPublishedPosts = allPosts.filter(post => !post.isPrivate)
 	const sortedPosts = allPublishedPosts.sort((a, b) => {
-		return +new Date(b.date) - +new Date(a.date)
+		return new Date(b.date).valueOf() - new Date(a.date).valueOf()
 	})
 
 	return sortedPosts

@@ -14,7 +14,8 @@ const prependScssFiles = [
 	'@use "src/styles/tokens.scss" as *;',
 ].join(' ')
 
-// options passed to svelte.preprocess (https://svelte.dev/docs#svelte_preprocess)
+// options passed to svelte.preprocess
+// https://github.com/sveltejs/svelte-preprocess/blob/main/docs/preprocessing.md
 const preprocessSVX = [
 	typescript(), // typescript({ tsconfig: tsConfigFile }),
 	sveltePreprocess({

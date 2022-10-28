@@ -1,4 +1,8 @@
 # https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+commit-msg:
+	commands:
+		commitlint:
+			run: commitlint -e
 pre-commit:
 	parallel: true
 	commands:
