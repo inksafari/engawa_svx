@@ -1,0 +1,12 @@
+// @custom-media --motionOK (prefers-reduced-motion: no-preference);
+
+/* @credit: https://stackoverflow.com/a/25975282 */
+@mixin safari-only {
+	@media not all and (min-resolution: 0.001dpcm) {
+		@supports (-webkit-appearance: none) and (stroke-color: transparent) {
+			@content;
+		}
+	}
+}
+
+

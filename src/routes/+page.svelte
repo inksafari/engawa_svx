@@ -13,10 +13,10 @@
 	<title>{site.title}</title>
 </svelte:head>
 <main>
-	<div class="wrapper container main-content">
-		<header class="stack site-header">
+	<div class="container page-content">
+		<section class="stack site-header">
 			<h3>ramblings</h3>
-		</header>
+		</section>
 		<section class="stack post-listing">
 			<ol start='{count}' reversed>
 				{#each data.posts as { title, slug, date }, i}

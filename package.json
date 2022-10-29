@@ -35,7 +35,7 @@
     "fmt": "dprint fmt --verbose --config ./config/dprint.json",
     "lint:css": "stylelint --config ./config/stylelint.config.cjs src/**/*.{scss,css,pcss}",
     "lint:js": "eslint --ignore-path .eslintignore",
-    "fix:css": "stylelint --fix src/**/*.{scss,css,pcss} --config ./config/stylelint.config.cjs",
+    "fix:css": "stylelint --fix --config ./config/stylelint.config.cjs src/**/*.{scss,css,pcss}",
     "fix:js": "eslint --fix --report-unused-disable-directives --ignore-path .eslintignore \"**/*.{js,ts,svelte}\"",
     "===== testing =====": "",
     "perf": "node scripts/getMetrics.mjs",
@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "@rive-app/canvas": "^1.0.93",
-    "@sveltejs/kit": "1.0.0-next.527",
+    "@sveltejs/kit": "1.0.0-next.528",
     "date-fns": "^2.29.3"
   },
   "devDependencies": {
@@ -137,6 +137,7 @@
     "stylelint-no-unsupported-browser-features": "^6.0.1",
     "svelte": "^3.52.0",
     "svelte-check": "^2.9.2",
+    "svelte-eslint-parser": "^0.19.3",
     "svelte-intersection-observer": "^0.10.0",
     "svelte-preprocess": "^4.10.7",
     "svelte-preprocess-esbuild": "^3.0.1",

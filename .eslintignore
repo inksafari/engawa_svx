@@ -1,10 +1,7 @@
-/build
-/static
-/.svelte-kit
 /node_modules
-/functions
-/workers-site
+packages-lock.json
 .*cache
+*.min.*
 
 /.github
 /.vscode
@@ -14,7 +11,22 @@
 storybook-static
 storybook-static/*
 
-# Jest files #
+# Test files #
 #############################
 coverage
 coverage/*
+__snapshots__
+
+# SvelteKit #
+#############################
+/.svelte-kit
+/build
+/static
+/scripts
+service-worker.ts
+service-worker.js
+
+# Hosting #
+#############################
+/functions
+/workers-site

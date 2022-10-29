@@ -20,7 +20,8 @@
 </svelte:head>
 <slot />
 <style lang="scss" global>
-	@import "../styles/app.scss"
+	@import "../styles/app.scss";
+	@import "../styles/page_archive.scss"
 </style>
 <!-- @links
 - https://github.com/furudean/website/blob/11ab25e9d6d9d5716db33b05e8b5632217c1890e/src/routes/__layout.svelte

@@ -1,4 +1,4 @@
-// usage: npx eslint "src/**/*.{js,ts,svelte}"
+// usage: npx eslint --ignore-path .eslintignore "**/*.{js,ts,svelte,svx,md}"
 
 /** @type { import('eslint/rules').ESLintRules } */
 // https://eslint.org/docs/rules
@@ -62,9 +62,11 @@ const config = {
 		// https://github.com/standard/eslint-config-standard
 		// 'standard',
 		// https://github.com/eslint/eslint/blob/master/conf/eslint-recommended.js
-		'eslint:recommended',
+		// 'eslint:recommended',
 		// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
-		'plugin:@typescript-eslint/recommended',
+		// 'plugin:@typescript-eslint/recommended',
+		// https://github.com/eslint/eslint-plugin-markdown
+		'plugin:markdown/recommended',
 		// https://github.com/ota-meshi/eslint-plugin-svelte
 		// 'plugin:svelte/recommended',
 		// https://github.com/nodesecurity/eslint-plugin-security
@@ -92,28 +94,12 @@ const config = {
 		// https://github.com/jonaskello/eslint-plugin-functional
 		// 'functional',
 	],
-	ignorePatterns: [
-		'.github',
-		'.svelte-kit',
-		'*.min.*',
-		'build',
-		'coverage',
-		'node_modules',
-		'packages-lock.json',
-		'pnpm-lock.yaml',
-		'service-worker.ts',
-		'service-worker.js',
-		'static',
-		'__snapshots__',
-		'scripts',
-		'mdsvex.config.js',
-		'playwright.config.js',
-		'svelte.config.js',
-		'vite.config.js',
-		'vitest.config.js',
-	],
 	overrides: [
 		{ files: ['*.cjs'], env: { node: true } },
+		{
+			files: ['*.svelte'],
+			parser: 'svelte-eslint-parser'
+		},
 		{
 			files: ['test/**/*.js', 'test/**/*.ts', '**/*.test.js', '**/*.test.ts'],
 			// extends: ['plugin:jest/recommended'],
@@ -138,7 +124,7 @@ const config = {
 			},
 		},
 		{
-			files: ['content/**/*.md', 'content/**/*.svx'],
+			files: ['content/**/*.md', 'content/**/*.svx', 'src/lib/data/*.md'],
 			processor: 'markdown/markdown',
 		},
 	],

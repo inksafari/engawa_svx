@@ -1,0 +1,64 @@
+@use 'sass:map';
+@use 'tokens' as *;
+
+/* main > div.container, div.page-content */
+.page-content {
+	display: grid;
+	gap: 24px;
+	@media (min-width: 968px) {
+		grid-template-columns: 30% 1fr;
+		gap: var(--size-4);
+	}
+	margin-block-start: var(--size-3);
+	margin-block-end: var(--size-4);
+}
+
+/* main > div.page-content > section.site-header, section.post-listing */
+.site-header {
+	display: block;
+	margin: 0;
+	padding: 0;
+
+	h3 {
+		font-family: map.get($fonts, mono);
+		letter-spacing: 0.13ch;
+	}
+}
+
+.post-listing {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-6);
+}
+
+// section.post-listing
+// ol > li.post-stub
+//         a.post-link > h3 ( post title )
+//         div.post-meta > time ( post date )
+
+// FIXME: ol突出版面
+html:dir(ltr) .post-listing {
+	ol {
+		padding-left: var(--size-9);
+	}
+}
+
+.post-listing {
+	li::marker {
+		font-family: map.get($fonts, mono);
+		color: var(--gray-6);
+	}
+}
+
+.post-stub {
+	font-family: map.get($fonts, notRecommended);
+	margin-block-end: 1.2em;
+
+	.post-meta {
+		color: var(--gray-6); // hsl(var(--gray-7-hsl) / 75%);
+		font-size: var(--font-size-2);
+		font-family: map.get($fonts, mono);
+		font-variant-numeric: slashed-zero;
+		margin-block-start: 0.1em;
+	}
+}

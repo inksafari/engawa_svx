@@ -33,8 +33,6 @@
 - [Node.js](https://nodejs.org) >=16.14 or later
 - [pnpm](https://pnpm.io/) (optional, although strongly recommended)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ### for fontSubset.sh
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep) (Rust) & [fonttools](https://github.com/fonttools/fonttools) (Python)
@@ -181,14 +179,7 @@ This project is licensed under the Beerware License, but all contents copyright 
 - error page:
   - img/canvas: [Icecream Cat](https://rive.app/community/2336-4633-icecream-cat/) by [@chococat](https://rive.app/chococat/)
 
-<!--
-> **Warning**
-> 網站樣式從各處抄抄縫補，我不知道為什麼可以動，哪裡有問題也看不出來，更不知道要怎麼修。
-> 請不要直接複製，斟酌參考，謝謝。
--->
-
 <!-- MARKDOWN LINKS & IMAGES -->
-
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev
 [SvelteKit-Changelog-url]: https://github.com/sveltejs/kit#packages

@@ -1,0 +1,50 @@
+@use 'sass:map';
+@use 'tokens' as *;
+
+/* body > header, main, footer */
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	min-height: 100vh;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+main {
+	flex-grow: 1;
+}
+
+body > header,
+body > footer {
+	flex-shrink: 0;
+}
+
+header {
+	min-height: var(--size-5);
+	display: flex;
+	align-items: center;
+	background: var(--c-theme);
+	padding-block: var(--size-4);
+}
+
+footer {
+	margin-block-start: var(--size-5);
+	padding-block: var(--size-2);
+	color: var(--gray-6);
+	text-align: center;
+	font-size: var(--font-size-1);
+}
+
+/* main > div.container, div.page-content */
+.container {
+	width: 100%;
+	max-width: var(--max-width);
+	margin-inline: auto;
+	padding-inline: var(--size-2);
+}
+
+// @credits:
+// https://coders-blog-tk.vercel.app
+// https://github.com/I-am-tk/coders-blog/blob/e4178af87f431988863543fbadfefc8f2e4dfd4d/src/pages/index.astro
+// https://github.com/mbarker84/css-irl-eleventy/blob/master/src/css/02-base/_layout.scss

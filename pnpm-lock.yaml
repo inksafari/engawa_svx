@@ -13,7 +13,7 @@ specifiers:
   '@rushstack/eslint-plugin-security': ^0.5.0
   '@secretlint/secretlint-rule-preset-recommend': ^5.2.4
   '@sveltejs/adapter-static': 1.0.0-next.46
-  '@sveltejs/kit': 1.0.0-next.527
+  '@sveltejs/kit': 1.0.0-next.528
   '@sveltejs/vite-plugin-svelte': 1.0.9
   '@types/js-yaml': ^4.0.5
   '@typescript-eslint/eslint-plugin': ^5.41.0
@@ -72,6 +72,7 @@ specifiers:
   stylelint-no-unsupported-browser-features: ^6.0.1
   svelte: ^3.52.0
   svelte-check: ^2.9.2
+  svelte-eslint-parser: ^0.19.3
   svelte-intersection-observer: ^0.10.0
   svelte-preprocess: ^4.10.7
   svelte-preprocess-esbuild: ^3.0.1
@@ -84,7 +85,7 @@ specifiers:
 
 dependencies:
   '@rive-app/canvas': 1.0.93
-  '@sveltejs/kit': 1.0.0-next.527_svelte@3.52.0+vite@3.2.1
+  '@sveltejs/kit': 1.0.0-next.528_svelte@3.52.0+vite@3.2.1
   date-fns: 2.29.3
 
 devDependencies:
@@ -156,6 +157,7 @@ devDependencies:
   stylelint-no-unsupported-browser-features: 6.0.1_stylelint@14.14.0
   svelte: 3.52.0
   svelte-check: 2.9.2_6kphpwy4fhfe72zv6gcb25i4zi
+  svelte-eslint-parser: 0.19.3_svelte@3.52.0
   svelte-intersection-observer: 0.10.0
   svelte-preprocess: 4.10.7_42yvvk6nsmw64yb5ungflkjnci
   svelte-preprocess-esbuild: 3.0.1_azfagdgzpedrfvyywnkutytoiq
@@ -1265,8 +1267,8 @@ packages:
     resolution: {integrity: sha512-8BlgwD3fjAbtUUgvREjrq5okZSXMTU/Qla99RhTqGaFo+uOrUzguKrXvjeaD4GzxQZdQUNyTX9hKT0V7tX6TMw==}
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.527_svelte@3.52.0+vite@3.2.1:
-    resolution: {integrity: sha512-jz3tWqVEu+vqEPV+JkaESWTAFRwHX71jS88xLHk33Db6AdM/GPSVA2J3tX2TdTUbISZZ7ZjpFCre9B6jXj3xAw==}
+  /@sveltejs/kit/1.0.0-next.528_svelte@3.52.0+vite@3.2.1:
+    resolution: {integrity: sha512-zUtXzWU4+EgT9cw5s7laPM6jgLQatGui+pCxUyQzEpMwDAOeNWduYl4bEFCRyfQTSNzQK+nnpkR+e5X+TO8BHA==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
@@ -6518,6 +6520,18 @@ packages:
       - sass
       - stylus
       - sugarss
+    dev: true
+
+  /svelte-eslint-parser/0.19.3_svelte@3.52.0:
+    resolution: {integrity: sha512-16LDbse3BW3TXlLX6IXRLtywh5h9pMDEp7USc+nwLuyV6AFb/mSzSzbK5tJFXeeMf06uxWIxZjSkj5fcYRu+Hw==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      svelte: ^3.37.0
+    dependencies:
+      eslint-scope: 7.1.1
+      eslint-visitor-keys: 3.3.0
+      espree: 9.4.0
+      svelte: 3.52.0
     dev: true
 
   /svelte-hmr/0.15.0_svelte@3.52.0:

@@ -1,0 +1,10 @@
+/* links */
+a,
+a > * {
+	color: inherit;
+	text-decoration: none;
+}
+
+a.deactivated {
+	cursor: default !important;
+}

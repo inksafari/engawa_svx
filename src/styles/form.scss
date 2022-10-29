@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use 'vars' as *;
+
+*:focus-visible:not(.text-box) {
+	outline: none !important;
+	box-shadow: 0 0 0 2px hsla(0, 0%, 0%, 89.56%) !important;
+}
+
+::-webkit-input-placeholder,
+button,
+input,
+select,
+textarea {
+	font-family: map.get($fonts, sans);
+}

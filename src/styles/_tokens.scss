@@ -1,0 +1,88 @@
+@use 'func' as *;
+@forward 'fonts/ko_serif';
+@forward 'fonts/hant_serif';
+@forward 'fonts/mono';
+
+// Typefaces
+// -----------------------------------------------------------------------------
+// Web Safe Fonts:
+// - windows:  https://docs.microsoft.com/zh-tw/typography/fonts/windows_11_font_list
+// - macOS:    https://github.com/adrg/os-font-list#macos
+// - (Latin)   https://www.cssfontstack.com/
+// - (zh-Hans) https://zenozeng.github.io/fonts.css/
+
+// https://pimpmytype.com/font-matrix/
+$font-sans-ja: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans';
+$font-sans-ko: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', dotum, '돋움';
+$font-sans-hant: 'Source Han Sans TW', 'PingFang TC Regular', 'Heiti TC Regular','Microsoft JhengHei', '微軟正黑';
+$font-sans-fallback: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Ubuntu', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', helvetica, arial;
+$font-emoji: 'Fluent Emojs', 'Twitter Color Emoji', 'Twemoji Mozilla', 'Apple Color Emoji', 'Segoe UI Emoji', emoji;
+// .. , 'Android Emoji', 'Segoe Fluent Icons', 'Segoe MDL2 Assets', 'Segoe UI Symbol', 'Segoe UI Historic', emoji;
+
+$fonts: (
+	sans: (
+		'Atkinson Hyperlegible',
+		$font-sans-fallback,
+		$font-sans-hant,
+		'Meiryo',
+		sans-serif
+	),
+	serif: (
+		'GowunBatang',
+		'Iansui',
+		ui-serif,
+		serif
+	),
+	mono: (
+		'Lotion',
+		ui-monospace,
+		monospace,
+		sans-serif
+	),
+	notRecommended: (
+		'Lotion',
+		'Iansui',
+		ui-sans-serif,
+		system-ui,
+		sans-serif,
+		'Twitter Color Emoji',
+		emoji
+	)
+);
+
+:root {
+	// -- Layout --//
+	--max-width: 1024px;
+
+	// -- Animations -- //
+	--dim: 0 0 0;
+	--ease: cubic-bezier(0.8, 0, 0.2, 1);
+
+	// -- Colors -- //
+	// https://gbg.pages.dev/posts/dynamic-color-palette
+	// https://accessiblepalette.com/
+	--c-theme: #C2E6E9;
+	--c-primary-hue: 0;
+	--c-secondary-hue: calc(var(--c-primary-hue) + 120);
+	--c-tertiary-hue: calc(var(--c-primary-hue) + 240);
+	--c-accent: lch(50% 50 var(--c-secondary-hue));
+	--c-accent-bg0: lch(90% 20 var(--c-tertiary-hue));
+	--c-accent-bg1: lch(90% 20 var(--c-tertiary-hue));
+	--c-fg: lch(40% 10 var(--c-primary-hue));
+	--c-bg: lch(98% 5 var(--c-primary-hue));
+	--midLightness: 38%;
+	--highLightness: 96%;
+	--hblue: 229;
+	--blue: hsl(var(--hblue), 100%, var(--midLightness));
+	--lightblue: hsl(var(--hblue), 100%, var(--highLightness));
+	--mark-blue: #aad6fb;
+	--mark-pink: #ffaabf;
+	--mark-yellow: #fcf3b0;
+	--mark-purple: #daa9ff;
+	--mark-lightPurple: #efecfc;
+	--mark-orange: #f6c6b5;
+	--mark-green: #d3f3e6;
+
+	// --scrollbar-thumb:
+	// --scrollbar-bg
+}

@@ -37,17 +37,17 @@
 </svelte:head>
 <main id="main">
 	<article id="entry">
-		<header class="mdx-header">
-			<div class="mdx-page-container entry-header is-huge">
-				<!-- TITLE -->
+		<!-- TITLE -->
+		<header class="entry-header">
+			<div class="entry-header-container">
 				<IntersectionObserver {element} bind:intersecting>
-					<h1 class="title headline" bind:this={element}>{title}</h1>
+					<h1 class="headline" bind:this={element}>{title}</h1>
 				</IntersectionObserver>
 			</div>
 		</header>
 		<!-- META -->
-		<div class="prose generated-content mdx-wrapper mdx">
-			<dl class="entry-details">
+		<div class="entry-container">
+			<dl class="entry-meta">
 				<div>
 					<dt>Published at</dt>
 					<dd>
@@ -71,28 +71,26 @@
 			</dl>
 		</div>
 		<!-- Content -->
-		<div class="prose generated-content mdx-wrapper mdx" aria-label="Content" bind:this={el}>
+		<div class="entry-container prose" aria-label="Content" bind:this={el}>
 			<svelte:component this={content} /> <!-- {@html content} -->
 		</div>
 		<!-- Pagination -->
-		<div class="prose generated-content mdx-wrapper mdx">
+		<div class="entry-container post-footer">
 			{#if prev || next}
-			<div class="post-footer">
-				<nav class="page-pagination" aria-labelledby="page-pagination">
-					<span class="screen-reader-text">This post is part of a series.</span>
-					{#if prev}
-					<span class="prev stack">
-						<a rel="prev" data-sveltekit-reload href=https://{site.baseUrl}/{prev}>&laquo; PREV</a>
-					</span>
-					{/if}
-					{#if next}
-					<span class="next stack">
-						<a rel="next" data-sveltekit-reload href=https://{site.baseUrl}/{next}>NEXT &raquo;</a>
-					</span>
-					{/if}
-				</nav>
-			</div>
-			{/if}
+			<nav class="post-pagination" aria-labelledby="page-pagination">
+				<span class="screen-reader-text">This post is part of a series.</span>
+				{#if prev}
+				<span class="prev stack">
+					<a rel="prev" data-sveltekit-reload href=https://{site.baseUrl}/{prev}>&laquo; PREV</a>
+				</span>
+				{/if}
+				{#if next}
+				<span class="next stack">
+					<a rel="next" data-sveltekit-reload href=https://{site.baseUrl}/{next}>NEXT &raquo;</a>
+				</span>
+				{/if}
+			</nav>
+		{/if}
 		</div>
 	</article>
 </main>

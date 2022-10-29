@@ -1,0 +1,12 @@
+@use 'sass:math';
+// @use 'sass:list';
+// @use 'sass:map';
+// @use 'sass:meta';
+
+@function line-height-as-multiple($line-height, $font-size) {
+	@return ceil(100000 * math.div($line-height, $font-size)) * 0.00001;
+}
+
+// @links
+// https://stackoverflow.com/a/66004582
+// https://github.com/TravisSpomer/SvelteKitTemplate/blob/main/src/app.scss

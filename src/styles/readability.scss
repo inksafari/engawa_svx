@@ -1,0 +1,76 @@
+.skip-link {
+	position: absolute;
+	top: 1.4em;
+	left: 1.4em;
+	max-width: none;
+	padding: 0.5em;
+	font-size: 1.125rem;
+	font-weight: 700;
+}
+
+.skip-link.focusable:focus {
+	position: absolute;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	position: absolute !important;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	border: 0;
+	margin: -1px;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	// Many screen reader and browser combinations announce broken words
+	// as they would appear visually.
+	word-wrap: normal !important;
+}
+
+.screen-reader-text.focusable:active,
+.screen-reader-text.focusable:focus {
+	position: static;
+	overflow: visible;
+	width: auto;
+	height: auto;
+	margin: 0;
+	clip: auto;
+	clip-path: none;
+	white-space: inherit;
+}
+
+/* a11y */
+[hidden] {
+	display: none;
+}
+
+[aria-busy='true'] {
+	cursor: progress;
+}
+
+[aria-controls] {
+	cursor: pointer;
+}
+
+[aria-disabled='true'],
+[disabled] {
+	cursor: not-allowed;
+}
+
+[aria-hidden='false'][hidden]:not(:focus) {
+	position: absolute;
+	display: inherit;
+	clip: rect(0, 0, 0, 0);
+}
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+	touch-action: manipulation;
+}

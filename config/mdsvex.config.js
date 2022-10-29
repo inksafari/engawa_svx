@@ -47,7 +47,7 @@ const config = defineConfig({
 			autoLinkHeadings,
 			{
 				behavior: 'prepend',
-				content: [h('span.sr-only', 'permalink'), h('span', { ariaHidden: true }, '#')],
+				content: [h('span.screen-reader-text', 'permalink'), h('span', { ariaHidden: true }, '#')],
 			},
 		],
 	],

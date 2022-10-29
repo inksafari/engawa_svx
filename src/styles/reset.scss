@@ -1,0 +1,158 @@
+head,
+meta,
+title,
+link,
+style,
+script {
+	display: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	line-height: calc(0.25rem + 1em + 0.25rem);
+}
+
+* {
+	appearance: none;
+	backface-visibility: none;
+}
+
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+	all: unset;
+	display: revert;
+}
+
+img,
+video,
+picture {
+	max-width: 100%;
+	height: auto;
+}
+
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* Only render inner <img> elements into the DOM */
+picture {
+	display: contents;
+}
+
+/* Blur images when they have no alt, width, height attribute */
+img:not([alt]),
+img:not([width]),
+img:not([height]) {
+	filter: blur(10px);
+}
+
+@media (prefers-color-scheme: dark) {
+	img {
+		opacity: 0.75;
+		transition: opacity 0.5s ease-in-out;
+	}
+
+	img:hover {
+		opacity: 1;
+	}
+}
+
+*:where(:not(fieldset, progress, meter)) {
+	border-width: 0;
+	border-style: solid;
+	background-origin: border-box;
+	background-repeat: no-repeat;
+}
+
+ul[role='list'],
+ol[role='list'] {
+	list-style: none;
+}
+
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/* If no link is supplied or href field is missing */
+a:is(:not([href]), [href=''], [href='#']) {
+	outline: 2px dotted red;
+}
+
+/* only <li>'s allowed in ul & ol */
+:is(ul, ol) > *:not(li) {
+	outline: 2px dotted red;
+}
+
+button {
+	border: none;
+	appearance: none;
+	background: transparent;
+	outline: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+textarea {
+	white-space: revert;
+}
+
+main:focus,
+h1:focus {
+	outline: 3px solid transparent;
+}
+
+abbr:not([title]):hover {
+	cursor: text;
+
+	a & {
+		cursor: pointer;
+	}
+}

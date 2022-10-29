@@ -11,5 +11,5 @@
 </script>
 <slot />
 <style lang="scss" global>
-	@import "../../styles/app_layout.scss"
+	@import "../../styles/app_content.scss"
 </style>

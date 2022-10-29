@@ -49,7 +49,6 @@ src/assets
 .github/styles/*
 !.github/styles/Vocab/Base
 
-# temp
-src/styles
-src/routes/rss.xml/rss.xsl
 stylelintReport.txt
+# temp
+src/routes/rss.xml/rss.xsl

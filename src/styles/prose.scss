@@ -1,0 +1,47 @@
+@use 'sass:map';
+
+/* abstracts */
+@use 'tokens' as *;
+@use 'func' as *;
+@use 'mixins' as *;
+
+.prose {
+	font-family: map.get($fonts, serif);
+
+	&:lang(zh-Hant) {
+		font-feature-settings: 'ital', 'palt', 'trad', 'calt';
+		font-kerning: none;
+		font-variant-east-asian: traditional;
+	}
+
+	&:not(:lang(zh)) {
+		font-kerning: auto;
+	}
+
+	p {
+		text-indent: 2ic;
+		font-size: var(--font-size-3);
+		font-variant-ligatures: common-ligatures contextual; /* [1] */
+		font-variant-numeric: oldstyle-nums proportional-nums;
+	}
+}
+
+pre {
+	overflow: scroll;
+	background: hsl(calc(var(--hblue) + 120), 100%, 98%);
+	border-radius: 3px;
+	color: var(--blue);
+}
+
+code,
+pre,
+pre span,
+kbd,
+samp,
+.shiki {
+	font-family: map.get($fonts, mono);
+}
+
+.language-id {
+	display: none;
+}

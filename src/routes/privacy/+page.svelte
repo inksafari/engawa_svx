@@ -4,7 +4,7 @@
 <script>
 	import { getContext } from 'svelte'
 	import { Year } from '$lib/components'
-	import './../../styles/app_layout.scss'
+	import './../../styles/app_content.scss'
 
 	const site = getContext('site')
 	export let data

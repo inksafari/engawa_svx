@@ -1,0 +1,123 @@
+@use 'sass:map';
+@use 'tokens' as *;
+
+/* ------------------- P O S T ---------------------------------------------- */
+/* main#main > article#entry > header.entry-header ( post title )             */
+/*                           > div.entry-container ( post meta )              */
+/*                             > dl.entry-meta > div > dt, dd                 */
+/*                           > div.entry-container ( post content )           */
+/*                           > div.entry-container ( post pagination )        */
+/* footer.site-footer > div.container > p > a ( site footer )                 */
+
+/* {{{ main#main > article#entry                                              */
+
+/* ------------------- P O S T    T I T L E --------------------------------- */
+/* main#main > article#entry > header.entry-header > div.entry-header-container */
+.entry-header {
+	background: var(--c-theme);
+	font-size: var(--font-size-3);
+	font-family: map.get($fonts, notRecommended);
+	padding-block-start: var(--size-10);
+	padding-block-end: var(--size-4);
+
+	&-container {
+		max-width: 60ch;
+		margin-inline: auto;
+		padding-inline: var(--size-6);
+	}
+}
+
+/* h1.headline */
+.headline {
+	font-size: var(--font-size-5);
+	color: var(--gray-8);
+	line-height: 1.1;
+	margin-block-end: var(--size-4);
+	@media (min-width: 481px) {
+		font-size: var(--font-size-6);
+	}
+}
+
+/* ------------------- P O S T    M E T A ----------------------------------- */
+/* div.entry-container > dl.entry-meta > div > dt(desc), dd(time, emoji, stats) */
+.entry-container {
+	max-width: 60ch;
+	margin-inline: auto;
+	margin-block-start: var(--size-2);
+	padding-block-end: var(--size-4);
+	padding-inline: var(--size-4);
+}
+
+.entry-meta {
+	display: grid;
+	padding: 1em 0 0;
+	grid-template-columns: repeat(auto-fill, minmax(7.5em, 1fr));
+	text-align: center;
+
+	@media screen and (min-width: 769px) {
+		padding: 1em 1em 0;
+	}
+}
+
+.entry-meta > div,
+.entry-meta > .stats {
+	padding: 0.5em;
+}
+
+.entry-meta dt {
+	color: var(--gray-8);
+	font-size: var(--font-size-2);
+	font-family: map.get($fonts, notRecommended);
+}
+
+.entry-meta dd {
+	margin: 0;
+	color: var(--gray-6); // hsl(var(--gray-8-hsl) / 75%);
+	time {
+		font-family: map.get($fonts, mono);
+	}
+}
+
+.entry-meta .stats > dl {
+	margin: 0;
+}
+
+
+/* ------------------- P O S T    C O N T E N T ----------------------------- */
+/* div.{ entry-container, prose }                                             */
+
+
+/* ------------------- P O S T    P A G I N A T I O N ----------------------- */
+/* div.entry-container > nav.post-pagination > span.{ prev, next } > a        */
+.post-pagination {
+	font-size: var(--font-size-2);
+	font-family: map.get($fonts, notRecommended);
+	display: block;
+
+	@media screen and (min-width: 769px) {
+		padding: 0 3em;
+	}
+
+	.prev {
+		float: left;
+	}
+
+	.next {
+		float: right;
+	}
+
+	a {
+		color: var(--gray-6); // hsl(var(--gray-9-hsl) / 60%);
+		text-decoration: none;
+	}
+}
+
+/* article#entry / main#main }}}                                              */
+
+/* ------------------- S I T E    F O O T E R ------------------------------- */
+/* footer.site-footer > div.container > p > a                                 */
+
+
+// @credits:
+// https://github.com/I-am-tk/coders-blog/blob/main/src/layouts/MDXLayout.astro
+// https://github.com/I-am-tk/coders-blog/blob/main/src/styles/mdx.scss
