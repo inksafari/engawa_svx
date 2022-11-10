@@ -70,23 +70,19 @@ img:not([height]) {
 	filter: blur(10px);
 }
 
-@media (prefers-color-scheme: dark) {
-	img {
-		opacity: 0.75;
-		transition: opacity 0.5s ease-in-out;
-	}
-
-	img:hover {
-		opacity: 1;
-	}
-}
-
 *:where(:not(fieldset, progress, meter)) {
 	border-width: 0;
 	border-style: solid;
 	background-origin: border-box;
 	background-repeat: no-repeat;
 }
+
+//ol,
+//ul {
+//	list-style-type: none;
+//	padding: 0;
+//	margin: 0;
+//}
 
 ul[role='list'],
 ol[role='list'] {

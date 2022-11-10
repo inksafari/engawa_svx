@@ -8,3 +8,23 @@ a > * {
 a.deactivated {
 	cursor: default !important;
 }
+
+a[rel*=tag] {
+	color: #929292;
+	text-decoration: none
+}
+
+a[rel*=via] {
+	color: #007cd6
+}
+
+a[href$='.pdf']:after,
+a[hreflang=de]:after {
+	content: ' [de]';
+	color: #929292;
+	font-size: 80%
+}
+
+a[href$='.pdf']:after {
+	content: ' [pdf]'
+}

@@ -19,6 +19,7 @@ body {
 }
 
 html {
+	color-scheme: light;
 	text-size-adjust: none;
 	cursor: default;
 	-webkit-overflow-scrolling: touch;
@@ -51,4 +52,8 @@ html:lang(zh-Hant-TW) body {
 		-webkit-font-smoothing: subpixel-antialiased;
 		text-rendering: optimizeLegibility;
 	}
+}
+
+.only-print {
+	display: none
 }

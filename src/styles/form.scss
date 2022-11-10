@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use 'vars' as *;
+@use 'tokens' as *;
 
 *:focus-visible:not(.text-box) {
 	outline: none !important;

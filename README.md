@@ -180,6 +180,7 @@ This project is licensed under the Beerware License, but all contents copyright 
   - img/canvas: [Icecream Cat](https://rive.app/community/2336-4633-icecream-cat/) by [@chococat](https://rive.app/chococat/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev
 [SvelteKit-Changelog-url]: https://github.com/sveltejs/kit#packages

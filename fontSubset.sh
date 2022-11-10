@@ -35,6 +35,7 @@ run_font_subsetter() {
     #echo "${font_name}: Generating subset OpenType files .."
     #pyftsubset "${input_dir}/${font_name}.otf" \
     #    --output-file="${output_dir}/${font_name}.subset.otf" \
+    #    --layout-features=* \
     #    --with-zopfli \
     #    "$opts"
 
@@ -43,6 +44,7 @@ run_font_subsetter() {
     #pyftsubset "${input_dir}/${font_name}.otf" \
     #    --flavor="woff" \
     #    --output-file="${output_dir}/${font_name}.subset.woff" \
+    #    --layout-features=* \
     #    --with-zopfli \
     #    "$opts"
 
@@ -51,6 +53,7 @@ run_font_subsetter() {
     pyftsubset "${input_dir}/${font_name}.ttf" \
         --flavor="woff2" \
         --output-file="${output_dir}/${font_name}.subset.woff2" \
+        --layout-features=* \
         --with-zopfli \
         "$opts"
     print_glyph_count "${output_dir}/${font_name}.subset.woff2"
@@ -68,3 +71,4 @@ echo "Done!"
 # https://github.com/ruuda/blog/tree/master/fonts
 # https://web.dev/fast/#optimize-webfonts
 # https://github.com/black7375/font-range
+# https://markoskon.com/creating-font-subsets/

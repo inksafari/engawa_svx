@@ -2,8 +2,10 @@ import { h } from 'hastscript'
 import { defineMDSveXConfig as defineConfig } from 'mdsvex'
 import shikiHighlighter from './../plugins/shikiHighlighter.js'
 // -- remark --
+// import headings from '@vcarl/remark-headings'
 import plantuml from '@akebifiky/remark-simple-plantuml'
 import relativeImages from 'mdsvex-relative-images'
+import pangu from 'remark-pangu'
 import description from './../plugins/remark-description.js'
 import typographer from './../plugins/remark-typographer.js'
 // -- rehype --
@@ -30,6 +32,13 @@ const config = defineConfig({
 			{ baseUrl: 'https://www.plantuml.com/plantuml/svg' },
 		],
 		relativeImages,
+		[
+			pangu,
+			// https://github.com/vincentbel/remark-pangu#default-options
+			{
+				inlineCode: true,
+			},
+		],
 	],
 	rehypePlugins: [
 		// [ Jargon, { jargon: jargonfile}],

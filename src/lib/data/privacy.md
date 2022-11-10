@@ -24,6 +24,7 @@ The site will contain links to external sites. We are not responsible for the pr
 ## Children Under 13
 
 The site is not intended for children under 13 years of age, and no one under age 13 may provide any personal information to us or through the Website.
+
 We do not knowingly collect personal information from children under age 13. If you are under 13, do not use or provide any information on our Website or on or through our web app.
 
 If you believe we might have any personal information from or about a child under age 13, please contact us.

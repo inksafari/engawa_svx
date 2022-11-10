@@ -49,7 +49,15 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=31536000"
+            "value": "public, max-age=2678400, immutable"
+          },
+          {
+            "key": "CDN-Cache-Control",
+            "value": "public, max-age=2678400, immutable"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
           }
         ]
       },

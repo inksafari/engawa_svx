@@ -14,4 +14,5 @@ export const sizeGen = (srcString, size, format) => {
 	return `${imagePathPre}@${size}w.${format || defaultFormat}`
 }
 // https://github.com/nucliweb/image-element
-// https://github.com/kwchang0831/svelte-QWER/blob/47382ac23fad8cbbb009b2dc5fbf61295c861d35/src/lib/components/image_zoom.svelte
+// https://github.com/kwchang0831/svelte-QWER/blob/main/src/lib/components/image_zoom.svelte
+// https://github.com/ngalaiko/galaiko.rocks/blob/master/src/lib/Image.svelte

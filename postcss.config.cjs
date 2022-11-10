@@ -32,6 +32,7 @@ const config = {
 			features: {
 				'color-function': false,
 				'color-functional-notation': false,
+				'custom-properties': false,
 				'gap-properties': false,
 				'hexadecimal-alpha-notation': false,
 				'ic-unit': true,

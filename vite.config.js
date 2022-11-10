@@ -5,18 +5,22 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 // -- vite plugins --
 import { sveltekit } from '@sveltejs/kit/vite'
-import { generateImageSizes } from 'rollup-plugin-generate-image-sizes'
+import imagePresets, { widthPreset } from 'vite-plugin-image-presets'
 
-export const genImageSizePlugin = generateImageSizes({
-	hook: 'buildStart',
-	dir: './static/images',
-	inputFormat: ['jpg', 'jpeg', 'png', 'gif'],
-	size: [1920, 1280, 768, 640],
-	outputFormat: 'jpg',
-	forceUpscale: false,
-	quality: 75,
-	maxParallel: 8,
-	outputManifest: './content/images-manifest.json',
+// TODO: (1)調整大小 (2)image.svelte
+// https://github.com/ElMassimo/vite-plugin-image-presets/blob/main/example/vite.config.ts
+// https://github.com/sturdy-dev/codeball-web/blob/main/vite.config.js
+// https://github.com/ngalaiko/galaiko.rocks/blob/master/vite.config.js
+export const genImageSizePlugin = imagePresets({
+	thumbnail: widthPreset({
+		class: 'img thumb',
+		loading: 'lazy',
+		widths: [50, 300],
+		formats: {
+			webp: { quality: 80 },
+		},
+		meta: 'width;height;quality;src',
+	}),
 })
 
 // env
@@ -32,6 +36,7 @@ const aliasList = [
 	{ name: '#components', path: './src/lib/components' },
 	{ name: '#styles', path: './src/styles' },
 	{ name: '#utils', path: './src/lib/utils' },
+	{ name: '#assets', path: './src/assets' },
 ]
 
 /** @type {import('vite').UserConfig} */
@@ -86,7 +91,7 @@ const config = defineConfig({
 	},
 	plugins: [
 		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
-		isDev && genImageSizePlugin,
+		genImageSizePlugin,
 		sveltekit(),
 	],
 })

@@ -98,7 +98,7 @@ const config = {
 		{ files: ['*.cjs'], env: { node: true } },
 		{
 			files: ['*.svelte'],
-			parser: 'svelte-eslint-parser'
+			parser: 'svelte-eslint-parser',
 		},
 		{
 			files: ['test/**/*.js', 'test/**/*.ts', '**/*.test.js', '**/*.test.ts'],

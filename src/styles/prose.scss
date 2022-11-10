@@ -5,6 +5,7 @@
 @use 'func' as *;
 @use 'mixins' as *;
 
+/* styles of the markdown (article detail) */
 .prose {
 	font-family: map.get($fonts, serif);
 
@@ -24,24 +25,13 @@
 		font-variant-ligatures: common-ligatures contextual; /* [1] */
 		font-variant-numeric: oldstyle-nums proportional-nums;
 	}
-}
 
-pre {
-	overflow: scroll;
-	background: hsl(calc(var(--hblue) + 120), 100%, 98%);
-	border-radius: 3px;
-	color: var(--blue);
-}
-
-code,
-pre,
-pre span,
-kbd,
-samp,
-.shiki {
-	font-family: map.get($fonts, mono);
-}
-
-.language-id {
-	display: none;
+	img {
+		display: block;
+		margin: 0 auto;
+		max-width: min(100%, 750px);
+		max-height: 750px;
+		box-shadow: 0 0 15px #555;
+		cursor: pointer;
+	}
 }
