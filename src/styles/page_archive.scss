@@ -1,4 +1,6 @@
 @use 'sass:map';
+
+/* abstracts */
 @use 'tokens' as *;
 
 /* main > div.container, div.page-content */
@@ -37,9 +39,11 @@
 //         div.post-meta > time ( post date )
 
 // FIXME: ol突出版面
-html:dir(ltr) .post-listing {
-	ol {
-		padding-left: var(--size-9);
+@media (max-width: 480px) {
+	html:dir(ltr) .post-listing {
+		ol {
+			padding-left: var(--size-8);
+		}
 	}
 }
 

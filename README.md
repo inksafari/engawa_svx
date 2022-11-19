@@ -35,7 +35,8 @@
 
 ### for fontSubset.sh
 
-- [ripgrep](https://github.com/BurntSushi/ripgrep) (Rust) & [fonttools](https://github.com/fonttools/fonttools) (Python)
+- [ripgrep](https://github.com/BurntSushi/ripgrep) (Rust)
+- [fonttools](https://github.com/fonttools/fonttools) (Python)
 
 ```sh
 # for CJK users (macOS/Homebrew)
@@ -138,7 +139,7 @@ PUBLIC_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
       - [Alex](https://github.com/get-alex/alex) ( [configuration](.alexrc.yml) )
   - programming languages:
     - [CSpell](https://cspell.org/) ( [configuration](cspell.json) )
-    - [dprint](https://dprint.dev/) ( [configuration](config/dprint.json) )
+    - [dprint](https://dprint.dev/) ( [configuration](dprint.json) )
     - CSS / SCSS: [Stylelint](https://stylelint.io/) ( [configuration](config/stylelint.config.cjs) )
     - JavaScript / TypeScript: [ESLint](https://eslint.org/) ( [configuration](.eslintrc.cjs) )
     - Svelte: [svelte-check](https://www.npmjs.com/package/svelte-check)

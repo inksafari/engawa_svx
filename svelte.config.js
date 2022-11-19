@@ -49,6 +49,11 @@ const config = {
 			precompress: false,
 		}),
 		inlineStyleThreshold: 1024 * 1024,
+		prerender: {
+			handleMissingId: 'warn',
+		},
+		csp: { mode: 'auto' },
+		// FIXME: cspDirectives需要重寫
 		// csp: {
 		// 	mode: 'hash',
 		// 	directives: cspDirectives,

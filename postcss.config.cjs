@@ -2,13 +2,15 @@
 /**
  * @file PostCSS Configuration
  * @see https://github.com/postcss/postcss
+ * @type {import('postcss').AcceptedPlugin}
  */
+const htmlPlugin = require('postcss-html')
+const scssPlugin = require('postcss-scss')
 const jitProps = require('postcss-jit-props')
 const openProps = require('open-props')
-const autoprefixer = require('autoprefixer')
-const presetEnv = require('postcss-preset-env')
-const cssnano = require('cssnano')
-const purgecss = require('@fullhuman/postcss-purgecss')
+const lightingCSS = require('postcss-lightningcss')
+const nodeConfig = require('./package.json')
+// const purgeCSS = require('@fullhuman/postcss-purgecss')
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -23,54 +25,37 @@ const purgeSafelist = {
 }
 
 const config = {
-	syntax: 'postcss-scss',
-	// parser: 'postcss-scss',
+	syntax: htmlPlugin({
+		scss: scssPlugin,
+	}),
+	parser: scssPlugin,
 	plugins: [
-		/* https://preset-env.cssdb.org/features */
-		presetEnv({
-			stage: 0,
-			features: {
-				'color-function': false,
-				'color-functional-notation': false,
-				'custom-properties': false,
-				'gap-properties': false,
-				'hexadecimal-alpha-notation': false,
-				'ic-unit': true,
-				'logical-properties-and-values': false,
-				'media-query-ranges': true,
-				'nesting-rules': false,
+		jitProps(openProps),
+		/* https://github.com/onigoetz/postcss-lightningcss */
+		lightingCSS({
+			browsers: nodeConfig.browserslist,
+			lightningcssOptions: {
+				minify: false, // (!dev ? true : false),
+				sourceMap: true,
+				cssModules: false,
+				import: false,
+				/* https://preset-env.cssdb.org/features */
+				// drafts: {},
 			},
 		}),
-		jitProps(openProps),
-		autoprefixer({
-			cascade: false,
-			grid: false,
-		}),
-		!dev
-		&& cssnano({
-			autoprefixer: false,
-			preset: [
-				/* https://cssnano.co/docs/what-are-optimisations */
-				'advanced',
-				{
-					discardComments: { removeAll: true },
-					normalizeUnicode: false,
-					svgo: false,
-					zindex: false,
-				},
-			],
-		}),
-		!dev
-		&& purgecss({
-			content: [
-				'./src/**/*.{html,js,ts,svelte}',
-				'./src/styles/**/*.{css,scss,pcss}',
-				'**/*.svg',
-			],
-			defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-			safelist: purgeSafelist,
-			keyframes: true,
-		}),
+		// purgeCSS({
+		// content: [
+		// './src/**/*.{js,ts,svelte,svx,md}',
+		// './content/**/*.{md,svx}',
+		// './static/**/*.{html,svg}'
+		// ],
+		// css: [
+		// './src/styles/**/*.{css,scss,pcss}',
+		// ],
+		// defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+		// safelist: purgeSafelist,
+		// keyframes: true,
+		// }),
 	],
 }
 
