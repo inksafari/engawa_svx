@@ -37,5 +37,5 @@ export { fetchPost, fetchPosts }
 // Adapted from
 // https://github.com/croccifixio/blog/blob/main/src/lib/utils/blog.js
 // https://github.com/maiertech/maier.tech/blob/main/src/lib/utils/posts.ts
-// https://github.com/mattjennings/sveltekit-blog-template/blob/main/src/lib/get-posts.js
+// https://github.com/mattjennings/sveltekit-blog-template/blob/main/src/lib/data/posts.js
 // https://github.com/josh-collinsworth/joco-sveltekit/blob/main/src/lib/assets/js/utils/fetchPosts.ts

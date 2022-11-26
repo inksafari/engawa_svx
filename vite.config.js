@@ -59,6 +59,11 @@ const config = defineConfig({
 		},
 	},
 	// css: { preprocessorOptions: { scss: { additionalData: prependScssFiles } } },
+	experimental: {
+		inspector: {
+			holdMode: true,
+		},
+	},
 	server: {
 		port: 3000,
 		open: true,

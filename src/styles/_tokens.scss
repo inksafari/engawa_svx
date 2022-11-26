@@ -1,6 +1,7 @@
 @use 'func' as *;
-@forward 'fonts/ko_serif';
+@forward 'fonts/ja_sans';
 @forward 'fonts/hant_serif';
+@forward 'fonts/ko_serif';
 @forward 'fonts/mono';
 
 // Typefaces
@@ -12,7 +13,7 @@
 // - (zh-Hans) https://zenozeng.github.io/fonts.css/
 
 // https://pimpmytype.com/font-matrix/
-$font-sans-ja: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans';
+$font-sans-ja: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans';
 $font-sans-ko: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', dotum, '돋움';
 $font-sans-hant: 'Source Han Sans TW', 'PingFang TC Regular', 'Heiti TC Regular','Microsoft JhengHei', '微軟正黑';
 $font-sans-fallback: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Ubuntu', 'Segoe UI Variable Display', 'Segoe UI', 'Helvetica Neue', helvetica, arial;

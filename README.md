@@ -29,14 +29,14 @@
 
 ## Prerequisites
 
-- [Git](https://git-scm.com/)
+- [Git](https://git-scm.com/) ( [Flight rules for Git](https://github.com/k88hudson/git-flight-rules) )
 - [Node.js](https://nodejs.org) >=16.14 or later
-- [pnpm](https://pnpm.io/) (optional, although strongly recommended)
+- [pnpm](https://pnpm.io/) ( optional, although strongly recommended )
 
 ### for fontSubset.sh
 
-- [ripgrep](https://github.com/BurntSushi/ripgrep) (Rust)
-- [fonttools](https://github.com/fonttools/fonttools) (Python)
+- [ripgrep](https://github.com/BurntSushi/ripgrep) ( Rust )
+- [fonttools](https://github.com/fonttools/fonttools) ( Python )
 
 ```sh
 # for CJK users (macOS/Homebrew)
@@ -76,7 +76,7 @@ All commands are run from the root of the project, from a terminal:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Customize configuration
+## Personalization Configuration
 
 - [.env](sample.env)
 - [app.html](src/app.html)
@@ -204,6 +204,8 @@ Unit Testing with [Vitest], E2E Testing with [Playwright] on GitHub Actions
 
 [Vitest]: https://vitest.dev/
 [Playwright]: https://playwright.dev/
+
+[Histoire]: https://histoire.dev/
 
 https://img.shields.io/badge/DEMO-example.com-informational?style=for-the-badge&logo=firebase&labelColor=111b27&logoColor=ffcb2b&color=d0dae7
 

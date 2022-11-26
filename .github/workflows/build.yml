@@ -1,0 +1,91 @@
+name: Build
+
+on:
+  push:
+    branches: [$default-branch]
+    paths-ignore:
+      - '**.txt'
+  # Allows you to call this workflow from other workflows
+  workflow_call:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+    # https://docs.github.com/en/rest/overview/permissions-required-for-github-apps#contents
+    permissions:
+      checks: write
+      id-token: write
+      pull-requests: read
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    name: '🧀 Node ${{ matrix.node-version }} (${{ matrix.operating-system }})'
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      fail-fast: false
+      matrix:
+        operating-system: [ubuntu-latest]
+        # @see https://github.com/nodejs/release#release-schedule
+        node-version: ['16.18'] # '18.x'
+    steps:
+      - name: 'Checkout main repository with app logic 🛎️'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+          lfs: true
+          #persist-credentials: false
+          submodules: false
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: '🍓 Use Node.js ${{ matrix.node-version }}'
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: '🍩 Setup PNPM <del>and install dependencies</del>'
+        # https://github.com/pnpm/action-setup
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7
+          run_install: false
+          #run_install: |
+            #- recursive: true
+            #  args: [--frozen-lockfile, --ignore-scripts]
+
+      - name: '🍞 Get pnpm store directory path'
+        id: pnpm-store-dir-path
+        run: |
+          echo "::set-output name=dir::$(pnpm store path)"
+
+      - name: '🍞 Setup pnpm store cache'
+        uses: actions/cache@v3
+        id: pnpm-store-cache
+        with:
+          path: ${{ steps.pnpm-store-dir-path.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: '🍩 Install dependencies'
+        run: pnpm install --prefer-offline --ignore-scripts
+
+      - name: '🍏 Build SvelteKit app'
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: pnpm build
+
+      - name: '🍯 Upload build output'
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: |
+            build/
+          retention-days: 1
+
+# @links:
+# https://github.com/Snugug/blog/blob/main/.github/workflows/tbd-site.yml
+# https://github.com/Th3S4mur41/mh-photography.com/tree/alpha/.github/workflows

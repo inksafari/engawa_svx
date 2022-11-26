@@ -1,24 +1,37 @@
-head,
-meta,
-title,
-link,
-style,
-script {
-	display: none;
+@use 'sass:map';
+@use 'node_modules/rfs/scss' as rfs;
+@use 'tokens' as *;
+@use 'func' as *;
+@use 'mixins' as *;
+
+/* Reset box-model and set borders */
+/* ============================================ */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+	all: unset;
+	display: revert;
 }
 
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+	border-style: solid;
+	border-width: 0;
 	line-height: calc(0.25rem + 1em + 0.25rem);
 }
 
 * {
 	appearance: none;
 	backface-visibility: none;
+}
+
+/* Document */
+/* ============================================ */
+html {
+	--reach-dialog: 1; /* disable Reach UI styles dependency */
+	-webkit-text-size-adjust: 100%;
+	-moz-tab-size: 2;
+	tab-size: 2;
 }
 
 html:focus-within {
@@ -40,9 +53,144 @@ html:focus-within {
 	}
 }
 
-*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
-	all: unset;
-	display: revert;
+/* Sections */
+/* ============================================ */
+head,
+meta,
+title,
+link,
+style,
+script {
+	display: none;
+}
+
+/* Vertical rhythm */
+/* ============================================ */
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+	margin: 0;
+	margin-block-start: 0;
+	margin-block-end: 0;
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+}
+
+/* Headings */
+/* ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+	margin: 0;
+}
+
+main:focus,
+h1:focus {
+	outline: 3px solid transparent;
+}
+
+/* Lists (enumeration) */
+/* ============================================ */
+ol, ul, menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* only <li>'s allowed in ul & ol */
+:is(ol, ul) > *:not(li) {
+	outline: 2px dotted red;
+}
+
+/* Lists (definition) */
+/* ============================================ */
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+	color: inherit;
+}
+
+pre, code, kbd, samp, var, time, textarea {
+	font-family: map.get($fonts, mono);
+	font-size: inherit;
+	font-style: normal;
+}
+
+address {
+	font-style: inherit;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+a {
+	background-color: transparent;
+	cursor: revert;
+	text-decoration: none;
+	color: inherit;
+}
+
+/* If no link is supplied or href field is missing */
+a:is(:not([href]), [href=''], [href='#']) {
+	outline: 2px dotted red;
+}
+
+abbr[title] {
+	text-decoration: underline dotted;
+}
+
+abbr:not([title]):hover {
+	cursor: text;
+
+	a & {
+		cursor: pointer;
+	}
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+	content: '';
+	content: none;
+}
+
+:root:lang(zh-Hant),  :not(:lang(zh-Hant)) > :lang(zh-Hant)   { quotes: '\300c' '\300d' '\300e' '\300f' } /* 「 」 『 』 */
+
+/* Replaced content */
+/* ============================================ */
+svg,
+img,
+embed,
+object,
+iframe {
+	vertical-align: bottom;
 }
 
 img,
@@ -70,6 +218,8 @@ img:not([height]) {
 	filter: blur(10px);
 }
 
+/* Forms */
+/* ============================================ */
 *:where(:not(fieldset, progress, meter)) {
 	border-width: 0;
 	border-style: solid;
@@ -77,78 +227,116 @@ img:not([height]) {
 	background-repeat: no-repeat;
 }
 
-//ol,
-//ul {
-//	list-style-type: none;
-//	padding: 0;
-//	margin: 0;
-//}
-
-ul[role='list'],
-ol[role='list'] {
-	list-style: none;
-}
-
-a:not([class]) {
-	text-decoration-skip-ink: auto;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-/* If no link is supplied or href field is missing */
-a:is(:not([href]), [href=''], [href='#']) {
-	outline: 2px dotted red;
-}
-
-/* only <li>'s allowed in ul & ol */
-:is(ul, ol) > *:not(li) {
-	outline: 2px dotted red;
-}
-
 button {
 	border: none;
 	appearance: none;
 	background: transparent;
 	outline: none;
+	cursor: revert;
 
 	&:hover {
 		cursor: pointer;
 	}
 }
 
-blockquote,
-q {
-	quotes: none;
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	cursor: pointer;
 }
 
-blockquote::before,
-blockquote::after,
-q::before,
-q::after {
-	content: '';
-	content: none;
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+	cursor: default;
 }
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+[type="search"] {
+	outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+[type="number"] {
+	-moz-appearance: textfield;
+}
+
+label[for] {
+	cursor: pointer;
+}
+
+meter {
+	-webkit-appearance: revert;
+	appearance: revert;
 }
 
 textarea {
 	white-space: revert;
 }
 
-main:focus,
-h1:focus {
-	outline: 3px solid transparent;
+::placeholder {
+	color: unset;
 }
 
-abbr:not([title]):hover {
-	cursor: text;
+/* Interactive */
+/* ============================================ */
+details {
+	display: block;
+}
 
-	a & {
-		cursor: pointer;
-	}
+summary {
+	display: list-item;
+}
+
+[contenteditable]:focus {
+	outline: auto;
+}
+
+:where([contenteditable]:not([contenteditable="false"])) {
+	-moz-user-modify: read-write;
+	-webkit-user-modify: read-write;
+	overflow-wrap: break-word;
+	-webkit-line-break: after-white-space;
+	-webkit-user-select: auto;
+}
+
+:where([draggable="true"]) {
+	-webkit-user-drag: element;
+}
+
+/* Tables */
+/* ============================================ */
+table {
+	border-collapse: collapse;
+	border-color: inherit;
+	border-spacing: 0;
+}
+
+caption {
+	text-align: left;
+}
+
+td,
+th {
+	vertical-align: top;
+	padding: 0;
+}
+
+th {
+	text-align: left;
+	font-weight: bold;
 }
