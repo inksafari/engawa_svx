@@ -1,8 +1,8 @@
 import { sequence } from '@sveltejs/kit/hooks'
-import { minifyHTML } from './minify'
-import { urlRedirect } from './redirects'
-// import { initSentryCF } from './sentry'
-// import { customHeaders } from './headers-setup'
+import { minifyHTML } from './minify.server.js'
+import { urlRedirect } from './redirects.server.js'
+// import { initSentryCF } from './sentry.server.js'
+// import { customHeaders } from './headers-setup.server.js'
 
 const handle = sequence(
 	urlRedirect,

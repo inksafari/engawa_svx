@@ -41,7 +41,10 @@ EXPOSE 9000
 CMD ["pnpm", "build:preview"]
 # https://github.com/PREreview/prereview.org/blob/main/Dockerfile
 # https://github.com/antfu/vitesse/blob/main/Dockerfile
+# https://github.com/Feuerhamster/lmke.dev/blob/master/Dockerfile
 # https://github.com/janoamaral/personal-blog-v2/blob/master/Dockerfile
 # https://qiita.com/mojatter/items/d431e933d7c34ba76872
 # https://github.com/SouthwestKoala/southwestkoala.co.uk/blob/main/apps/web/Dockerfile
 # https://github.com/pnpm/pnpm/issues/4378#issuecomment-1211225991
+# https://github.com/Feuerhamster/lmke.dev/blob/master/Dockerfile
+# https://github.com/Maliek2/listenme/blob/main/app/Dockerfile

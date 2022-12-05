@@ -22,6 +22,8 @@ const config = defineConfig({
 	extensions: ['.svx', '.md'],
 	highlight: { highlighter: shikiHighlighter },
 	smartypants: {
+		quotes: false,
+		backticks: 'all',
 		dashes: 'oldschool',
 	},
 	remarkPlugins: [
@@ -63,3 +65,6 @@ const config = defineConfig({
 })
 
 export default config
+
+// @links:
+// https://github.com/matiasfha/matias-sveltekit/blob/c2160d38603ed170ea54f85336c2fc19438da878/web/mdsvex.config/index.js

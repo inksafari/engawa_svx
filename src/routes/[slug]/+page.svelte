@@ -15,7 +15,7 @@
 	}
 	const site = getContext('site')
 	export let data, element, intersecting
-	const { title, date, updatedOn, prev, next } = data.metadata
+	const { title, date, updatedOn, readingTime, prev, next } = data.metadata
 	const content = data.content
 	const dateObj = new Date(date)
 	const moonEmoji = Moon.lunarPhaseEmoji(dateObj, Hemisphere.NORTHERN)
@@ -66,6 +66,12 @@
 					<dt>Moon</dt>
 					<dd>
 						{moonEmoji}
+					</dd>
+				</div>
+				<div>
+					<dt>Words</dt>
+					<dd>
+						{readingTime.words}
 					</dd>
 				</div>
 			</dl>

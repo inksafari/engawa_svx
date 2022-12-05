@@ -1,15 +1,13 @@
 export const prerender = true
-import { error } from '@sveltejs/kit'
 
-export async function load({ params }) {
-	try {
-		const slug = params.slug
-		const res = await import(`../../../content/${slug}.md`)
-		return {
-			metadata: res.metadata,
-			content: res.default, // res.default.render().html
-		}
-	} catch (err) {
-		throw error(404, `Could not load page. ${err}`)
+export async function load({ params, data }) {
+	const slug = params.slug
+	const res = await import(`../../../content/${slug}.md`)
+	const content = await res.default // res.default.render().html
+	const metadata = { ...res.metadata, ...data, slug }
+
+	return {
+		metadata,
+		content,
 	}
 }

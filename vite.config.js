@@ -28,8 +28,9 @@ const isDev = process.env.NODE_ENV !== 'production'
 const isProd = process.env.NODE_ENV === 'production'
 
 const prependScssFiles = [
-	'@use "src/styles/func.scss" as *;',
 	'@use "src/styles/tokens.scss" as *;',
+	'@use "src/styles/func.scss" as *;',
+	'@use "src/styles/mixins" as *;',
 ].join(' ')
 
 const aliasList = [
@@ -41,6 +42,7 @@ const aliasList = [
 
 /** @type {import('vite').UserConfig} */
 const config = defineConfig({
+	logLevel: 'warn',
 	mode: process.env.mode || 'production',
 	define: {
 		'process.env.VITE_BUILD_TIME': JSON.stringify(new Date().toISOString()),
@@ -58,7 +60,13 @@ const config = defineConfig({
 			},
 		},
 	},
-	// css: { preprocessorOptions: { scss: { additionalData: prependScssFiles } } },
+	css: { preprocessorOptions: { scss: { additionalData: prependScssFiles } } },
+	esbuild: {
+		treeShaking: true,
+		minifyWhitespace: true,
+		minifyIdentifiers: true,
+		minifySyntax: true,
+	},
 	experimental: {
 		inspector: {
 			holdMode: true,

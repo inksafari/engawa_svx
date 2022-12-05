@@ -16,6 +16,7 @@
 	</p>
 </div>
 
+[![GitHub Actions: Build][actions-build]][actions-build-url]
 [![framework][framework-badge]][svelte-url]
 [![GitHub top language][lang-badge]][repo-url]
 [![GitHub commit activity][activity-badge]][activity]
@@ -182,6 +183,8 @@ This project is licensed under the Beerware License, but all contents copyright 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
+[actions-build]: https://img.shields.io/github/workflow/status/inksafari/engawa/Build?style=for-the-badge&logo=github&labelColor=111b27
+[actions-build-url]: https://github.com/inksafari/engawa/actions/workflows/build.yml
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev
 [SvelteKit-Changelog-url]: https://github.com/sveltejs/kit#packages

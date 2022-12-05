@@ -36,6 +36,9 @@ build/
 *.pem
 static/fonts
 
+# stories
+.histoire
+
 # deployment
 .firebase
 firebase-debug.log*
