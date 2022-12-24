@@ -13,7 +13,6 @@ import externalLinks from 'rehype-external-links'
 import titleFigure from 'rehype-title-figure'
 // import Jargon from 'rehype-jargon'
 // import jargonfile from './jargonfile'
-import { rehypeAccessibleEmojis as a11yEmoji } from 'rehype-accessible-emojis'
 import autoLinkHeadings from 'rehype-autolink-headings'
 import slug from 'rehype-slug'
 
@@ -44,7 +43,6 @@ const config = defineConfig({
 	],
 	rehypePlugins: [
 		// [ Jargon, { jargon: jargonfile}],
-		a11yEmoji,
 		titleFigure,
 		[
 			externalLinks,

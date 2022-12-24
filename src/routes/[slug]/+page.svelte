@@ -36,12 +36,12 @@
 	-->
 </svelte:head>
 <main id="main">
-	<article id="entry">
+	<article id="entry" data-pagefind-body >
 		<!-- TITLE -->
 		<header class="entry-header">
 			<div class="entry-header-container">
 				<IntersectionObserver {element} bind:intersecting>
-					<h1 class="headline" bind:this={element}>{title}</h1>
+					<h1 class="headline" data-pagefind-meta="title" bind:this={element}>{title}</h1>
 				</IntersectionObserver>
 			</div>
 		</header>
@@ -79,9 +79,11 @@
 		<!-- Content -->
 		<div class="entry-container prose" aria-label="Content" bind:this={el}>
 			<svelte:component this={content} /> <!-- {@html content} -->
+			<div id="search"></div>
 		</div>
+		<div id=search></div>
 		<!-- Pagination -->
-		<div class="entry-container post-footer">
+		<div class="entry-container post-footer" data-pagefind-ignore>
 			{#if prev || next}
 			<nav class="post-pagination" aria-labelledby="page-pagination">
 				<span class="screen-reader-text">This post is part of a series.</span>

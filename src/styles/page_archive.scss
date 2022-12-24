@@ -42,7 +42,8 @@
 @media (max-width: 480px) {
 	html:dir(ltr) .post-listing {
 		ol {
-			padding-left: var(--size-8);
+			display: inline;
+			padding-left: var(--size-2);
 		}
 	}
 }

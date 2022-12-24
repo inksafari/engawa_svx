@@ -3,3 +3,4 @@ read MESSAGE
 git add --all
 git commit -m "${MESSAGE}"
 git push
+# git push --force-if-includes

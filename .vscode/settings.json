@@ -30,7 +30,8 @@
   "eslint.validate": [
     "javascript",
     "typescript",
-    "svelte"
+    "svelte",
+    "html"
   ],
   "stylelint.enable": true,
   "stylelint.validate": [
@@ -91,13 +92,13 @@
   },
   // * Custom region folding.
   /*
-	"explicitFolding.rules": {
-		"*": {
-			"beginRegex": "[ \\t]*?\\/\\/\\·(?:.*)?",
-			"endRegex": "[ \\t]*?\\/\\/\\⌟(?:.*)?"
-		}
-	},
-	*/
+  "explicitFolding.rules": {
+    "*": {
+      "beginRegex": "[ \\t]*?\\/\\/\\·(?:.*)?",
+      "endRegex": "[ \\t]*?\\/\\/\\⌟(?:.*)?"
+    }
+  },
+  */
 
   // * More comment tags.
   "better-comments.tags": [

@@ -4,11 +4,8 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**.txt'
   pull_request:
     paths-ignore:
-      - '**.txt'
       - '.vscode/**'
   # Allows you to call this workflow from other workflows
   workflow_call:
@@ -32,28 +29,19 @@ defaults:
 jobs:
   build:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    name: '🧀 Node ${{ matrix.node-version }} (${{ matrix.operating-system }})'
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      matrix:
-        operating-system: [ubuntu-latest]
-        # @see https://github.com/nodejs/release#release-schedule
-        node-version: ['16.18'] # '18.x'
     steps:
       - name: 'Checkout main repository with app logic 🛎️'
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
           #lfs: true
           persist-credentials: false
           submodules: false
-          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: '🍩 Setup PNPM <del>and install dependencies</del>'
-        # https://github.com/pnpm/action-setup
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
         with:
           version: 7
           run_install: false
@@ -61,12 +49,12 @@ jobs:
             #- recursive: true
             #  args: [--frozen-lockfile, --ignore-scripts]
 
-      - name: '🍓 Use Node.js ${{ matrix.node-version }}'
+      - name: '🍓 Use Node.js'
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          # @see https://github.com/nodejs/release#release-schedule
+          node-version-file: '.node_version'
           cache: 'pnpm'
-          cache-dependency-path: '**/pnpm-lock.yaml'
 
       - name: '🍩 Install dependencies'
         run: pnpm install --frozen-lockfile --prefer-offline --ignore-scripts

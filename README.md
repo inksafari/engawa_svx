@@ -1,19 +1,19 @@
 <div align="center">
-	<h1 align="center">
-		&#60;@inksafari/engawa  &#47;&#62;
-	</h1>
-	<p align="center">
-		The codebase of a personal blog developed using SvelteKit, SCSS and hosted freely using Firebase Hosting.
-		<!--
-		Available rendered at https://example.com.
-		<br />
-		<br />
-		<a href="https://example.com">View Demo</a>
-		·
-		<a href="https://github.com/inksafari/engawa/issues">Report Bug</a>
-		·
-		-->
-	</p>
+  <h1 align="center">
+    &#60;@inksafari/engawa  &#47;&#62;
+  </h1>
+  <p align="center">
+    The codebase of a personal blog developed using SvelteKit, SCSS and hosted freely using Firebase Hosting.
+    <!--
+    Available rendered at https://example.com.
+    <br />
+    <br />
+    <a href="https://example.com">View Demo</a>
+    ·
+    <a href="https://github.com/inksafari/engawa/issues">Report Bug</a>
+    ·
+    -->
+  </p>
 </div>
 
 [![GitHub Actions: Build][actions-build]][actions-build-url]
@@ -114,9 +114,9 @@ PUBLIC_DOMAIN="example.com"
 PUBLIC_SITE_URL="https://example.com"
 
 # Sentry
-PUBLIC_SENTRY_KEY="123456"
-PUBLIC_SENTRY_ORG_ID="9876543"
-PUBLIC_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
+SECRET_SENTRY_KEY="123456"
+SECRET_SENTRY_ORG_ID="9876543"
+SECRET_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -127,7 +127,8 @@ PUBLIC_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
 - **Styling**: [Dart Sass](https://sass-lang.com/), [Open Props](https://open-props.style/) and [PostCSS](https://postcss.org/)
 - **Content**: Plain text files w/ [MDsveX](https://mdsvex.pngwn.io/docs) (markdown preprocessor)
 - **Code syntax highlighter**: [Shiki](https://shikijs.github.io/twoslash/)
-- **Deployment**: [Firebase Hosting][hosting-url]
+- **Git hooks manager**: [Lefthook](https://github.com/evilmartians/lefthook) ( [configuration](lefthook.yml) )
+- **Deployment**: [Firebase Hosting][hosting-url] ( [docs](https://firebase.google.com/docs/hosting) / [configuration](firebase.json) )
 - **Typefaces**:
   - [Gowun Batang(고운바탕)](https://github.com/yangheeryu/Gowun-Batang) by Yanghee Ryu
   - [Iansui](https://github.com/ButTaiwan/iansui) by [Fontworks](https://github.com/fontworks-fonts/Klee) and But Ko
@@ -136,10 +137,10 @@ PUBLIC_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
   - accessibility: [Pa11y CI](https://github.com/pa11y/pa11y-ci) ( [configuration](config/pa11y.json) )
   - credentials: [Secretlint](https://github.com/secretlint/secretlint) ( [configuration](.secretlintrc.js) )
   - plain text files:
+    - [CSpell](https://cspell.org/) ( [configuration](cspell.json), [words](config/words.txt) )
     - [Vale](https://vale.sh/) ( [configuration](.vale.ini) )
       - [Alex](https://github.com/get-alex/alex) ( [configuration](.alexrc.yml) )
   - programming languages:
-    - [CSpell](https://cspell.org/) ( [configuration](cspell.json) )
     - [dprint](https://dprint.dev/) ( [configuration](dprint.json) )
     - CSS / SCSS: [Stylelint](https://stylelint.io/) ( [configuration](config/stylelint.config.cjs) )
     - JavaScript / TypeScript: [ESLint](https://eslint.org/) ( [configuration](.eslintrc.cjs) )
@@ -183,7 +184,8 @@ This project is licensed under the Beerware License, but all contents copyright 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[actions-build]: https://img.shields.io/github/workflow/status/inksafari/engawa/Build?style=for-the-badge&logo=github&labelColor=111b27
+[actions-build]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/build.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
+[actions-codeql]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/codeql.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
 [actions-build-url]: https://github.com/inksafari/engawa/actions/workflows/build.yml
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev

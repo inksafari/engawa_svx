@@ -1,6 +1,6 @@
 <script>
 	import { onMount, setContext } from 'svelte'
-	import { prefetchRoutes } from '$app/navigation'
+	// import { preloadCode } from '$app/navigation'
 	import { currentPage } from '$lib/utils/store'
 	import site from '$lib/site.js'
 	// FIXME: 樣式跑掉
@@ -9,9 +9,9 @@
 	export let data
 
 	$: currentPage.set(data.path)
-	onMount(async () => {
-		prefetchRoutes()
-	})
+	// onMount(async () => {
+		// preloadCode()
+	//})
 	setContext('site', site)
 </script>
 <svelte:head>

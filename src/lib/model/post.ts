@@ -6,6 +6,8 @@ import z from 'zod'
 
 export const Post = z.lazy(() =>
 	z.object({
+		/* for content/*.md */
+		// FIXME: date https://github.com/colinhacks/zod/issues/126
 		title: z.string(),
 		date: z.string(),
 		updatedOn: z.string().optional(),

@@ -41,6 +41,8 @@ const rulesFromPlugins = {
 			SwitchCase: 1,
 		},
 	],
+	'no-unsanitized/method': 'error',
+	'no-unsanitized/property': 'error',
 	// 'no-only-tests/no-only-tests': 'warn',
 }
 
@@ -52,6 +54,7 @@ const config = {
 		sourceType: 'module',
 		ecmaVersion: 2022,
 		extraFileExtensions: ['.svelte'],
+		tsconfigRootDir: __dirname,
 		project: ['./config/tsconfig.dev.json'],
 	},
 	env: {
@@ -66,11 +69,11 @@ const config = {
 		// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
 		// 'plugin:@typescript-eslint/recommended',
 		// https://github.com/eslint/eslint-plugin-markdown
-		'plugin:markdown/recommended',
+		// 'plugin:markdown/recommended',
 		// https://github.com/ota-meshi/eslint-plugin-svelte
 		// 'plugin:svelte/recommended',
-		// https://github.com/nodesecurity/eslint-plugin-security
-		// 'plugin:security/recommended',
+		// https://github.com/eslint-community/eslint-plugin-security
+		'plugin:security/recommended',
 		// https://github.com/jonaskello/eslint-plugin-functional
 		// 'plugin:functional/external-recommended',
 		// 'plugin:functional/recommended',
@@ -81,16 +84,16 @@ const config = {
 	plugins: [
 		// https://github.com/sveltejs/eslint-plugin-svelte3
 		// 'svelte3',
+		// https://github.com/yeonjuan/html-eslint
+		// '@html-eslint',
 		// https://github.com/typescript-eslint
 		'@typescript-eslint',
 		// https://github.com/bkucera/eslint-plugin-json-format
 		// 'json-format',
-		// https://github.com/nodesecurity/eslint-plugin-security
-		// 'security',
-		// https://github.com/microsoft/rushstack/tree/main/eslint/eslint-plugin-security
-		'@rushstack/eslint-plugin-security',
 		// https://github.com/eslint/eslint-plugin-markdown
-		'markdown',
+		// 'markdown',
+		// https://github.com/mozilla/eslint-plugin-no-unsanitized
+		'no-unsanitized',
 		// https://github.com/jonaskello/eslint-plugin-functional
 		// 'functional',
 	],
@@ -123,10 +126,15 @@ const config = {
 				'@typescript-eslint/no-unsafe-call': 'off',
 			},
 		},
-		{
-			files: ['content/**/*.md', 'content/**/*.svx', 'src/lib/data/*.md'],
-			processor: 'markdown/markdown',
-		},
+		// {
+			// files: ['content/**/*.md', 'content/**/*.svx', 'src/lib/data/*.md'],
+			// processor: 'markdown/markdown',
+		// },
+		// {
+		// files: ['src/**/*.html'],
+		// parser: '@html-eslint/parser',
+		// extends: ['plugin:@html-eslint/recommended'],
+		// },
 	],
 	settings: {
 		'import/resolver': {

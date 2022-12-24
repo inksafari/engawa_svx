@@ -1,0 +1,8 @@
+# https://pagefind.app/docs/config-sources/
+# FIXME: 搜尋框無法載入，無法使用
+source: build
+bundle_dir: search
+
+exclude_selectors:
+  - "[class='footnote-ref']"
+  - "[class^='language']"

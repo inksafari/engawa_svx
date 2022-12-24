@@ -25,6 +25,12 @@
 	backface-visibility: none;
 }
 
+::before,
+::after {
+	text-decoration: inherit;
+	vertical-align: inherit;
+}
+
 /* Document */
 /* ============================================ */
 html {
@@ -102,11 +108,11 @@ h1:focus {
 
 /* Lists (enumeration) */
 /* ============================================ */
-ol, ul, menu {
-	list-style: none;
-	padding: unset;
-	margin: 0;
-}
+//ol, ul, menu {
+	//list-style: none;
+	//padding: unset;
+	//margin: 0;
+//}
 
 /* only <li>'s allowed in ul & ol */
 :is(ol, ul) > *:not(li) {

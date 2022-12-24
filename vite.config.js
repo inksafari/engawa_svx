@@ -6,6 +6,7 @@ import { defineConfig } from 'vite'
 // -- vite plugins --
 import { sveltekit } from '@sveltejs/kit/vite'
 import imagePresets, { widthPreset } from 'vite-plugin-image-presets'
+import shoji from './plugins/shoji.ts' // → 檢查env vars
 
 // TODO: (1)調整大小 (2)image.svelte
 // https://github.com/ElMassimo/vite-plugin-image-presets/blob/main/example/vite.config.ts
@@ -73,7 +74,8 @@ const config = defineConfig({
 		},
 	},
 	server: {
-		port: 3000,
+		host: 'localhost',
+		port: 9000,
 		open: true,
 		strictPort: false,
 		fs: {
@@ -104,6 +106,7 @@ const config = defineConfig({
 	},
 	plugins: [
 		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
+		shoji(),
 		genImageSizePlugin,
 		sveltekit(),
 	],

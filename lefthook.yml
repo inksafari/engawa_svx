@@ -1,19 +1,53 @@
-# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
-commit-msg:
-	commands:
-		commitlint:
-			run: commitlint -e
+# https://github.com/evilmartians/lefthook
+# EXAMPLE USAGE:
+# npx lefthook run lint
+lint:
+  parallel: true
+  commands:
+    pkg:audit:
+      run: pnpm audit
+    actions:
+      glob: '.github/workflows/*.{yaml,yml}'
+      run: actionlint {all_files}
+    keys:
+      glob: '*'
+      exclude: '.svelte-kit'
+      run: pnpm exec secretlint {all_files}
+    #css:
+      #glob: 'src/*.{css,scss,html}'
+      #run: pnpm exec stylelint --config ./config/stylelint.config.cjs {all_files}
+    js:
+      glob: 'src/*.{mjs,cjs,js,ts,svelte}'
+      run: pnpm exec eslint --ignore-path .eslintignore {all_files}
+    spell:
+      glob: '*.{md,mdx,svx}'
+      exclude: 'README.md'
+      run: pnpm exec cspell {all_files}
+
+test:
+  parallel: true
+  commands:
+    test:unit:
+      glob: '*.{spec,test}.{[tj]s,[tj]sx}'
+      run: >
+        npx eslint {all_files} &&
+        npx vitest {all_files} --run
+
 pre-commit:
-	parallel: true
-	commands:
-		lint-keys:
-			files: git diff --name-only --staged
-			glob: '*'
-			run: npx secretlint -- {files}
-		#lint-actions:
-		#glob: '.github/workflows/*.{yml,yaml}'
-		#run: npx actionlint
-		#lint-js:
-		#  files: git diff --name-only --staged
-		#  glob: '*.{ts,js,svelte,svx,md}'
-		#  run: npm run lint:js -- {files}
+  parallel: true
+  commands:
+    lint-keys:
+      glob: '*'
+      exclude: '.svelte-kit'
+      run: pnpm exec secretlint {staged_files}
+    #lint-js:
+      #glob: '{plugins,src}/*.{mjs,cjs,js,ts,svelte,svx,md}'
+      #run: pnpm exec eslint --ignore-path .eslintignore {staged_files}
+    #lint-css:
+      #glob: 'src/*.{css,scss,html}'
+      #run: pnpm exec stylelint --config ./config/stylelint.config.cjs {staged_files}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx --no -- commitlint --edit $1

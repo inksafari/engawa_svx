@@ -27,5 +27,7 @@ const config = defineConfig({
 })
 
 export default config
-// @link:
+// @links:
 // https://github.com/sw-yx/swyxkit/commit/65ec69e8642a9b4cba1a5180c52cb2b8967f9161
+// https://github.com/indaco/histoire-sveltekit
+// https://github.com/lucagoslar/sveltekit-fullstack

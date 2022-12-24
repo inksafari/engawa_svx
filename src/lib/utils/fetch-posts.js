@@ -37,7 +37,7 @@ const fetchPost = async slug =>
 		find(post => slug === post.slug)
 	)
 
-export { fetchPost, fetchPosts, Post, Posts }
+export { fetchPost, fetchPosts }
 
 // Adapted from
 // https://github.com/croccifixio/blog/blob/main/src/lib/utils/blog.js
@@ -47,3 +47,4 @@ export { fetchPost, fetchPosts, Post, Posts }
 // https://github.com/josh-collinsworth/joco-sveltekit/blob/main/src/lib/assets/js/utils/fetchPosts.ts
 // https://github.com/aaronkai/portfolio-sveltekit/blob/main/src/routes/blogposts.json/%2Bserver.js
 // https://github.com/matthewsimo/matthewsimo.com/blob/027d6d0f4a670a4f84d3629503660d1530f71742/src/routes/(page)/posts/%2Bpage.ts
+// https://github.com/mattcroat/sveltekit-blog/search?q=postSchema

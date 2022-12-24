@@ -1,46 +1,15 @@
+// cspell \"src/**/*\" \"./*\" --fail-fast true
 {
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
   "language": "en",
-  "enableFiletypes": ["svelte"],
-  "words": [
-    "apos",
-    "atrule",
-    "blazingly",
-    "browserconfig",
-    "Compsci",
-    "concat",
-    "evenodd",
-    "feedforward",
-    "figcaption",
-    "fira",
-    "firstinspires",
-    "fontsource",
-    "gamepad",
-    "giscus",
-    "GLTF",
-    "hardwaremap",
-    "kennanhunter",
-    "keyframes",
-    "mdsvex",
-    "mstile",
-    "noscript",
-    "precomposed",
-    "prerendered",
-    "rehype",
-    "rgba",
-    "robotcore",
-    "sveltejs",
-    "sveltekit",
-    "teamcode",
-    "teleop",
-    "themself",
-    "threejsm",
-    "tweened",
-    "unmaintainability",
-    "urlset"
+  "files": ["**/*.{md,mdx,svx}"],
+  "dictionaryDefinitions": [
+    {
+      "name": "www",
+      "path": "./config/words.txt",
+      "addWords": true
+    }
   ],
-  "ignorePaths": [
-    "src/assets/**/*",
-    "src/styles/**/*"
-  ]
+  "dictionaries": ["www"]
 }
