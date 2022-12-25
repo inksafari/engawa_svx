@@ -13,8 +13,8 @@ specifiers:
   '@playwright/test': ^1.29.1
   '@rive-app/canvas': ^1.0.97
   '@secretlint/secretlint-rule-preset-recommend': ^5.3.0
-  '@sveltejs/adapter-static': 1.0.0
-  '@sveltejs/kit': 1.0.1
+  '@sveltejs/adapter-static': ^1.0.0
+  '@sveltejs/kit': ^1.0.1
   '@sveltejs/vite-plugin-svelte': ^2.0.2
   '@types/js-yaml': ^4.0.5
   '@typescript-eslint/eslint-plugin': ^5.47.0

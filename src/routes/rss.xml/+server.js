@@ -3,8 +3,6 @@ import site from '$lib/site.js'
 import { fetchPosts } from '$lib/utils/fetch-posts'
 import { DOMParser, XMLSerializer } from '@xmldom/xmldom'
 
-// TODO: rss.xsl
-// <?xml-stylesheet href="/rss.xsl" type="text/xsl" media="screen" ?>
 // TODO: json feed
 // https://github.com/importantimport/urara/blob/main/src/routes/feed.json/%2Bserver.ts
 export async function GET() {
@@ -22,6 +20,7 @@ export async function GET() {
 const rawStrings = String.raw
 const feedRender = items =>
 	rawStrings`<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl" media="screen" ?>
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
 	xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
@@ -38,18 +37,8 @@ const feedRender = items =>
 
 const feedItem = item =>
 	rawStrings`<item>
-		<title>${item.title}</title>
-		<description>ramblings</description>
+		<title>${item.title}</title>>
 		<link>https://${site.baseUrl}/${item.slug}</link>
 		<guid isPermaLink="true">https://${site.baseUrl}/${item.slug}</guid>
-		<pubDate>${new Date(item.date || item.updatedOn).toDateString()}</pubDate>
-		<content:encoded>${item.description}
-			<div style="margin-top: 50px; font-style: italic;">
-				<strong>
-					<a href="https://${site.baseUrl}/${item.slug}">
-						Visit site for more
-					</a>
-				</strong>
-			</div>
-		</content:encoded>
+		<pubDate>${new Date(item.date).toDateString()}</pubDate>
 	</item>`

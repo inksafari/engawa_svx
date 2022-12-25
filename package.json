@@ -51,6 +51,7 @@
     "===== build =====": "",
     "build:svg": "find ./src ./static -name '*.svg' -print0 | xargs -0 -P16 -L20 npx svgo",
     "build:styles:print": "sass src/styles/print.scss static/print.css --no-source-map --style=compressed",
+    "build:styles:rss": "sass src/styles/rss.scss static/rss.css --no-source-map --style=compressed",
     "build:index": "pagefind",
     "build": "run-s clear postinstall build:site build:index",
     "build:site": "vite build",

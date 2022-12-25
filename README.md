@@ -17,6 +17,7 @@
 </div>
 
 [![GitHub Actions: Build][actions-build]][actions-build-url]
+[![GitHub Actions: CodeQL][actions-codeql]][actions-codeql-url]
 [![framework][framework-badge]][svelte-url]
 [![GitHub top language][lang-badge]][repo-url]
 [![GitHub commit activity][activity-badge]][activity]
@@ -58,7 +59,7 @@ npm install
 npm run dev
 ```
 
-Open up [localhost:3000](http://localhost:3000) and start clicking around.
+Open up [localhost:9000](http://localhost:9000) and start clicking around.
 
 Consult [kit.svelte.dev][svelte-url] for help getting started.
 
@@ -71,7 +72,7 @@ All commands are run from the root of the project, from a terminal:
 | Command         | Action                                       |
 | :-------------- | :------------------------------------------- |
 | `npm install`   | Installs dependencies                        |
-| `npm run dev`   | Starts local dev server at `localhost:3000`  |
+| `npm run dev`   | Starts local dev server at `localhost:9000`  |
 | `npm run build` | Build your production site to `./build/`     |
 | `npm run serve` | Preview your build locally, before deploying |
 
@@ -156,7 +157,6 @@ SECRET_SENTRY_PROJECT_ID="01234567891bcdef0123456789abcd"
 - privacy page
 - tab or space
 - testing
-- rss style
 - shelf
 - partial hydration
 
@@ -187,6 +187,7 @@ This project is licensed under the Beerware License, but all contents copyright 
 [actions-build]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/build.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
 [actions-codeql]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/codeql.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
 [actions-build-url]: https://github.com/inksafari/engawa/actions/workflows/build.yml
+[actions-codeql-url]: https://github.com/inksafari/engawa/actions/workflows/codeql.yml
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev
 [SvelteKit-Changelog-url]: https://github.com/sveltejs/kit#packages

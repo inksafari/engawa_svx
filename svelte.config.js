@@ -36,7 +36,7 @@ const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
 	preprocess: preprocessSVX,
 	// compilerOptions: {
-		// immutable: true,
+	// immutable: true,
 	// },
 	kit: {
 		adapter: staticAdapter({
@@ -56,7 +56,7 @@ const config = {
 		// 	directives: cspDirectives,
 		// },
 		// csrf: {
-			// checkOrigin: true,
+		// checkOrigin: true,
 		// },
 		serviceWorker: {
 			register: false,

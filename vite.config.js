@@ -105,7 +105,6 @@ const config = defineConfig({
 		noExternal: ['three'],
 	},
 	plugins: [
-		// dotenv https://github.com/TransDB-de/website/blob/master/svelte.config.js
 		shoji(),
 		genImageSizePlugin,
 		sveltekit(),

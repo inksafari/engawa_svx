@@ -19,8 +19,9 @@ permissions:
   contents: read
   id-token: write
   pull-requests: read
+# cancel in-progress runs on new commits to same PR (gitub.event.number)
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
   cancel-in-progress: true
 defaults:
   run:
@@ -37,8 +38,8 @@ jobs:
         with:
           fetch-depth: 2
           #lfs: true
-          persist-credentials: false
-          submodules: false
+          #persist-credentials: false
+          #submodules: false
 
       - name: '🍩 Setup PNPM <del>and install dependencies</del>'
         uses: pnpm/action-setup@v2
@@ -57,7 +58,7 @@ jobs:
           cache: 'pnpm'
 
       - name: '🍩 Install dependencies'
-        run: pnpm install --frozen-lockfile --prefer-offline --ignore-scripts
+        run: pnpm install --prefer-offline --ignore-scripts
 
       - name: '🍏 Build SvelteKit app'
         env:

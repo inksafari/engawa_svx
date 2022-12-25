@@ -34,4 +34,5 @@ export default config
  * https://github.com/frontendista/frontendista.cz/blob/main/apps/frontend-astro/vitest.config.ts
  * https://github.com/yuukoyoung/yuuko-design/tree/main/packages/utils
  * https://github.com/superhelten/ssr-html
+ * https://github.com/davipon/svelte-component-test-recipes
  */

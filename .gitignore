@@ -54,6 +54,7 @@ src/assets
 
 stylelintReport.txt
 # temp
-src/routes/rss.xml/rss.xsl
 src/styles/notes.md
 static/search
+static/print.css
+static/rss.css

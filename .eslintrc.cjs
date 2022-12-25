@@ -127,8 +127,8 @@ const config = {
 			},
 		},
 		// {
-			// files: ['content/**/*.md', 'content/**/*.svx', 'src/lib/data/*.md'],
-			// processor: 'markdown/markdown',
+		// files: ['content/**/*.md', 'content/**/*.svx', 'src/lib/data/*.md'],
+		// processor: 'markdown/markdown',
 		// },
 		// {
 		// files: ['src/**/*.html'],
