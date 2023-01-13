@@ -6,16 +6,16 @@
  * import { onMount } from 'svelte'
  *
  * const loadEmbeddedTweets = () => {
- *	const allTweets = document.getElementsByClassName('twitter-tweet')
- *	if (allTweets.length) {
- *		appendScriptToHead('https://platform.twitter.com/widgets.js')
- *	}
+ * 	const allTweets = document.getElementsByClassName('twitter-tweet')
+ * 	if (allTweets.length) {
+ * 		appendScriptToHead('https://platform.twitter.com/widgets.js')
+ * 	}
  * }
- *	onMount(() => {
- *		loadEmbeddedTweets()
+ * 	onMount(() => {
+ * 		loadEmbeddedTweets()
  * })
  * </script>
-*/
+ */
 export function appendScriptToHead(src, async = true) {
 	const head = document.getElementsByTagName('head')[0]
 	const script = document.createElement('script')

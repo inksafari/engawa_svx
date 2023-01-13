@@ -4,7 +4,7 @@
 <script>
 	import { browser } from '$app/environment'
 	import { getContext } from 'svelte'
-	import { afterNavigate } from '$app/navigation'
+	// import { afterNavigate } from '$app/navigation'
 	import { FormattedDate, Year } from '$lib/components'
 	import { Moon, Hemisphere } from 'lunarphase-js'
 	import IntersectionObserver from 'svelte-intersection-observer'
@@ -20,11 +20,11 @@
 	const dateObj = new Date(date)
 	const moonEmoji = Moon.lunarPhaseEmoji(dateObj, Hemisphere.NORTHERN)
 
-	let hueDegree = 0
-	let el
-	afterNavigate(() => (hueDegree = Math.random() * 360))
-	$: el && el.style.setProperty('--c-primary-hue', `${hueDegree | 0}`)
-	//$: isFirstPage = prev !== null
+	// let hueDegree = 0
+	// let el
+	// afterNavigate(() => (hueDegree = Math.random() * 360))
+	// $: el && el.style.setProperty('--c-primary-hue', `${hueDegree | 0}`)
+	// $: isFirstPage = prev !== null
 	// {#if !isFirstPage}{else}{/if}
 </script>
 <svelte:head>
@@ -77,11 +77,10 @@
 			</dl>
 		</div>
 		<!-- Content -->
-		<div class="entry-container prose" aria-label="Content" bind:this={el}>
+		<!-- <div class="entry-container prose" aria-label="Content" bind:this={el}> -->
+		<div class="entry-container prose" aria-label="Content">
 			<svelte:component this={content} /> <!-- {@html content} -->
-			<div id="search"></div>
 		</div>
-		<div id=search></div>
 		<!-- Pagination -->
 		<div class="entry-container post-footer" data-pagefind-ignore>
 			{#if prev || next}

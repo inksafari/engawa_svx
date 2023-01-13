@@ -25,8 +25,8 @@ export const genImageSizePlugin = imagePresets({
 })
 
 // env
-const isDev = process.env.NODE_ENV !== 'production'
-const isProd = process.env.NODE_ENV === 'production'
+// const isDev = process.env.NODE_ENV !== 'production'
+// const isProd = process.env.NODE_ENV === 'production'
 
 const prependScssFiles = [
 	'@use "src/styles/tokens.scss" as *;',
@@ -47,7 +47,7 @@ const config = defineConfig({
 	mode: process.env.mode || 'production',
 	define: {
 		'process.env.VITE_BUILD_TIME': JSON.stringify(new Date().toISOString()),
-		__PROJECT_ROOT__: JSON.stringify(path.dirname(fileURLToPath(import.meta.url))),
+		'__PROJECT_ROOT__': JSON.stringify(path.dirname(fileURLToPath(import.meta.url))),
 	},
 	resolve: {
 		// alias: { '#': fileURLToPath(new URL('./src', import.meta.url)) }
@@ -61,7 +61,19 @@ const config = defineConfig({
 			},
 		},
 	},
-	css: { preprocessorOptions: { scss: { additionalData: prependScssFiles } } },
+	css: {
+		preprocessorOptions: {
+			// scss: {
+			// includePaths: ['src'],
+			// prependData: prependScssFiles,
+			// renderSync: true,
+			// outputStyle: 'compressed',
+			// },
+			postcss: {
+				configFilePath: './postcss.config.cjs',
+			},
+		},
+	},
 	esbuild: {
 		treeShaking: true,
 		minifyWhitespace: true,

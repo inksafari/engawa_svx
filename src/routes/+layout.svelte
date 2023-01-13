@@ -1,6 +1,7 @@
 <script>
-	import { onMount, setContext } from 'svelte'
+	// import { onMount, setContext } from 'svelte'
 	// import { preloadCode } from '$app/navigation'
+	import { setContext } from 'svelte'
 	import { currentPage } from '$lib/utils/store'
 	import site from '$lib/site.js'
 	// FIXME: 樣式跑掉

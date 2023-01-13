@@ -4,12 +4,10 @@
 <script>
 	import lazyload from 'vanilla-lazyload'
 	import { browser } from '$app/environment'
+	import '../../styles/app_content.scss'
 
 	if (browser && !document.lazyloadInstance) {
 		document.lazyloadInstance = new lazyload()
 	}
 </script>
 <slot />
-<style lang="scss" global>
-	@import "../../styles/app_content.scss"
-</style>

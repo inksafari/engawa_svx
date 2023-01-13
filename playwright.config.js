@@ -2,7 +2,7 @@ import { devices } from '@playwright/test'
 
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
-	forbidOnly: !!process.env.CI,
+	forbidOnly: Boolean(process.env.CI),
 	retries: process.env.CI ? 2 : 0,
 	timeout: 10 * 1000,
 	use: {
@@ -39,3 +39,4 @@ export default config
 // https://github.com/bmcilw1/technicallyemployed/blob/master/playwright.config.ts
 // https://github.com/frontendista/frontendista.cz/blob/main/apps/frontend-astro/playwright.config.ts
 // https://github.com/calcom/cal.com/blob/main/playwright.config.ts
+// https://github.com/kwangure/sitgent

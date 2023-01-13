@@ -33,6 +33,7 @@ If you believe we might have any personal information from or about a child unde
 
 This site is hosted by Google Firebase. For more information see their Privacy and Data Protection page.
 https://firebase.google.com/support/privacy
+https://cloud.google.com/terms/subprocessors
 
 ## Changes to Privacy Policy
 

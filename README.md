@@ -16,8 +16,9 @@
   </p>
 </div>
 
-[![GitHub Actions: Build][actions-build]][actions-build-url]
-[![GitHub Actions: CodeQL][actions-codeql]][actions-codeql-url]
+[![GitHub workflow: Build][workflow-build]][workflow-build-url]
+[![GitHub workflow: CodeQL][workflow-codeql]][workflow-codeql-url]
+[![GitHub workflow: Codeball][workflow-codeball]][workflow-codeball-url]
 [![framework][framework-badge]][svelte-url]
 [![GitHub top language][lang-badge]][repo-url]
 [![GitHub commit activity][activity-badge]][activity]
@@ -184,10 +185,12 @@ This project is licensed under the Beerware License, but all contents copyright 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[actions-build]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/build.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
-[actions-codeql]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/codeql.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
-[actions-build-url]: https://github.com/inksafari/engawa/actions/workflows/build.yml
-[actions-codeql-url]: https://github.com/inksafari/engawa/actions/workflows/codeql.yml
+[workflow-build]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/build.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
+[workflow-codeql]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/codeql.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
+[workflow-codeball]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/codeball.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
+[workflow-build-url]: https://github.com/inksafari/engawa/actions/workflows/build.yml
+[workflow-codeql-url]: https://github.com/inksafari/engawa/actions/workflows/codeql.yml
+[workflow-codeball-url]: https://github.com/inksafari/engawa/actions/workflows/codeball.yml
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev
 [SvelteKit-Changelog-url]: https://github.com/sveltejs/kit#packages

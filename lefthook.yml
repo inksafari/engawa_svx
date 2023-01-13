@@ -17,7 +17,7 @@ lint:
       #glob: 'src/*.{css,scss,html}'
       #run: pnpm exec stylelint --config ./config/stylelint.config.cjs {all_files}
     js:
-      glob: 'src/*.{mjs,cjs,js,ts,svelte}'
+      glob: '{src,plugins}/*.{mjs,cjs,js,ts,svelte}'
       run: pnpm exec eslint --ignore-path .eslintignore {all_files}
     spell:
       glob: '*.{md,mdx,svx}'

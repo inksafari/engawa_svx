@@ -14,7 +14,7 @@ const extractMeta = (slug, markdown) => {
 		...frontmatter,
 		slug,
 		date: '2022-04-01',
-		isPrivate: !!frontmatter.isPrivate,
+		isPrivate: Boolean(frontmatter.isPrivate),
 	}
 }
 

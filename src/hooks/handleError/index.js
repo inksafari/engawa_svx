@@ -1,4 +1,4 @@
-export const handleError = async ({ event, error }) => {
+export const handleError = ({ event, error }) => {
 	// method 1:
 	// https://github.com/HelloUnspecified/SvelteWeekly.com/blob/main/src/hooks/index.js
 	// const thisError = error instanceof Error ? error : new Error(error);

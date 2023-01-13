@@ -1,10 +1,10 @@
 import { loadEnv, Plugin } from 'vite'
 import { z, ZodError } from 'zod'
 
-const boolean = z
-	.enum(['0', '1'])
-	.optional()
-	.transform(v => v === '1')
+// const boolean = z
+// .enum(['0', '1'])
+// .optional()
+// .transform(v => v === '1')
 
 const schema = z.object({
 	PUBLIC_DOMAIN: z.string().default('example.com'),
