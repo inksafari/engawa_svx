@@ -4,3 +4,7 @@ git add --all
 git commit -m "${MESSAGE}"
 git push
 # git push --force-if-includes
+
+# https://github.com/victoriacheng15/personal-blog-site/blob/main/scripts/actions.sh
+# https://github.com/Nutlope/aicommits
+# https://github.com/zurawiki/gptcommit

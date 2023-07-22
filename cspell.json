@@ -3,7 +3,9 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "version": "0.2",
   "language": "en",
-  "files": ["**/*.{md,mdx,svx}"],
+  "words": [],
+  "flagWords": [],
+  "dictionaries": ["www"],
   "dictionaryDefinitions": [
     {
       "name": "www",
@@ -11,5 +13,10 @@
       "addWords": true
     }
   ],
-  "dictionaries": ["www"]
+  "ignoreRegExpList": [
+    "[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"
+  ],
+  "ignorePaths": [],
+  "files": ["**/*.{md,mdx,svx}"],
+  "enableFiletypes": []
 }

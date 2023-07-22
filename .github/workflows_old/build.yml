@@ -42,27 +42,8 @@ jobs:
           #persist-credentials: false
           #submodules: false
 
-      - name: '🍩 Setup PNPM <del>and install dependencies</del>'
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-          run_install: false
-          #run_install: |
-            #- recursive: true
-            #  args: [--frozen-lockfile, --ignore-scripts]
-
-      - name: '🍓 Use Node.js'
-        uses: actions/setup-node@v3
-        with:
-          # @see https://github.com/nodejs/release#release-schedule
-          node-version-file: '.node_version'
-          cache: 'pnpm'
-
-      - name: '🍩 Install Sharp'
-        run: pnpm install --platform=linux --arch=x64 sharp
-
-      - name: '🍩 Install dependencies'
-        run: pnpm install --prefer-offline --ignore-scripts
+      - name: '🍓 Setup Node'
+        uses: ./.github/actions/setup-node
 
       - name: '🍏 Build SvelteKit app'
         env:

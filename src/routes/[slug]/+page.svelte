@@ -3,7 +3,7 @@
 -->
 <script>
 	import { browser } from '$app/environment'
-	import { getContext } from 'svelte'
+	import { getContext, onMount } from 'svelte'
 	// import { afterNavigate } from '$app/navigation'
 	import { FormattedDate, Year } from '$lib/components'
 	import { Moon, Hemisphere } from 'lunarphase-js'
@@ -26,6 +26,10 @@
 	// $: el && el.style.setProperty('--c-primary-hue', `${hueDegree | 0}`)
 	// $: isFirstPage = prev !== null
 	// {#if !isFirstPage}{else}{/if}
+	onMount(() => {
+		let heti = new Heti()
+		heti.spacingElements(document.querySelectorAll(heti.rootSelector))
+	});
 </script>
 <svelte:head>
 	<title>{title} | {site.title}</title>
@@ -104,6 +108,6 @@
 <!-- footer -->
 <footer id="colophon" class="site-footer">
 	<div class="container">
-		<p>&#169; <Year from={2022} /> <a href='/'>{site.baseUrl}</a>.</p>
+		<p>&#169;&nbsp;<Year from={2022} /> <a href='/'>{site.baseUrl}</a>.</p>
 	</div>
 </footer>

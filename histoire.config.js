@@ -32,3 +32,4 @@ export default config
 // https://github.com/indaco/histoire-sveltekit
 // https://github.com/lucagoslar/sveltekit-fullstack
 // https://github.com/usagizmo/webapp-template/tree/main/apps/story
+// https://github.com/brilyyy/svelisy

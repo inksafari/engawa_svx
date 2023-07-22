@@ -37,7 +37,7 @@ const feedRender = items =>
 
 const feedItem = item =>
 	rawStrings`<item>
-		<title>${item.title}</title>>
+		<title>${item.title}</title>
 		<link>https://${site.baseUrl}/${item.slug}</link>
 		<guid isPermaLink="true">https://${site.baseUrl}/${item.slug}</guid>
 		<pubDate>${new Date(item.date).toDateString()}</pubDate>

@@ -1,9 +1,11 @@
 <div align="center">
   <h1 align="center">
-    &#60;@inksafari/engawa  &#47;&#62;
+    &#60;@inksafari/engawa_svx  &#47;&#62;
   </h1>
   <p align="center">
+    <!---
     The codebase of a personal blog developed using SvelteKit, SCSS and hosted freely using Firebase Hosting.
+    -->
     <!--
     Available rendered at https://example.com.
     <br />
@@ -16,9 +18,10 @@
   </p>
 </div>
 
+![maintenance-status](https://img.shields.io/maintenance/no/2023?style=for-the-badge&logo=git&labelColor=111b27&logoColor=white)
+<!--
 [![GitHub workflow: Build][workflow-build]][workflow-build-url]
 [![GitHub workflow: CodeQL][workflow-codeql]][workflow-codeql-url]
-[![GitHub workflow: Codeball][workflow-codeball]][workflow-codeball-url]
 [![framework][framework-badge]][svelte-url]
 [![GitHub top language][lang-badge]][repo-url]
 [![GitHub commit activity][activity-badge]][activity]
@@ -28,7 +31,9 @@
 ## Disclaimer
 
 > **Warning**
-> Not working at the moment.
+> <del>Not working at the moment.</del>
+> this repo is not maintained anymore
+-->
 
 ## Prerequisites
 
@@ -187,10 +192,8 @@ This project is licensed under the Beerware License, but all contents copyright 
 
 [workflow-build]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/build.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
 [workflow-codeql]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/codeql.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
-[workflow-codeball]: https://img.shields.io/github/actions/workflow/status/inksafari/engawa/codeball.yml?branch=main&style=for-the-badge&logo=github&labelColor=111b27
 [workflow-build-url]: https://github.com/inksafari/engawa/actions/workflows/build.yml
 [workflow-codeql-url]: https://github.com/inksafari/engawa/actions/workflows/codeql.yml
-[workflow-codeball-url]: https://github.com/inksafari/engawa/actions/workflows/codeball.yml
 [framework-badge]: https://img.shields.io/badge/framework-SvelteKit-orange.svg?style=for-the-badge&logo=svelte&labelColor=111b27&logoColor=white
 [svelte-url]: https://kit.svelte.dev
 [SvelteKit-Changelog-url]: https://github.com/sveltejs/kit#packages

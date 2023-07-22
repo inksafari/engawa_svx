@@ -1,0 +1,45 @@
+name: Setup Node
+description: Setup Node
+
+runs:
+  using: 'composite'
+  steps:
+    - name: '🍓 Install Node.js'
+      uses: actions/setup-node@v3
+      with:
+        # @see https://github.com/nodejs/release#release-schedule
+        node-version-file: '.node_version'
+
+    - name: '🍩 Setup PNPM <del>and install dependencies</del>'
+      uses: pnpm/action-setup@v2
+      id: pnpm-install
+      with:
+        version: latest
+        run_install: false
+        #run_install: |
+          #- recursive: true
+          #  args: [--frozen-lockfile, --ignore-scripts]
+
+    - name: 'Get pnpm store directory'
+      id: pnpm-cache
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+    - name: 'Setup pnpm cache'
+      uses: actions/cache@v3
+      id: cache
+      with:
+        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+    #- name: '🍩 Install Sharp'
+    #  run: pnpm install --shamefully-hoist --platform=linux --arch=x64 sharp
+
+    - name: '🍩 Install dependencies'
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: pnpm install --shamefully-hoist --prefer-offline --ignore-scripts
+      env:
+        CI: true

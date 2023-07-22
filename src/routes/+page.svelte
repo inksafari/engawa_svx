@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte'
 	import { fly } from 'svelte/transition'
 	import { quadOut } from 'svelte/easing'
-	import { formatDistance, differenceInDays, format } from 'date-fns'
+	import { formatDistanceToNow, differenceInDays, format } from 'date-fns'
 	// import { zhTW } from 'date-fns/locale/index.js'
 
 	export let data
@@ -28,7 +28,7 @@
 						<span class='screen-reader-text'>Published on </span>
 						<time datetime='{date}'>
 							{differenceInDays(new Date(), new Date(date)) > 179
-								? `${formatDistance(new Date(date), new Date(), {
+								? `${formatDistanceToNow(new Date(date), {
 									addSuffix: true
 									// locale: zhTW
 								})}`

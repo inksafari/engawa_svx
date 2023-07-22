@@ -35,7 +35,7 @@ const config = {
 		lightingCSS({
 			browsers: nodeConfig.browserslist,
 			lightningcssOptions: {
-				minify: false, // (!dev ? true : false),
+				minify: process.env.MODE === 'production' ? true : false, // (!dev ? true : false),
 				sourceMap: true,
 				cssModules: false,
 				import: false,

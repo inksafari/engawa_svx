@@ -1,5 +1,6 @@
 import { PUBLIC_DOMAIN, PUBLIC_SITE_URL } from '$env/static/public'
 
+// Sporadic Scene
 const site = {
 	title: 'Afterglow',
 	siteUrl: PUBLIC_SITE_URL,

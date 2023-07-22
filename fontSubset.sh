@@ -72,3 +72,4 @@ echo "Done!"
 # https://web.dev/fast/#optimize-webfonts
 # https://github.com/black7375/font-range
 # https://markoskon.com/creating-font-subsets/
+# https://github.com/ptylek/personal-website/blob/d7ddd6b2ce760ae80ec422c94c362dea9b5f3733/emoji.js
